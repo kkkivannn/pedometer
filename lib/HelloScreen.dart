@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pedometer/Buttons.dart';
-import 'package:pedometer/colors.dart';
+import 'package:pedometer/Parameters.dart';
 
 class HelloScreen extends StatefulWidget {
   @override
@@ -51,6 +51,7 @@ class _HelloScreenState extends State<HelloScreen> {
             ),
           ),
           Buttons(),
+          param(),
         ]),
       ),
     );

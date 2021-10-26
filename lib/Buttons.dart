@@ -8,8 +8,6 @@ class Buttons extends StatefulWidget {
 }
 
 class _ButtonsState extends State<Buttons> {
-  int _currentindex = 0;
-
   void changeColor1() {
     setState(() {
       if (bottomColor1 == Color(0xffffffFF)) {
@@ -72,7 +70,7 @@ class _ButtonsState extends State<Buttons> {
                 ),
               )),
           Align(
-              alignment: Alignment(0.7, 0),
+              alignment: Alignment(0.65, 0),
               child: ButtonTheme(
                 height: 42,
                 minWidth: 106,
@@ -90,7 +88,7 @@ class _ButtonsState extends State<Buttons> {
                 ),
               )),
           Align(
-              alignment: Alignment(-0.7, 0),
+              alignment: Alignment(-0.65, 0),
               child: ButtonTheme(
                 height: 42,
                 minWidth: 106,
