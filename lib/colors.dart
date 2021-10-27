@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color bottomColor1 = Color(0xffffffFF);
-Color bottomColor2 = Color(0xffffffFF);
-Color bottomColor3 = Color(0xffffffFF);
-
-Color Text1 = Colors.black;
-Color Text2 = Colors.black;
-Color Text3 = Colors.black;
+Color bottomColor1 = Color(0xffffffff);
+Color bottomColor2 = Color(0xff5F6CFF);
+Color textColor1 = Colors.black;
+Color textColor2 = Colors.white;

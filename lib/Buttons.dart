@@ -1,6 +1,8 @@
-// ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use
+// ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks
 import 'package:flutter/material.dart';
 import 'package:pedometer/colors.dart';
+
+enum Gender { woman, man, other }
 
 class Buttons extends StatefulWidget {
   @override
@@ -8,41 +10,45 @@ class Buttons extends StatefulWidget {
 }
 
 class _ButtonsState extends State<Buttons> {
-  void changeColor1() {
-    setState(() {
-      if (bottomColor1 == Color(0xffffffFF)) {
-        bottomColor1 = Color(0xff5F6CFF);
-        Text1 = Colors.white;
-      } else if (bottomColor1 == Color(0xff5F6CFF)) {
-        bottomColor1 = Color(0xffffffFF);
-        Text1 = Colors.black;
-      }
-    });
-  }
+  var gender;
+  var height = 120;
+  var weight;
+  var age = 12;
+  // void changeColor1() {
+  //   setState(() {
+  //     if (bottomColor1 == Color(0xffffffFF)) {
+  //       bottomColor1 = Color(0xff5F6CFF);
+  //       Text1 = Colors.white;
+  //     } else if (bottomColor1 == Color(0xff5F6CFF)) {
+  //       bottomColor1 = Color(0xffffffFF);
+  //       Text1 = Colors.black;
+  //     }
+  //   });
+  // }
 
-  void changeColor2() {
-    setState(() {
-      if (bottomColor2 == Color(0xffffffFF)) {
-        bottomColor2 = Color(0xff5F6CFF);
-        Text2 = Colors.white;
-      } else if (bottomColor2 == Color(0xff5F6CFF)) {
-        bottomColor2 = Color(0xffffffFF);
-        Text2 = Colors.black;
-      }
-    });
-  }
+  // void changeColor2() {
+  //   setState(() {
+  //     if (bottomColor2 == Color(0xffffffFF)) {
+  //       bottomColor2 = Color(0xff5F6CFF);
+  //       Text2 = Colors.white;
+  //     } else if (bottomColor2 == Color(0xff5F6CFF)) {
+  //       bottomColor2 = Color(0xffffffFF);
+  //       Text2 = Colors.black;
+  //     }
+  //   });
+  // }
 
-  void changeColor3() {
-    setState(() {
-      if (bottomColor3 == Color(0xffffffFF)) {
-        bottomColor3 = Color(0xff5F6CFF);
-        Text3 = Colors.white;
-      } else if (bottomColor3 == Color(0xff5F6CFF)) {
-        bottomColor3 = Color(0xffffffFF);
-        Text3 = Colors.black;
-      }
-    });
-  }
+  // void changeColor3() {
+  //   setState(() {
+  //     if (bottomColor3 == Color(0xffffffFF)) {
+  //       bottomColor3 = Color(0xff5F6CFF);
+  //       Text3 = Colors.white;
+  //     } else if (bottomColor3 == Color(0xff5F6CFF)) {
+  //       bottomColor3 = Color(0xffffffFF);
+  //       Text3 = Colors.black;
+  //     }
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -57,15 +63,20 @@ class _ButtonsState extends State<Buttons> {
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
-                  color: bottomColor1,
+                  // color: bottomColor1,
                   onPressed: () {
                     setState(() {
-                      changeColor1();
+                      gender = Gender.man;
+                      // changeColor1();
                     });
                   },
+                  color: gender == Gender.man ? bottomColor2 : bottomColor1,
                   child: Text(
                     "Мужчина",
-                    style: TextStyle(fontFamily: "Gilroy2", color: Text1),
+                    style: TextStyle(
+                      fontFamily: "Gilroy2",
+                      color: gender == Gender.man ? textColor2 : textColor1,
+                    ),
                   ),
                 ),
               )),
@@ -78,13 +89,21 @@ class _ButtonsState extends State<Buttons> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
-                    changeColor2();
+                    setState(() {
+                      gender = Gender.other;
+                    });
                   },
+                  color: gender == Gender.other ? bottomColor2 : bottomColor1,
+
                   child: Text(
                     "Другое",
-                    style: TextStyle(fontFamily: "Gilroy2", color: Text2),
+                    style: TextStyle(
+                      fontFamily: "Gilroy2",
+                      color: gender == Gender.other ? textColor2 : textColor1,
+                    ),
                   ),
-                  color: bottomColor2,
+
+                  // color: bottomColor2,
                 ),
               )),
           Align(
@@ -96,12 +115,20 @@ class _ButtonsState extends State<Buttons> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
-                    changeColor3();
+                    setState(() {
+                      gender = Gender.woman;
+                    });
+
+                    // changeColor3();
                   },
-                  color: bottomColor3,
+                  color: gender == Gender.woman ? bottomColor2 : bottomColor1,
+                  // color: bottomColor3,
                   child: Text(
                     "Девушка",
-                    style: TextStyle(fontFamily: "Gilroy2", color: Text3),
+                    style: TextStyle(
+                      fontFamily: "Gilroy2",
+                      color: gender == Gender.woman ? textColor2 : textColor1,
+                    ),
                   ),
                 ),
               )),

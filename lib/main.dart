@@ -35,7 +35,7 @@ class _splashScreenState extends State<splashScreen> {
       navigateRoute: HelloScreen(),
       backgroundColor: Colors.white,
       imageSrc: "images/Vector2.png",
-      duration: 3000,
+      duration: 100,
       imageSize: 50,
       text: "Загрузка..",
       textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
