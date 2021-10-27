@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pedometer/colors.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class param extends StatefulWidget {
@@ -9,48 +10,10 @@ class param extends StatefulWidget {
   _paramState createState() => _paramState();
 }
 
-// List<int> item = List.generate(3, (int index) => index + 1, growable: false);
-// const size = 250;
-// List<int> widget = [size];
-// int i = 50;
-// var _focusedIndex;
-
 class _paramState extends State<param> {
-  // void _onItemFocus(int index) {
-  //   setState(() {
-  //     _focusedIndex = index;
-  //   });
-  // }
-
-  // Widget _buildItemList(BuildContext context, int index) {
-  //   for (int i = 0; i < widget.length; i++) {
-  //     widget[i] = i + 1;
-  //   }
-  //   if (index == widget.length) {
-  //     return Center(
-  //       child: CircularProgressIndicator(),
-  //     );
-  //   }
-  //   return Container(
-  //     width: 25,
-  //     child: Column(
-  //       children: [
-  //         Container(
-  //           alignment: Alignment(0.65, 0),
-  //           child: Center(
-  //             child: Text(
-  //               '${widget[i]}',
-  //               style: TextStyle(
-  //                   fontFamily: 'Gilroy',
-  //                   fontSize: 18,
-  //                   color: Color(0xff5F6CFF)),
-  //             ),
-  //           ),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+  var height = 120;
+  var weight = 50;
+  var age = 12;
 
   @override
   Widget build(BuildContext context) {
@@ -77,27 +40,50 @@ class _paramState extends State<param> {
                             fontSize: 14),
                       ),
                     ),
-                    // Align(
-                    //     alignment: Alignment(0.65, 0),
-                    //     child: Container(
-                    //       width: 60,
-                    //       height: 22,
-                    //       child: Column(
-                    //         children: [
-                    //           Expanded(
-                    //               child: ScrollSnapList(
-                    //             itemBuilder: _buildItemList,
-                    //             itemCount: widget.length,
-                    //             itemSize: 25,
-                    //             onReachEnd: () {
-                    //               print('Done!');
-                    //             },
-                    //             onItemFocus: _onItemFocus,
-                    //             dynamicItemSize: true,
-                    //           )),
-                    //         ],
-                    //       ),
-                    //     ))
+                    Align(
+                      alignment: Alignment(0.95, 0),
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        alignment: Alignment(0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              height++;
+                            });
+                          },
+                          icon: Icon(Icons.add),
+                          iconSize: 25,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.68, 0),
+                      child: Container(
+                        child: Text(
+                          '${height}',
+                          style: TextStyle(
+                              color: Color(0xff5F6CFF),
+                              fontSize: 18,
+                              fontFamily: 'Gilroy'),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.5, 0),
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            height--;
+                          });
+                        },
+                        icon: Image.asset(
+                          'icons/minus3.png',
+                          height: 15,
+                          width: 15,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               )),
@@ -119,6 +105,50 @@ class _paramState extends State<param> {
                             color: Colors.black,
                             fontFamily: 'Gilroy2',
                             fontSize: 14),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.68, 0),
+                      child: Container(
+                        child: Text(
+                          '${weight}',
+                          style: TextStyle(
+                              color: Color(0xff5F6CFF),
+                              fontSize: 18,
+                              fontFamily: 'Gilroy'),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.95, 0),
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        alignment: Alignment(0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              weight++;
+                            });
+                          },
+                          icon: Icon(Icons.add),
+                          iconSize: 25,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.5, 0),
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            weight--;
+                          });
+                        },
+                        icon: Image.asset(
+                          'icons/minus3.png',
+                          height: 15,
+                          width: 15,
+                        ),
                       ),
                     )
                   ],
@@ -145,16 +175,49 @@ class _paramState extends State<param> {
                       ),
                     ),
                     Align(
-                        alignment: Alignment(0.8, 0),
-                        child: SizedBox(
-                          child: TextField(
-                            decoration: InputDecoration(
-                              border: UnderlineInputBorder(
-                                borderSide: BorderSide(),
-                              ),
-                            ),
-                          ),
-                        )),
+                      alignment: Alignment(0.68, 0),
+                      child: Container(
+                        child: Text(
+                          '${age}',
+                          style: TextStyle(
+                              color: Color(0xff5F6CFF),
+                              fontSize: 18,
+                              fontFamily: 'Gilroy'),
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.95, 0),
+                      child: Container(
+                        height: 40,
+                        width: 40,
+                        alignment: Alignment(0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              age++;
+                            });
+                          },
+                          icon: Icon(Icons.add),
+                          iconSize: 25,
+                        ),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment(0.5, 0),
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            age--;
+                          });
+                        },
+                        icon: Image.asset(
+                          'icons/minus3.png',
+                          height: 15,
+                          width: 15,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               )),
