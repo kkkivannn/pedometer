@@ -10,11 +10,11 @@ class param extends StatefulWidget {
   _paramState createState() => _paramState();
 }
 
-class _paramState extends State<param> {
-  var height = 120;
-  var weight = 50;
-  var age = 12;
+var height = 120;
+var weight = 50;
+var age = 12;
 
+class _paramState extends State<param> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,7 +74,11 @@ class _paramState extends State<param> {
                       child: IconButton(
                         onPressed: () {
                           setState(() {
-                            height--;
+                            if (height <= 120) {
+                              height = 120;
+                            } else {
+                              height--;
+                            }
                           });
                         },
                         icon: Image.asset(
@@ -141,7 +145,11 @@ class _paramState extends State<param> {
                       child: IconButton(
                         onPressed: () {
                           setState(() {
-                            weight--;
+                            if (weight <= 50) {
+                              weight = 50;
+                            } else {
+                              weight--;
+                            }
                           });
                         },
                         icon: Image.asset(
@@ -208,7 +216,11 @@ class _paramState extends State<param> {
                       child: IconButton(
                         onPressed: () {
                           setState(() {
-                            age--;
+                            if (age <= 12) {
+                              age = 12;
+                            } else {
+                              age--;
+                            }
                           });
                         },
                         icon: Image.asset(

@@ -10,8 +10,9 @@ class Buttons extends StatefulWidget {
   _ButtonsState createState() => _ButtonsState();
 }
 
+var gender;
+
 class _ButtonsState extends State<Buttons> {
-  var gender;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
