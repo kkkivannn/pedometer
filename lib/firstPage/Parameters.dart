@@ -76,9 +76,8 @@ class _paramState extends State<param> {
                           setState(() {
                             if (height <= 120) {
                               height = 120;
-                            } else {
+                            } else
                               height--;
-                            }
                           });
                         },
                         icon: Image.asset(
@@ -147,9 +146,8 @@ class _paramState extends State<param> {
                           setState(() {
                             if (weight <= 50) {
                               weight = 50;
-                            } else {
-                              weight--;
                             }
+                            weight--;
                           });
                         },
                         icon: Image.asset(
