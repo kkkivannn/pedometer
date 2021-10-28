@@ -111,6 +111,16 @@ class _ButtonsState extends State<Buttons> {
               ),
             ),
           ),
+          Container(
+            alignment: Alignment(0, 0.885),
+            child: Text(
+              '1/2',
+              style: TextStyle(
+                  color: Color(0xff9FA6F0),
+                  fontFamily: 'Gilroy2',
+                  fontSize: 12),
+            ),
+          )
         ],
       ),
     );

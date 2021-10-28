@@ -35,6 +35,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   splash_screen_view: ^3.0.0
   scroll_snap_list: ^0.8.3
+  sensors: ^2.0.3
   
 
 dev_dependencies:
