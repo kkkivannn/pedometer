@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks
 import 'package:flutter/material.dart';
-import 'package:pedometer/colors.dart';
+import 'package:pedometer/firstPage/colors.dart';
+import 'package:pedometer/scondPage/SecondPage.dart';
 
 enum Gender { woman, man, other }
 
@@ -22,6 +23,7 @@ class _ButtonsState extends State<Buttons> {
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
+                  elevation: 0.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
@@ -45,6 +47,7 @@ class _ButtonsState extends State<Buttons> {
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
+                  elevation: 0.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
@@ -68,6 +71,7 @@ class _ButtonsState extends State<Buttons> {
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
+                  elevation: 0.0,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
@@ -91,9 +95,13 @@ class _ButtonsState extends State<Buttons> {
               height: 65,
               minWidth: 343,
               child: RaisedButton(
+                elevation: 0.0,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SecondPage()));
+                },
                 child: Text(
                   "Следующий этап",
                   style: TextStyle(

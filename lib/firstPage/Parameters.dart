@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pedometer/colors.dart';
+import 'package:pedometer/firstPage/colors.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 class param extends StatefulWidget {

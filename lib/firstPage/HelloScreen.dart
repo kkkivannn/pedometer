@@ -1,8 +1,8 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:pedometer/Buttons.dart';
-import 'package:pedometer/Parameters.dart';
+import 'package:pedometer/firstPage/Buttons.dart';
+import 'package:pedometer/firstPage/Parameters.dart';
 
 class HelloScreen extends StatefulWidget {
   @override
@@ -10,10 +10,6 @@ class HelloScreen extends StatefulWidget {
 }
 
 class _HelloScreenState extends State<HelloScreen> {
-  void changeColor() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +27,7 @@ class _HelloScreenState extends State<HelloScreen> {
             ),
           ),
           Container(
-            alignment: Alignment(0, -0.58),
+            alignment: Alignment(0, -0.57),
             child: Text(
               "первичную информацию",
               style: TextStyle(
