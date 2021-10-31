@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:pedometer/thirdPage/ThirdPage.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'firstPage/HelloScreen.dart';
 
@@ -17,8 +18,8 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: splashScreen(),
+      debugShowCheckedModeBanner: false,
+      home: thirdPage(),
     );
   }
 }

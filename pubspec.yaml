@@ -66,6 +66,11 @@ flutter:
     - images/Vector2.png
     - icons/minus3.png
     - icons/settings.png
+    - icons/settings2.png
+    - icons/cup.png
+    - icons/1.png
+    - icons/2.png
+    - icons/3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
