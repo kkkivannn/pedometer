@@ -99,6 +99,50 @@ class _thirdPageState extends State<thirdPage> {
                     child: Stack(
                       children: <Widget>[
                         Align(
+                          alignment: Alignment(-0.6, -0.7),
+                          child: Text(
+                            'Пройдено всего',
+                            style: TextStyle(
+                              fontFamily: 'Gilroy2',
+                              fontSize: 14,
+                              color: Color(0xff6D6D6D),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.6, -0.4),
+                          child: Text(
+                            '155 000',
+                            style: TextStyle(
+                              fontFamily: 'Gilroy',
+                              fontSize: 24,
+                              color: Color(0xff414DD4),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.6, 0.1),
+                          child: Text(
+                            'В среднем\nза день',
+                            style: TextStyle(
+                              fontFamily: 'Gilroy2',
+                              fontSize: 14,
+                              color: Color(0xff6D6D6D),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.6, 0.5),
+                          child: Text(
+                            '4 000',
+                            style: TextStyle(
+                              fontFamily: 'Gilroy',
+                              fontSize: 24,
+                              color: Color(0xff414DD4),
+                            ),
+                          ),
+                        ),
+                        Align(
                           alignment: Alignment(0, 1),
                           child: Image(
                             image: AssetImage('icons/1.png'),
@@ -118,6 +162,28 @@ class _thirdPageState extends State<thirdPage> {
                         color: Color(0xffffffff)),
                     child: Stack(
                       children: <Widget>[
+                        Align(
+                          alignment: Alignment(-0.6, -0.7),
+                          child: Text(
+                            'Дистанция',
+                            style: TextStyle(
+                              fontFamily: 'Gilroy2',
+                              fontSize: 14,
+                              color: Color(0xff6D6D6D),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.6, -0.4),
+                          child: Text(
+                            '1 500  км', // поменять стиль "КМ"
+                            style: TextStyle(
+                              fontFamily: 'Gilroy',
+                              fontSize: 24,
+                              color: Color(0xff4FBD6E),
+                            ),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment(0, 1),
                           child: Image(
@@ -145,6 +211,28 @@ class _thirdPageState extends State<thirdPage> {
                     width: 160,
                     child: Stack(
                       children: <Widget>[
+                        Align(
+                          alignment: Alignment(-0.6, -0.7),
+                          child: Text(
+                            'Ккал сожжено',
+                            style: TextStyle(
+                              fontFamily: "Gilroy2",
+                              fontSize: 14,
+                              color: Color(0xff6D6D6D),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment(-0.6, -0.4),
+                          child: Text(
+                            '4 000  ккал', //поменять стиль ККАЛ
+                            style: TextStyle(
+                              fontFamily: 'Gilroy',
+                              fontSize: 24,
+                              color: Color(0xffCC464E),
+                            ),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment(0, 1),
                           child: Image(
@@ -195,6 +283,33 @@ class _thirdPageState extends State<thirdPage> {
               ],
             ),
           ),
+          Align(
+            alignment: Alignment(-1, 1),
+            child: Container(
+              alignment: Alignment(0, 0),
+              height: 63,
+              width: 375,
+              color: Color(0xff7ABFFF),
+              child: Text('ADS'),
+            ),
+          ),
+          Align(
+            alignment: Alignment(1, 1),
+            child: Container(
+              alignment: Alignment(0, 0),
+              child: Text(
+                "X",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Gilroy',
+                  fontSize: 24,
+                ),
+              ),
+              color: Color(0xffB88F8F),
+              width: 91,
+              height: 63,
+            ),
+          )
         ],
       )),
     );
