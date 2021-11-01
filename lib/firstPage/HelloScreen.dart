@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
+import 'package:sizer/sizer.dart';
 
 class HelloScreen extends StatefulWidget {
   @override

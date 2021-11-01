@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/colors.dart';
 import 'package:pedometer/scondPage/SecondPage.dart';
+import 'package:sizer/sizer.dart';
 
 enum Gender { woman, man, other }
 
@@ -37,6 +38,7 @@ class _ButtonsState extends State<Buttons> {
                     "Мужчина",
                     style: TextStyle(
                       fontFamily: "Gilroy2",
+                      fontSize: 14,
                       color: gender == Gender.man ? textColor2 : textColor1,
                     ),
                   ),
@@ -61,6 +63,7 @@ class _ButtonsState extends State<Buttons> {
                     "Другое",
                     style: TextStyle(
                       fontFamily: "Gilroy2",
+                      fontSize: 14,
                       color: gender == Gender.other ? textColor2 : textColor1,
                     ),
                   ),
@@ -85,6 +88,7 @@ class _ButtonsState extends State<Buttons> {
                     "Девушка",
                     style: TextStyle(
                       fontFamily: "Gilroy2",
+                      fontSize: 14,
                       color: gender == Gender.woman ? textColor2 : textColor1,
                     ),
                   ),
@@ -106,7 +110,10 @@ class _ButtonsState extends State<Buttons> {
                 child: Text(
                   "Следующий этап",
                   style: TextStyle(
-                      fontFamily: "Gilroy2", fontSize: 18, color: Colors.white),
+                    fontFamily: "Gilroy2",
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
                 ),
                 color: Color(0xff5F6CFF),
               ),
@@ -117,9 +124,10 @@ class _ButtonsState extends State<Buttons> {
             child: Text(
               '1/2',
               style: TextStyle(
-                  color: Color(0xff9FA6F0),
-                  fontFamily: 'Gilroy2',
-                  fontSize: 12),
+                color: Color(0xff9FA6F0),
+                fontFamily: 'Gilroy2',
+                fontSize: 12,
+              ),
             ),
           )
         ],

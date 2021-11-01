@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:pedometer/firstPage/colors.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
+import 'package:sizer/sizer.dart';
 
 class param extends StatefulWidget {
   @override
@@ -35,9 +36,10 @@ class _paramState extends State<param> {
                       child: Text(
                         'Какой у тебя рост?',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(
@@ -105,9 +107,10 @@ class _paramState extends State<param> {
                       child: Text(
                         "Какой у тебя вес?",
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(
@@ -175,9 +178,10 @@ class _paramState extends State<param> {
                       child: Text(
                         'Сколько тебе лет?',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(

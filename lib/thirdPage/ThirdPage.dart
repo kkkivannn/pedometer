@@ -1,6 +1,10 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:pedometer/thirdPage/Activitys.dart';
+import 'Activitys.dart';
+
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class thirdPage extends StatefulWidget {
   @override
@@ -48,8 +52,47 @@ class _thirdPageState extends State<thirdPage> {
             ),
           ),
           Container(
+            width: 470,
+            height: 222,
+            decoration: BoxDecoration(color: Color(0xff5F6CFF)),
             child: Stack(
-              children: <Widget>[
+              children: [
+                Align(
+                  alignment: Alignment(-0.8, 0.1),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    // decoration:
+                    //     BoxDecoration(border: Border.all(color: Colors.red)),
+                    child: CustomPaint(
+                      painter: MyPainter(),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(0, 0.1),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    // decoration:
+                    //     BoxDecoration(border: Border.all(color: Colors.red)),
+                    child: CustomPaint(
+                      painter: MyPainter2(),
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(0.8, 0.1),
+                  child: Container(
+                    width: 100,
+                    height: 100,
+                    // decoration:
+                    //     BoxDecoration(border: Border.all(color: Colors.red)),
+                    child: CustomPaint(
+                      painter: MyPainter3(),
+                    ),
+                  ),
+                ),
                 Align(
                   alignment: Alignment(0.95, -0.9),
                   child: IconButton(
@@ -62,20 +105,16 @@ class _thirdPageState extends State<thirdPage> {
                 ),
                 Align(
                   alignment: Alignment(-0.9, -0.80),
-                  child: Container(
-                      child: Text(
+                  child: Text(
                     'Активность сегодня',
                     style: TextStyle(
                         fontSize: 18,
                         fontFamily: 'Gilroy2',
                         color: Colors.white),
-                  )),
-                )
+                  ),
+                ),
               ],
             ),
-            width: 470,
-            height: 222,
-            decoration: BoxDecoration(color: Color(0xff5F6CFF)),
           ),
           Container(
             alignment: Alignment(-0.9, -0.48),

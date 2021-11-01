@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
 import 'Buttons2.dart';
+import 'package:sizer/sizer.dart';
 
 class SecondPage extends StatefulWidget {
   @override

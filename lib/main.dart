@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:pedometer/thirdPage/ThirdPage.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'firstPage/HelloScreen.dart';
+import 'package:sizer/sizer.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,10 +19,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: thirdPage(),
-    );
+    return ResponsiveSizer(builder: (context, orientation, deviceType) {
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: thirdPage(),
+      );
+    });
   }
 }
 

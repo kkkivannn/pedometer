@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class ButtonReady extends StatefulWidget {
   @override
@@ -40,9 +41,10 @@ class _ButtonReadyState extends State<ButtonReady> {
             child: Text(
               '2/2',
               style: TextStyle(
-                  color: Color(0xff9FA6F0),
-                  fontFamily: 'Gilroy2',
-                  fontSize: 12),
+                color: Color(0xff9FA6F0),
+                fontFamily: 'Gilroy2',
+                fontSize: 12,
+              ),
             ),
           )
         ],

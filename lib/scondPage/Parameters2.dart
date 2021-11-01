@@ -5,6 +5,7 @@ import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
+import 'package:sizer/sizer.dart';
 
 class Parameters2 extends StatefulWidget {
   @override
@@ -101,9 +102,10 @@ class _Parameters2State extends State<Parameters2> {
                       child: Text(
                         'Количество шагов',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(
@@ -136,9 +138,10 @@ class _Parameters2State extends State<Parameters2> {
                       child: Text(
                         "Количество сожженых ккал",
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(
@@ -171,9 +174,10 @@ class _Parameters2State extends State<Parameters2> {
                       child: Text(
                         'Количество километров',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Gilroy2',
-                            fontSize: 14),
+                          color: Colors.black,
+                          fontFamily: 'Gilroy2',
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     Align(
@@ -197,8 +201,8 @@ class _Parameters2State extends State<Parameters2> {
   }
 }
 
-@override
-Widget build(BuildContext context) {
-  // TODO: implement build
-  throw UnimplementedError();
-}
+// @override
+// Widget build(BuildContext context) {
+  
+//   throw UnimplementedError();
+// }
