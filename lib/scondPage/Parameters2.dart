@@ -5,7 +5,7 @@ import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
-import 'package:sizer/sizer.dart';
+// import 'package:sizer/sizer.dart';
 
 class Parameters2 extends StatefulWidget {
   @override
@@ -13,18 +13,18 @@ class Parameters2 extends StatefulWidget {
 }
 
 class _Parameters2State extends State<Parameters2> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    userAccelerometerEvents.listen((UserAccelerometerEvent event) {
-      setState(() {
-        x = event.x;
-        y = event.y;
-        z = event.z;
-      });
-    });
-  }
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   userAccelerometerEvents.listen((UserAccelerometerEvent event) {
+  //     setState(() {
+  //       x = event.x;
+  //       y = event.y;
+  //       z = event.z;
+  //     });
+  //   });
+  // }
 
   void Put() {
     _km = (step * lsh) / 100000;
@@ -85,56 +85,57 @@ class _Parameters2State extends State<Parameters2> {
     Kkal();
     Put();
     return SafeArea(
-      child: Stack(
-        children: <Widget>[
-          Align(
-              alignment: Alignment(0, 0),
-              child: Container(
+      child: Container(
+        height: 200,
+        width: 390,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              height: 42,
+              width: 380,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7), color: Colors.white),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: 34),
+                    child: Text(
+                      'Количество шагов',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Gilroy2',
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    padding: EdgeInsets.only(right: 34),
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${step}',
+                      style: TextStyle(
+                          color: Color(0xff5F6CFF),
+                          fontSize: 18,
+                          fontFamily: 'Gilroy'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
                 height: 42,
-                width: 343,
+                width: 380,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(7),
                     color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
+                child: Row(
+                  children: [
                     Container(
-                      alignment: Alignment(-0.80, 0),
-                      child: Text(
-                        'Количество шагов',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Gilroy2',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          '${step}',
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )),
-          Align(
-              alignment: Alignment(0, 0.15),
-              child: Container(
-                height: 42,
-                width: 343,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment(-0.80, 0),
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.only(left: 34),
                       child: Text(
                         "Количество сожженых ккал",
                         style: TextStyle(
@@ -144,65 +145,57 @@ class _Parameters2State extends State<Parameters2> {
                         ),
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          Q.toStringAsFixed(0),
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              )),
-          Align(
-              alignment: Alignment(0, 0.3),
-              child: Container(
-                height: 42,
-                width: 343,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
+                    Spacer(),
                     Container(
-                      alignment: Alignment(-0.80, 0),
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.only(right: 34),
                       child: Text(
-                        'Количество километров',
+                        Q.toStringAsFixed(0),
                         style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Gilroy2',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          '$_km',
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
+                            color: Color(0xff5F6CFF),
+                            fontSize: 18,
+                            fontFamily: 'Gilroy'),
                       ),
                     ),
                   ],
-                ),
-              )),
-        ],
+                )),
+            Container(
+              height: 42,
+              width: 380,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7), color: Colors.white),
+              child: Row(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: 34),
+                    child: Text(
+                      'Количество километров',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Gilroy2',
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                  Spacer(),
+                  Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(right: 34),
+                    child: Text(
+                      '$_km',
+                      style: TextStyle(
+                          color: Color(0xff5F6CFF),
+                          fontSize: 18,
+                          fontFamily: 'Gilroy'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-
-// @override
-// Widget build(BuildContext context) {
-  
-//   throw UnimplementedError();
-// }

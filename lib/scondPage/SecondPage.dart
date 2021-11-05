@@ -4,7 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
 import 'Buttons2.dart';
-import 'package:sizer/sizer.dart';
+// import 'package:sizer/sizer.dart';
 
 class SecondPage extends StatefulWidget {
   @override
@@ -17,60 +17,42 @@ class _SecondPageState extends State<SecondPage> {
     return Scaffold(
       backgroundColor: Color(0xffF9F9F9),
       body: SafeArea(
-        child: Stack(children: <Widget>[
-          Container(
-            alignment: Alignment(0, -0.6),
-            child: Text(
-              "Исходя из ваших данных мы подобрали",
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: "Gilroy2",
+        child: Center(
+          child: Column(
+            children: [
+              Spacer(flex: 4),
+              Container(
+                child: Text(
+                  "Совсем чуть-чуть",
+                  style: TextStyle(
+                    fontFamily: "Gilroy",
+                    fontSize: 36,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Container(
-            alignment: Alignment(-0.15, -0.57),
-            child: Text(
-              'для вас цели.',
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: "Gilroy2",
+              Container(
+                child: Text(
+                  "Исходя из ваших данных мы подобрали\nдля вас цели. Их можно\nскорректировать:",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: "Gilroy2",
+                  ),
+                ),
               ),
-            ),
-          ),
-          Container(
-            alignment: Alignment(0.185, -0.57),
-            child: Text(
-              "Их можно",
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: "Gilroy2",
+              Spacer(
+                flex: 4,
               ),
-            ),
-          ),
-          Container(
-            alignment: Alignment(0, -0.54),
-            child: Text(
-              "скорректировать:",
-              style: TextStyle(
-                fontSize: 14,
-                fontFamily: "Gilroy2",
+              Parameters2(),
+              Spacer(),
+              Spacer(
+                flex: 2,
               ),
-            ),
+              ButtonReady(),
+              Spacer(),
+            ],
           ),
-          Container(
-            alignment: Alignment(0, -0.7),
-            child: Text(
-              "Совсем чуть-чуть",
-              style: TextStyle(
-                fontFamily: "Gilroy",
-                fontSize: 36,
-              ),
-            ),
-          ),
-          Parameters2(),
-          ButtonReady(),
-        ]),
+        ),
       ),
     );
   }

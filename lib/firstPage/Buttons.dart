@@ -1,8 +1,9 @@
-// ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks
+// ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks, dead_code
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/colors.dart';
 import 'package:pedometer/scondPage/SecondPage.dart';
-import 'package:sizer/sizer.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+// import 'package:sizer/sizer.dart';
 
 enum Gender { woman, man, other }
 
@@ -16,12 +17,16 @@ var gender;
 class _ButtonsState extends State<Buttons> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        children: <Widget>[
-          Align(
-              alignment: Alignment(0, 0),
-              child: ButtonTheme(
+    return Align(
+      alignment: Alignment(0, -0.05),
+      child: Container(
+        height: 42,
+        width: 380,
+        child: SafeArea(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              ButtonTheme(
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
@@ -43,10 +48,8 @@ class _ButtonsState extends State<Buttons> {
                     ),
                   ),
                 ),
-              )),
-          Align(
-              alignment: Alignment(0.65, 0),
-              child: ButtonTheme(
+              ),
+              ButtonTheme(
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
@@ -68,10 +71,8 @@ class _ButtonsState extends State<Buttons> {
                     ),
                   ),
                 ),
-              )),
-          Align(
-              alignment: Alignment(-0.65, 0),
-              child: ButtonTheme(
+              ),
+              ButtonTheme(
                 height: 42,
                 minWidth: 106,
                 child: RaisedButton(
@@ -93,44 +94,10 @@ class _ButtonsState extends State<Buttons> {
                     ),
                   ),
                 ),
-              )),
-          Container(
-            alignment: Alignment(0, 0.9),
-            child: ButtonTheme(
-              height: 65,
-              minWidth: 343,
-              child: RaisedButton(
-                elevation: 0.0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(7)),
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => SecondPage()));
-                },
-                child: Text(
-                  "Следующий этап",
-                  style: TextStyle(
-                    fontFamily: "Gilroy2",
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-                color: Color(0xff5F6CFF),
               ),
-            ),
+            ],
           ),
-          Container(
-            alignment: Alignment(0, 0.885),
-            child: Text(
-              '1/2',
-              style: TextStyle(
-                color: Color(0xff9FA6F0),
-                fontFamily: 'Gilroy2',
-                fontSize: 12,
-              ),
-            ),
-          )
-        ],
+        ),
       ),
     );
   }

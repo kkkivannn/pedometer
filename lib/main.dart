@@ -1,11 +1,17 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields
 
 import 'package:flutter/material.dart';
-import 'package:pedometer/thirdPage/ThirdPage.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pedometer/firstPage/Buttons.dart';
+import 'package:pedometer/scondPage/SecondPage.dart';
+
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'firstPage/HelloScreen.dart';
-import 'package:sizer/sizer.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
+// import 'package:sizer/sizer.dart';
+// import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+
+import 'thirdPage/thirdPageVTWO.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,12 +25,10 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return ResponsiveSizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: thirdPage(),
-      );
-    });
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Activity(),
+    );
   }
 }
 

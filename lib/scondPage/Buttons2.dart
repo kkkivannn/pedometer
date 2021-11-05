@@ -1,7 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+// import 'package:sizer/sizer.dart';
 
 class ButtonReady extends StatefulWidget {
   @override
@@ -28,7 +28,8 @@ class _ButtonReadyState extends State<ButtonReady> {
                   //     MaterialPageRoute(builder: (context) => SecondPage()));
                 },
                 child: Text(
-                  "Готово!",
+                  "Готово!\n2/2",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: "Gilroy2", fontSize: 18, color: Colors.white),
                 ),
@@ -36,17 +37,6 @@ class _ButtonReadyState extends State<ButtonReady> {
               ),
             ),
           ),
-          Container(
-            alignment: Alignment(0, 0.885),
-            child: Text(
-              '2/2',
-              style: TextStyle(
-                color: Color(0xff9FA6F0),
-                fontFamily: 'Gilroy2',
-                fontSize: 12,
-              ),
-            ),
-          )
         ],
       ),
     );

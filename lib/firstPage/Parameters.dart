@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:pedometer/firstPage/colors.dart';
-import 'package:scroll_snap_list/scroll_snap_list.dart';
-import 'package:sizer/sizer.dart';
+// import 'package:pedometer/firstPage/colors.dart';
+// import 'package:scroll_snap_list/scroll_snap_list.dart';
+// import 'package:flutter_sizer/flutter_sizer.dart';
 
 class param extends StatefulWidget {
   @override
@@ -19,223 +19,204 @@ class _paramState extends State<param> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Stack(
-        children: <Widget>[
-          Align(
-              alignment: Alignment(0, 0.15),
-              child: Container(
-                height: 42,
-                width: 343,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment(-0.80, 0),
-                      child: Text(
-                        'Какой у тебя рост?',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Gilroy2',
-                          fontSize: 14,
-                        ),
+      child: Container(
+        width: 390,
+        height: 200,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
+              height: 42,
+              width: 380,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7), color: Colors.white),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 34),
+                    child: Text(
+                      'Какой у тебя рост?',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Gilroy2',
+                        fontSize: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.95, 0),
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        alignment: Alignment(0, 0),
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              height++;
-                            });
-                          },
-                          icon: Icon(Icons.add),
-                          iconSize: 25,
-                        ),
+                  ),
+                  Spacer(),
+                  Container(
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (height <= 120) {
+                            height = 120;
+                          } else
+                            height--;
+                        });
+                      },
+                      icon: Image.asset(
+                        'icons/minus3.png',
+                        width: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          '${height}',
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
+                  ),
+                  Container(
+                    width: 40,
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${height}',
+                      style: TextStyle(
+                          color: Color(0xff5F6CFF),
+                          fontSize: 18,
+                          fontFamily: 'Gilroy'),
+                    ),
+                  ),
+                  Container(
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          height++;
+                        });
+                      },
+                      icon: Icon(Icons.add_sharp),
+                      iconSize: 22,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 42,
+              width: 380,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7), color: Colors.white),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 34),
+                    child: Text(
+                      "Какой у тебя вес?",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Gilroy2',
+                        fontSize: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.5, 0),
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (height <= 120) {
-                              height = 120;
-                            } else
-                              height--;
-                          });
-                        },
-                        icon: Image.asset(
-                          'icons/minus3.png',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )),
-          Align(
-              alignment: Alignment(0, 0.3),
-              child: Container(
-                height: 42,
-                width: 343,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment(-0.80, 0),
-                      child: Text(
-                        "Какой у тебя вес?",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Gilroy2',
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          '${weight}',
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.95, 0),
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        alignment: Alignment(0, 0),
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              weight++;
-                            });
-                          },
-                          icon: Icon(Icons.add),
-                          iconSize: 25,
-                        ),
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment(0.5, 0),
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (weight <= 50) {
-                              weight = 50;
-                            }
+                  ),
+                  Spacer(),
+                  Container(
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (weight <= 50) {
+                            weight = 50;
+                          } else {
                             weight--;
-                          });
-                        },
-                        icon: Image.asset(
-                          'icons/minus3.png',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )),
-          Align(
-              alignment: Alignment(0, 0.45),
-              child: Container(
-                height: 42,
-                width: 343,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(7),
-                    color: Colors.white),
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                      alignment: Alignment(-0.80, 0),
-                      child: Text(
-                        'Сколько тебе лет?',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontFamily: 'Gilroy2',
-                          fontSize: 14,
-                        ),
+                          }
+                        });
+                      },
+                      icon: Image.asset(
+                        'icons/minus3.png',
+                        width: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.68, 0),
-                      child: Container(
-                        child: Text(
-                          '${age}',
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: 'Gilroy'),
-                        ),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    width: 40,
+                    child: Text(
+                      '${weight}',
+                      style: TextStyle(
+                          color: Color(0xff5F6CFF),
+                          fontSize: 18,
+                          fontFamily: 'Gilroy'),
+                    ),
+                  ),
+                  Container(
+                    width: 40,
+                    alignment: Alignment(0, 0),
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          weight++;
+                        });
+                      },
+                      icon: Icon(Icons.add_sharp),
+                      iconSize: 22,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              height: 42,
+              width: 380,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(7), color: Colors.white),
+              child: Row(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(left: 34),
+                    child: Text(
+                      'Сколько тебе лет?',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontFamily: 'Gilroy2',
+                        fontSize: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.95, 0),
-                      child: Container(
-                        height: 40,
-                        width: 40,
-                        alignment: Alignment(0, 0),
-                        child: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              age++;
-                            });
-                          },
-                          icon: Icon(Icons.add),
-                          iconSize: 25,
-                        ),
+                  ),
+                  Spacer(),
+                  Container(
+                    width: 40,
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          if (age <= 12) {
+                            age = 12;
+                          } else {
+                            age--;
+                          }
+                        });
+                      },
+                      icon: Image.asset(
+                        'icons/minus3.png',
+                        width: 14,
                       ),
                     ),
-                    Align(
-                      alignment: Alignment(0.5, 0),
-                      child: IconButton(
-                        onPressed: () {
-                          setState(() {
-                            if (age <= 12) {
-                              age = 12;
-                            } else {
-                              age--;
-                            }
-                          });
-                        },
-                        icon: Image.asset(
-                          'icons/minus3.png',
-                          height: 15,
-                          width: 15,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              )),
-        ],
+                  ),
+                  Container(
+                    width: 40,
+                    alignment: Alignment.center,
+                    child: Text(
+                      '${age}',
+                      style: TextStyle(
+                          color: Color(0xff5F6CFF),
+                          fontSize: 18,
+                          fontFamily: 'Gilroy'),
+                    ),
+                  ),
+                  Container(
+                    width: 40,
+                    alignment: Alignment(0, 0),
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          age++;
+                        });
+                      },
+                      icon: Icon(Icons.add_sharp),
+                      iconSize: 22,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

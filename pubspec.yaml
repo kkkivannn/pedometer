@@ -36,8 +36,10 @@ dependencies:
   splash_screen_view: ^3.0.0
   scroll_snap_list: ^0.8.3
   sensors_plus: ^1.2.1
-  sizer: ^2.0.15
-  responsive_sizer: ^3.0.4+4
+  # sizer: ^2.0.15
+  # responsive_sizer: ^3.0.4+4
+  flutter_sizer: ^1.0.4
+  flutter_screenutil: ^5.0.0+2
   
   
 
