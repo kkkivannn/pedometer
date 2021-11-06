@@ -7,6 +7,7 @@ class ADS extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Container(
+        alignment: Alignment.bottomCenter,
         child: Row(
           children: [
             Expanded(

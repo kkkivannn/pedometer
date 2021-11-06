@@ -16,7 +16,6 @@ class ActivityState extends State<Activity> {
     return Scaffold(
       body: SafeArea(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               // width: 475,

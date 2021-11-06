@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 // import 'package:sizer/sizer.dart';
 
 class ButtonReady extends StatefulWidget {
@@ -24,8 +25,8 @@ class _ButtonReadyState extends State<ButtonReady> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
                 onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => SecondPage()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Activity()));
                 },
                 child: Text(
                   "Готово!\n2/2",

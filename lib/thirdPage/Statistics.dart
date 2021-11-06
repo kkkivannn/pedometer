@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
+import 'package:pedometer/foorthPage/achievements.dart';
 
 class statics extends StatefulWidget {
   @override
@@ -9,6 +10,13 @@ class statics extends StatefulWidget {
 }
 
 class _staticsState extends State<statics> {
+  void _perechod() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => Achive()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -37,7 +45,7 @@ class _staticsState extends State<statics> {
                   child: ExpansionTile(
                     collapsedIconColor: Color(0xff5F6CFF),
                     title: Text(
-                      'За день',
+                      'День',
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,
@@ -45,14 +53,14 @@ class _staticsState extends State<statics> {
                     ),
                     children: [
                       Text(
-                        'За неделю',
+                        'Неделя',
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,
                             fontFamily: "Gilroy"),
                       ),
                       Text(
-                        'За месяц',
+                        'Месяц',
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,
@@ -65,7 +73,6 @@ class _staticsState extends State<statics> {
             ),
           ),
           Container(
-            decoration: BoxDecoration(border: Border.all(color: Colors.red)),
             height: 400,
             width: 475,
             child: Column(
@@ -232,6 +239,7 @@ class _staticsState extends State<statics> {
                     ),
                     Spacer(),
                     GestureDetector(
+                      onTap: _perechod,
                       child: Container(
                         padding: EdgeInsets.only(top: 20),
                         width: 160,

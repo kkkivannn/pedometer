@@ -58,16 +58,16 @@ class _ButtonsState extends State<Buttons> {
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
                     setState(() {
-                      gender = Gender.other;
+                      gender = Gender.woman;
                     });
                   },
-                  color: gender == Gender.other ? bottomColor2 : bottomColor1,
+                  color: gender == Gender.woman ? bottomColor2 : bottomColor1,
                   child: Text(
-                    "Другое",
+                    "Девушка",
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
-                      color: gender == Gender.other ? textColor2 : textColor1,
+                      color: gender == Gender.woman ? textColor2 : textColor1,
                     ),
                   ),
                 ),
@@ -81,16 +81,16 @@ class _ButtonsState extends State<Buttons> {
                       borderRadius: BorderRadius.circular(7)),
                   onPressed: () {
                     setState(() {
-                      gender = Gender.woman;
+                      gender = Gender.other;
                     });
                   },
-                  color: gender == Gender.woman ? bottomColor2 : bottomColor1,
+                  color: gender == Gender.other ? bottomColor2 : bottomColor1,
                   child: Text(
-                    "Девушка",
+                    "Другое",
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
-                      color: gender == Gender.woman ? textColor2 : textColor1,
+                      color: gender == Gender.other ? textColor2 : textColor1,
                     ),
                   ),
                 ),
