@@ -27,7 +27,7 @@ class _AchiveState extends State<Achive> {
                     'Достижения',
                     style: TextStyle(
                       fontFamily: 'Gilroy',
-                      fontSize: 18,
+                      fontSize: 20,
                       color: Colors.white,
                     ),
                   ),

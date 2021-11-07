@@ -271,7 +271,9 @@ class _staticsState extends State<statics> {
                         ),
                       ),
                     ),
-                    Spacer()
+                    Spacer(
+                      flex: 2,
+                    )
                   ],
                 ),
               ],

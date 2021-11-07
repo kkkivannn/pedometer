@@ -75,6 +75,10 @@ flutter:
     - icons/1.png
     - icons/2.png
     - icons/3.png
+    - icons/ADS.png
+    - icons/put.png
+    - icons/champ.png
+    - icons/step.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

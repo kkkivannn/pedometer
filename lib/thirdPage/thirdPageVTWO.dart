@@ -1,6 +1,7 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code
 
 import 'package:flutter/material.dart';
+import 'package:pedometer/settingsFivesPage/Settings.dart';
 import 'package:pedometer/thirdPage/Activitys.dart';
 import 'package:pedometer/thirdPage/Ads.dart';
 import 'package:pedometer/thirdPage/Statistics.dart';
@@ -11,6 +12,13 @@ class Activity extends StatefulWidget {
 }
 
 class ActivityState extends State<Activity> {
+  void settings() {
+    setState(() {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => settingPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,7 +47,9 @@ class ActivityState extends State<Activity> {
                         ),
                         Spacer(),
                         IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            settings();
+                          },
                           icon: Image.asset(
                             'icons/settings2.png',
                             color: Colors.white,

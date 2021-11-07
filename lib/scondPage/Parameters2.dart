@@ -12,6 +12,10 @@ class Parameters2 extends StatefulWidget {
   _Parameters2State createState() => _Parameters2State();
 }
 
+var lsh = 59.0;
+var Q;
+var _km;
+
 class _Parameters2State extends State<Parameters2> {
   // @override
   // void initState() {
@@ -44,9 +48,6 @@ class _Parameters2State extends State<Parameters2> {
     }
   }
 
-  var lsh = 59.0;
-  var Q;
-  var _km;
   void Lsh() {
     if (gender == Gender.man) {
       for (var i = 120; i > height; i++) {
@@ -66,7 +67,7 @@ class _Parameters2State extends State<Parameters2> {
   }
 
   void Kkal() {
-    var k = 1.15;
+    var k = 1;
     Q = k * weight * step * lsh / 100000;
   }
 
