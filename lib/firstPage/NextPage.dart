@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, prefer_const_constructors
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/scondPage/SecondPage.dart';
 
@@ -27,7 +28,7 @@ class _NextButtonState extends State<NextButton> {
                   MaterialPageRoute(builder: (context) => SecondPage()));
             },
             child: Text(
-              "Следующий этап\n1/2",
+              "text9".tr().toString(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "Gilroy2",

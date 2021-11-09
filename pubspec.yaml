@@ -40,6 +40,7 @@ dependencies:
   # responsive_sizer: ^3.0.4+4
   flutter_sizer: ^1.0.4
   flutter_screenutil: ^5.0.0+2
+  easy_localization: ^3.0.0
   
   
 
@@ -79,6 +80,7 @@ flutter:
     - icons/put.png
     - icons/champ.png
     - icons/step.png
+    - assets/translate/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

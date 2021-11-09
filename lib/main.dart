@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'firstPage/HelloScreen.dart';
 import 'settingsFivesPage/Settings.dart';
+import 'package:easy_localization/easy_localization.dart';
 // import 'package:sizer/sizer.dart';
 // import 'package:responsive_sizer/responsive_sizer.dart';
 // import 'package:flutter_sizer/flutter_sizer.dart';
@@ -15,8 +16,19 @@ import 'settingsFivesPage/Settings.dart';
 // import 'foorthPage/achievements.dart';
 // import 'thirdPage/thirdPageVTWO.dart';
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await EasyLocalization.ensureInitialized();
+  runApp(EasyLocalization(
+    child: MyApp(),
+    supportedLocales: [
+      Locale('en', 'RU'),
+      Locale('en', 'EN'),
+    ],
+    path: 'assets/translate',
+    saveLocale: true,
+    // fallbackLocale: Locale('en', 'RU'),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -28,6 +40,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: context.localizationDelegates,
+      supportedLocales: context.supportedLocales,
+      locale: context.locale,
       debugShowCheckedModeBanner: false,
       home: splashScreen(),
     );
@@ -48,7 +63,7 @@ class _splashScreenState extends State<splashScreen> {
       imageSrc: "images/Vector2.png",
       duration: 100,
       imageSize: 50,
-      text: "Загрузка..",
+      text: "load".tr().toString(),
       textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
     );
   }

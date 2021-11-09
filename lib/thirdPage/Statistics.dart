@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types, use_key_in_widget_constructors, file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer/foorthPage/achievements.dart';
@@ -34,7 +35,7 @@ class _staticsState extends State<statics> {
                 Container(
                   alignment: Alignment.center,
                   child: Text(
-                    'Статистика',
+                    'text17'.tr().toString(),
                     style: TextStyle(fontFamily: "Gilroy", fontSize: 18),
                   ),
                 ),
@@ -45,7 +46,7 @@ class _staticsState extends State<statics> {
                   child: ExpansionTile(
                     collapsedIconColor: Color(0xff5F6CFF),
                     title: Text(
-                      'День',
+                      'text18'.tr().toString(),
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,
@@ -53,14 +54,14 @@ class _staticsState extends State<statics> {
                     ),
                     children: [
                       Text(
-                        'Неделя',
+                        'text19'.tr().toString(),
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,
                             fontFamily: "Gilroy"),
                       ),
                       Text(
-                        'Месяц',
+                        'text20'.tr().toString(),
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,
@@ -100,7 +101,7 @@ class _staticsState extends State<statics> {
                           Container(
                             padding: EdgeInsets.only(left: 15),
                             child: Text(
-                              'Пройдено всего',
+                              'text21'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: 'Gilroy2',
                                 fontSize: 14,
@@ -122,7 +123,7 @@ class _staticsState extends State<statics> {
                           Container(
                             padding: EdgeInsets.only(left: 15),
                             child: Text(
-                              'В среднем\nза день',
+                              'text22'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: 'Gilroy2',
                                 fontSize: 14,
@@ -161,7 +162,7 @@ class _staticsState extends State<statics> {
                           Spacer(),
                           Container(
                             child: Text(
-                              'Дистанция',
+                              'text23'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: 'Gilroy2',
                                 fontSize: 14,
@@ -212,7 +213,7 @@ class _staticsState extends State<statics> {
                           Spacer(),
                           Container(
                             child: Text(
-                              'Ккал сожжено',
+                              'text24'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: "Gilroy2",
                                 fontSize: 14,
@@ -259,7 +260,7 @@ class _staticsState extends State<statics> {
                             ),
                             Spacer(),
                             Text(
-                              'Достижения',
+                              'text25'.tr().toString(),
                               style: TextStyle(
                                 fontSize: 16,
                                 fontFamily: "Gilroy",

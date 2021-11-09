@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/thirdPage/Ads.dart';
 
@@ -24,7 +25,7 @@ class _AchiveState extends State<Achive> {
                   alignment: Alignment.center,
                   padding: EdgeInsets.only(top: 27),
                   child: Text(
-                    'Достижения',
+                    'text26'.tr().toString(),
                     style: TextStyle(
                       fontFamily: 'Gilroy',
                       fontSize: 20,
@@ -48,7 +49,7 @@ class _AchiveState extends State<Achive> {
                         child: Container(
                           padding: EdgeInsets.only(left: 16),
                           child: Text(
-                            'Пройдено шагов',
+                            'text27'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy",
                               color: Colors.white,
@@ -166,7 +167,7 @@ class _AchiveState extends State<Achive> {
                         child: Container(
                           padding: EdgeInsets.only(left: 16),
                           child: Text(
-                            'Пройдено километров',
+                            'text28'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy",
                               color: Colors.white,
@@ -284,7 +285,7 @@ class _AchiveState extends State<Achive> {
                         child: Container(
                           padding: EdgeInsets.only(left: 16),
                           child: Text(
-                            'Достиженний подряд',
+                            'text29'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy",
                               color: Colors.white,

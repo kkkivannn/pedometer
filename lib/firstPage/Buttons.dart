@@ -1,4 +1,5 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks, dead_code
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/colors.dart';
 import 'package:pedometer/scondPage/SecondPage.dart';
@@ -40,7 +41,7 @@ class _ButtonsState extends State<Buttons> {
                   },
                   color: gender == Gender.man ? bottomColor2 : bottomColor1,
                   child: Text(
-                    "Мужчина",
+                    "text3".tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
@@ -63,7 +64,7 @@ class _ButtonsState extends State<Buttons> {
                   },
                   color: gender == Gender.woman ? bottomColor2 : bottomColor1,
                   child: Text(
-                    "Девушка",
+                    "text4".tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
@@ -86,7 +87,7 @@ class _ButtonsState extends State<Buttons> {
                   },
                   color: gender == Gender.other ? bottomColor2 : bottomColor1,
                   child: Text(
-                    "Другое",
+                    "text5".tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,

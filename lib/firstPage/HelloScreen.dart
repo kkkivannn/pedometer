@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_const_constructors, deprecated_member_use
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/NextPage.dart';
@@ -18,7 +19,7 @@ class HelloScreen extends StatelessWidget {
               flex: 4,
             ),
             Text(
-              'Привет!',
+              'text1'.tr().toString(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: "Gilroy",
@@ -26,7 +27,7 @@ class HelloScreen extends StatelessWidget {
               ),
             ),
             Text(
-              'Для работы с приложением заполни\nпервичную информацию',
+              'text2'.tr().toString(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,

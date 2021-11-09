@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, file_names
+// ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, file_names, constant_identifier_names
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
@@ -18,7 +19,7 @@ class _settingPageState extends State<settingPage> {
       child: Scaffold(
           backgroundColor: Color(0xff5F6CFF),
           body: SingleChildScrollView(
-            padding: EdgeInsets.only(top: 12),
+            padding: EdgeInsets.only(top: 12, bottom: 12),
             physics: BouncingScrollPhysics(),
             scrollDirection: Axis.vertical,
             child: Column(
@@ -31,7 +32,7 @@ class _settingPageState extends State<settingPage> {
                         padding: EdgeInsets.only(top: 27),
                         alignment: Alignment.center,
                         child: Text(
-                          'Настройки',
+                          'text30'.tr().toString(),
                           style: TextStyle(
                             fontFamily: 'Gilroy',
                             fontSize: 20,
@@ -67,7 +68,7 @@ class _settingPageState extends State<settingPage> {
                           width: 218,
                           padding: EdgeInsets.only(right: 40),
                           child: Text(
-                            'Отключить рекламу',
+                            'text31'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy",
                               fontSize: 18,
@@ -85,7 +86,7 @@ class _settingPageState extends State<settingPage> {
                     top: 26,
                   ),
                   child: Text(
-                    'Данные пользователя',
+                    'text32'.tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
@@ -106,7 +107,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Рост',
+                            'text33'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -142,7 +143,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Вес',
+                            'text34'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -178,7 +179,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Возраст',
+                            'text35'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -217,7 +218,7 @@ class _settingPageState extends State<settingPage> {
                             Container(
                               padding: EdgeInsets.only(left: 30),
                               child: Text(
-                                'Длина шага',
+                                'text36'.tr().toString(),
                                 style: TextStyle(
                                   fontSize: 16,
                                   fontFamily: "Gilroy2",
@@ -266,7 +267,7 @@ class _settingPageState extends State<settingPage> {
                                 ? bottomColor2
                                 : bottomColor1,
                             child: Text(
-                              "Мужчина",
+                              'text37'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: "Gilroy2",
                                 fontSize: 14,
@@ -295,7 +296,7 @@ class _settingPageState extends State<settingPage> {
                               ? bottomColor2
                               : bottomColor1,
                           child: Text(
-                            "Девушка",
+                            'text38'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
@@ -323,7 +324,7 @@ class _settingPageState extends State<settingPage> {
                               ? bottomColor2
                               : bottomColor1,
                           child: Text(
-                            "Другое",
+                            'text39'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
@@ -343,7 +344,7 @@ class _settingPageState extends State<settingPage> {
                     top: 26,
                   ),
                   child: Text(
-                    'Настройки целей',
+                    'text40'.tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
@@ -364,7 +365,185 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Длина шага',
+                            'text41'.tr().toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Gilroy2",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.only(right: 30),
+                          child: Text(
+                            '${step}',
+                            style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Container(
+                    width: 343,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(
+                            'text42'.tr().toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Gilroy2",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.only(right: 30),
+                          child: Text(
+                            '${kkal}',
+                            style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Container(
+                    width: 343,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(
+                            'text43'.tr().toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Gilroy2",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.only(right: 30),
+                          child: Text(
+                            '${km}',
+                            style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF)),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(
+                    left: 16,
+                    top: 26,
+                  ),
+                  child: Text(
+                    'text44'.tr().toString(),
+                    style: TextStyle(
+                      fontFamily: "Gilroy2",
+                      fontSize: 14,
+                      color: Color(0xffA0A8FF),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Container(
+                    width: 343,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(
+                            'text45'.tr().toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "Gilroy2",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Spacer(),
+                        Container(
+                          padding: EdgeInsets.only(right: 30),
+                          child: PopupMenuButton(
+                            child: Container(
+                              child: Text(
+                                'Язык',
+                                style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF),
+                                ),
+                              ),
+                            ),
+                            itemBuilder: (BuildContext bc) => [
+                              PopupMenuItem(
+                                child: Text(
+                                  'Русский',
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                child: Text('Английский'),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 10),
+                  child: Container(
+                    width: 343,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Row(
+                      children: [
+                        Container(
+                          padding: EdgeInsets.only(left: 30),
+                          child: Text(
+                            'text46'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -400,43 +579,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Длина шага',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Gilroy2",
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Container(
-                    width: 343,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            'Длина шага',
+                            'text47'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -465,7 +608,7 @@ class _settingPageState extends State<settingPage> {
                     top: 26,
                   ),
                   child: Text(
-                    'Остальные настройки',
+                    'text48'.tr().toString(),
                     style: TextStyle(
                       fontFamily: "Gilroy2",
                       fontSize: 14,
@@ -486,7 +629,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Длина шага',
+                            'text49'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -522,7 +665,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(left: 30),
                           child: Text(
-                            'Длина шага',
+                            'text50'.tr().toString(),
                             style: TextStyle(
                               fontSize: 16,
                               fontFamily: "Gilroy2",
@@ -546,124 +689,27 @@ class _settingPageState extends State<settingPage> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Container(
-                    width: 343,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            'Длина шага',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Gilroy2",
-                              color: Colors.black,
-                            ),
-                          ),
+                  padding: EdgeInsets.only(top: 30),
+                  child: ButtonTheme(
+                    height: 55,
+                    minWidth: 343,
+                    child: RaisedButton(
+                      elevation: 0.0,
+                      shape: RoundedRectangleBorder(
+                          side: BorderSide(color: Colors.white, width: 3),
+                          borderRadius: BorderRadius.circular(15)),
+                      onPressed: () {
+                        setState(() {});
+                      },
+                      color: Color(0xff5F6CFF),
+                      child: Text(
+                        'text51'.tr().toString(),
+                        style: TextStyle(
+                          fontFamily: "Gilroy2",
+                          fontSize: 14,
+                          color: Colors.white,
                         ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(
-                    left: 16,
-                    top: 26,
-                  ),
-                  child: Text(
-                    'Уведомления',
-                    style: TextStyle(
-                      fontFamily: "Gilroy2",
-                      fontSize: 14,
-                      color: Color(0xffA0A8FF),
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Container(
-                    width: 343,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            'Длина шага',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Gilroy2",
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Container(
-                    width: 343,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            'Длина шага',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Gilroy2",
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
-                          ),
-                        )
-                      ],
+                      ),
                     ),
                   ),
                 ),

@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/settingsFivesPage/Settings.dart';
 import 'package:pedometer/thirdPage/Activitys.dart';
@@ -38,7 +39,7 @@ class ActivityState extends State<Activity> {
                     child: Row(
                       children: [
                         Text(
-                          'Активноcть сегодня',
+                          'text16'.tr().toString(),
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18,

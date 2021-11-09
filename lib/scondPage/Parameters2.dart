@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
@@ -15,6 +16,9 @@ class Parameters2 extends StatefulWidget {
 var lsh = 59.0;
 var Q;
 var _km;
+var step;
+var kkal;
+var km;
 
 class _Parameters2State extends State<Parameters2> {
   // @override
@@ -75,10 +79,6 @@ class _Parameters2State extends State<Parameters2> {
   var y;
   var z;
 
-  var step;
-  var kkal;
-  var km;
-
   @override
   Widget build(BuildContext context) {
     Step();
@@ -103,7 +103,7 @@ class _Parameters2State extends State<Parameters2> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.only(left: 34),
                     child: Text(
-                      'Количество шагов',
+                      'text12'.tr().toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Gilroy2',
@@ -138,7 +138,7 @@ class _Parameters2State extends State<Parameters2> {
                       alignment: Alignment.center,
                       padding: EdgeInsets.only(left: 34),
                       child: Text(
-                        "Количество сожженых ккал",
+                        "text13".tr().toString(),
                         style: TextStyle(
                           color: Colors.black,
                           fontFamily: 'Gilroy2',
@@ -171,7 +171,7 @@ class _Parameters2State extends State<Parameters2> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.only(left: 34),
                     child: Text(
-                      'Количество километров',
+                      'text14'.tr().toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Gilroy2',

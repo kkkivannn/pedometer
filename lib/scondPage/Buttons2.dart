@@ -1,5 +1,6 @@
 // ignore_for_file: file_names, prefer_const_constructors, dead_code
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 // import 'package:sizer/sizer.dart';
@@ -29,7 +30,7 @@ class _ButtonReadyState extends State<ButtonReady> {
                       MaterialPageRoute(builder: (context) => Activity()));
                 },
                 child: Text(
-                  "Готово!\n2/2",
+                  "text15".tr().toString(),
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: "Gilroy2", fontSize: 18, color: Colors.white),

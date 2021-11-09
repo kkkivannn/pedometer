@@ -1,5 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names, prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, unused_element, avoid_print, prefer_typing_uninitialized_variables
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 // import 'package:pedometer/firstPage/colors.dart';
@@ -35,7 +36,7 @@ class _paramState extends State<param> {
                   Container(
                     padding: EdgeInsets.only(left: 34),
                     child: Text(
-                      'Какой у тебя рост?',
+                      'text6'.tr().toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Gilroy2',
@@ -97,7 +98,7 @@ class _paramState extends State<param> {
                   Container(
                     padding: EdgeInsets.only(left: 34),
                     child: Text(
-                      "Какой у тебя вес?",
+                      "text7".tr().toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Gilroy2',
@@ -161,7 +162,7 @@ class _paramState extends State<param> {
                   Container(
                     padding: EdgeInsets.only(left: 34),
                     child: Text(
-                      'Сколько тебе лет?',
+                      'text8'.tr().toString(),
                       style: TextStyle(
                         color: Colors.black,
                         fontFamily: 'Gilroy2',
