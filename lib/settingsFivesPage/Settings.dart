@@ -6,11 +6,14 @@ import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer/firstPage/colors.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
+import 'package:pedometer/settingsFivesPage/langs.dart';
 
 class settingPage extends StatefulWidget {
   @override
   _settingPageState createState() => _settingPageState();
 }
+
+String text = "text52".tr().toString();
 
 class _settingPageState extends State<settingPage> {
   @override
@@ -501,7 +504,7 @@ class _settingPageState extends State<settingPage> {
                           child: PopupMenuButton(
                             child: Container(
                               child: Text(
-                                'Язык',
+                                text,
                                 style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -511,8 +514,12 @@ class _settingPageState extends State<settingPage> {
                             ),
                             itemBuilder: (BuildContext bc) => [
                               PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'RU');
+                                  text = Rus;
+                                },
                                 child: Text(
-                                  'Русский',
+                                  Rus,
                                   style: TextStyle(
                                     fontFamily: "Gilroy",
                                     fontSize: 18,
@@ -521,7 +528,130 @@ class _settingPageState extends State<settingPage> {
                                 ),
                               ),
                               PopupMenuItem(
-                                child: Text('Английский'),
+                                onTap: () async {
+                                  context.locale = Locale('en', 'EN');
+                                  text = Eng;
+                                },
+                                child: Text(
+                                  Eng,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'TR');
+                                  text = Tr;
+                                },
+                                child: Text(
+                                  Tr,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'DE');
+                                  text = De;
+                                },
+                                child: Text(
+                                  De,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'ES');
+                                  text = Es;
+                                },
+                                child: Text(
+                                  Es,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'FR');
+                                  text = Fr;
+                                },
+                                child: Text(
+                                  Fr,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'IN');
+                                  text = In;
+                                },
+                                child: Text(
+                                  In,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'IT');
+                                  text = It;
+                                },
+                                child: Text(
+                                  It,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'PL');
+                                  text = Pl;
+                                },
+                                child: Text(
+                                  Pl,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () async {
+                                  context.locale = Locale('en', 'PT');
+                                  text = Pt;
+                                },
+                                child: Text(
+                                  Pt,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
                               ),
                             ],
                           ),

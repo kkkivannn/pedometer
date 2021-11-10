@@ -1,3 +1,62 @@
 {
-    "load": "Carregando.."
+    "load": "Carregando..",
+    "text1": "Ei!",
+    "text2": "Para trabalhar com o aplicativo, preencha\ninformação primária",
+    "text3": "Cara",
+    "text4": "Mulher jovem",
+    "text5": "De outros",
+    "text6": "Qual a sua altura?",
+    "text7": "Qual é o seu peso?",
+    "text8": "Quantos anos você tem?",
+    "text9": "Próximo estágio\n1/2",
+
+    "text10": "Só um pouco",
+    "text11": "Com base em seus dados, selecionamos\nobjetivos para você. Eles podem\najustar:",
+    "text12": "Número de etapas",
+    "text13": "Calorias queimadas",
+    "text14": "Número de quilômetros",
+    "text15": "Preparar!\n2/2",
+
+    "text16": "Atividade hoje",
+
+    "text17": "Estatisticas",
+    "text18": "Dia",
+    "text19": "Uma semana",
+    "text20": "Mês",
+
+    "text21": "Total aprovado",
+    "text22": "Média\npor dia",
+    "text23": "Distância",
+    "text24": "Calorias queimadas",
+    "text25": "Conquistas",
+
+    "text26": "Conquistas",
+    "text27": "Etapas concluídas",
+    "text28": "Quilómetros percorridos",
+    "text29": "Alcançado em uma fileira",
+
+    "text30": "Definições",
+    "text31": "Desativar anúncios",
+    "text32": "Dados do usuário",
+    "text33": "Altura",
+    "text34": "O peso",
+    "text35": "Era",
+    "text36": "Comprimento do passo",
+    "text37": "Cara",
+    "text38": "Mulher jovem",
+    "text39": "De outros",
+    "text40": "Configurações de meta",
+    "text41": "Número de etapas",
+    "text42": "Queima de calorias",
+    "text43": "Distância por dia",
+    "text44": "Outros ajustes",
+    "text45": "Língua",
+    "text46": "Unidades",
+    "text47": "Sensibilidade",
+    "text48": "Notificações",
+    "text49": "Lembrete de metas",
+    "text50": "Notificações de relatório",
+    "text51": "Redefinir",
+
+    "text52": "Selecione"
 }

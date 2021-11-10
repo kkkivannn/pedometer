@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,10 +24,18 @@ Future<void> main() async {
     supportedLocales: [
       Locale('en', 'RU'),
       Locale('en', 'EN'),
+      Locale('en', 'DE'),
+      Locale('en', 'IT'),
+      Locale('en', 'IN'),
+      Locale('en', 'PL'),
+      Locale('en', 'FR'),
+      Locale('en', 'ES'),
+      Locale('en', 'PT'),
+      Locale('en', 'TR'),
     ],
     path: 'assets/translate',
     saveLocale: true,
-    // fallbackLocale: Locale('en', 'RU'),
+    fallbackLocale: Locale('en', 'EN'),
   ));
 }
 

@@ -1,3 +1,62 @@
 {
-    "load": "Ładowanie.."
+    "load": "Ładowanie..",
+    "text1": "Hej!",
+    "text2": "Aby pracować z aplikacją, wypełnij\npodstawowe informacje",
+    "text3": "Człowiek",
+    "text4": "Młoda kobieta",
+    "text5": "Inne",
+    "text6": "Ile masz wzrostu?",
+    "text7": "Ile ważysz?",
+    "text8": "Ile masz lat?",
+    "text9": "Następny etap\n1/2",
+
+    "text10": "Tylko trochę",
+    "text11": "Na podstawie Twoich danych wybraliśmy\ncele dla Ciebie. Mogą\ndostosować:",
+    "text12": "Liczba kroków",
+    "text13": "Spalone kalorie",
+    "text14": "Ilość kilometrów",
+    "text15": "Gotowy!\n2/2",
+
+    "text16": "Aktywność dzisiaj",
+
+    "text17": "Statystyki",
+    "text18": "Dzień",
+    "text19": "Tydzień",
+    "text20": "Miesiąc",
+
+    "text21": "Przeszła suma",
+    "text22": "Przeciętny\nna dzień",
+    "text23": "Dystans",
+    "text24": "Spalone kalorie",
+    "text25": "Osiągnięcia",
+
+    "text26": "Osiągnięcia",
+    "text27": "Kroki zakończone",
+    "text28": "Przejechane kilometry",
+    "text29": "Osiągnięto z rzędu",
+
+    "text30": "Ustawienia",
+    "text31": "Wyłącz reklamy",
+    "text32": "Dane użytkownika",
+    "text33": "Wzrost",
+    "text34": "Waga",
+    "text35": "Wiek",
+    "text36": "Długość kroku",
+    "text37": "Człowiek",
+    "text38": "Młoda kobieta",
+    "text39": "Inne",
+    "text40": "Ustawienia celu",
+    "text41": "Liczba kroków",
+    "text42": "Płonące lilie calla",
+    "text43": "Dystans na dzień",
+    "text44": "Inne ustawienia",
+    "text45": "Język",
+    "text46": "Jednostki",
+    "text47": "Wrażliwość",
+    "text48": "Powiadomienia",
+    "text49": "Przypomnienie celów",
+    "text50": "Powiadomienia o raportach",
+    "text51": "Resetowanie",
+
+    "text52": "Wybierz"
 }
