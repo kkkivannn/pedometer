@@ -2,6 +2,8 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
+
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer/firstPage/colors.dart';
@@ -14,6 +16,21 @@ class settingPage extends StatefulWidget {
 }
 
 String text = "text52".tr().toString();
+dynamic value;
+final model = StorageModel();
+
+// void _SetSteps() {
+//   AlertDialog(
+//     title: Text('text53'.tr().toString()),
+//     content: TextField(
+//       decoration: InputDecoration(
+//           border: OutlineInputBorder(borderRadius: BorderRadius.circular(7))),
+//       onChanged: (var value) {
+//         step = value;
+//       },
+//     ),
+//   );
+//}
 
 class _settingPageState extends State<settingPage> {
   @override
@@ -121,13 +138,52 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${height} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        height = value;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.Height();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              '${height} см',
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
+                          // child: Text(
+                          //   '${height} см',
+                          //   style: TextStyle(
+                          //       fontFamily: "Gilroy",
+                          //       fontSize: 18,
+                          //       color: Color(0xff5F6CFF)),
+                          // ),
                         )
                       ],
                     ),
@@ -157,12 +213,44 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${weight} кг',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        weight = value;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.Weight();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              '${weight} кг',
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
                         )
                       ],
@@ -193,13 +281,52 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${age}',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        age = value;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.Age();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              '${age} кг',
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
+                          // child: Text(
+                          //   '${age}',
+                          //   style: TextStyle(
+                          //       fontFamily: "Gilroy",
+                          //       fontSize: 18,
+                          //       color: Color(0xff5F6CFF)),
+                          // ),
                         )
                       ],
                     ),
@@ -379,12 +506,44 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${step}',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        step = value;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.Step();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              '${step}',
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
                         )
                       ],
@@ -416,7 +575,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(right: 30),
                           child: Text(
-                            '${kkal}',
+                            '${Q}',
                             style: TextStyle(
                                 fontFamily: "Gilroy",
                                 fontSize: 18,

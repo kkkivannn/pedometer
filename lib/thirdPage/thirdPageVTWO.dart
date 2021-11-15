@@ -2,6 +2,7 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer/settingsFivesPage/Settings.dart';
 import 'package:pedometer/thirdPage/Activitys.dart';
 import 'package:pedometer/thirdPage/Ads.dart';
@@ -20,6 +21,7 @@ class ActivityState extends State<Activity> {
     });
   }
 
+  final model = StorageModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(

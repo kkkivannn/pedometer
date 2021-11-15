@@ -2,6 +2,8 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
+
 import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 // import 'package:sizer/sizer.dart';
 
@@ -11,6 +13,7 @@ class ButtonReady extends StatefulWidget {
 }
 
 class _ButtonReadyState extends State<ButtonReady> {
+  final model = StorageModel();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,6 +29,7 @@ class _ButtonReadyState extends State<ButtonReady> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
                 onPressed: () {
+                  model.SaveReady();
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Activity()));
                 },

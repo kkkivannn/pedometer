@@ -2,7 +2,11 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
+import 'package:pedometer/scondPage/Parameters2.dart';
+
 import 'package:pedometer/scondPage/SecondPage.dart';
+import 'package:flutter/src/material/stepper.dart';
 
 class NextButton extends StatefulWidget {
   @override
@@ -10,6 +14,7 @@ class NextButton extends StatefulWidget {
 }
 
 class _NextButtonState extends State<NextButton> {
+  final model = StorageModel();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,6 +29,12 @@ class _NextButtonState extends State<NextButton> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
             onPressed: () {
+              Steps();
+              Lsh();
+              Kkal();
+              Put();
+              model.SaveNextPage();
+              // model.Print();
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => SecondPage()));
             },

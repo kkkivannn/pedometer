@@ -6,19 +6,59 @@ import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 import 'dart:async';
-// import 'package:sizer/sizer.dart';
 
 class Parameters2 extends StatefulWidget {
   @override
   _Parameters2State createState() => _Parameters2State();
 }
 
-var lsh = 59.0;
+double lsh = 59.0;
 var Q;
-var _km;
+var km;
 var step;
 var kkal;
-var km;
+
+void Steps() {
+  if (age <= 18) {
+    step = 15000;
+  } else if (age > 18 && age <= 40) {
+    step = 12000;
+  } else if (age > 40 && age <= 50) {
+    step = 12000;
+  } else if (age > 50 && age <= 60) {
+    step = 11000;
+  } else if (age > 60) {
+    step = 11000;
+  }
+}
+
+void Put() {
+  km = (step * lsh) / 100000;
+}
+
+void Lsh() {
+  if (gender == Gender.man) {
+    lsh = 59.0;
+    for (var i = 120; i > height; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == Gender.woman) {
+    lsh = 57;
+    for (var i = 120; i > height; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == Gender.other) {
+    lsh = 58;
+    for (var i = 120; i > height; i++) {
+      lsh += 0.3;
+    }
+  }
+}
+
+void Kkal() {
+  var k = 1;
+  Q = k * weight * step * lsh / 100000;
+}
 
 class _Parameters2State extends State<Parameters2> {
   // @override
@@ -34,57 +74,8 @@ class _Parameters2State extends State<Parameters2> {
   //   });
   // }
 
-  void Put() {
-    _km = (step * lsh) / 100000;
-  }
-
-  void Step() {
-    if (age <= 18) {
-      step = 15000;
-    } else if (age > 18 && age <= 40) {
-      step = 12000;
-    } else if (age > 40 && age <= 50) {
-      step = 12000;
-    } else if (age > 50 && age <= 60) {
-      step = 11000;
-    } else if (age > 60) {
-      step = 11000;
-    }
-  }
-
-  void Lsh() {
-    if (gender == Gender.man) {
-      for (var i = 120; i > height; i++) {
-        lsh += 0.3;
-      }
-    } else if (gender == Gender.woman) {
-      lsh = 57;
-      for (var i = 120; i > height; i++) {
-        lsh += 0.3;
-      }
-    } else if (gender == Gender.other) {
-      lsh = 58;
-      for (var i = 120; i > height; i++) {
-        lsh += 0.3;
-      }
-    }
-  }
-
-  void Kkal() {
-    var k = 1;
-    Q = k * weight * step * lsh / 100000;
-  }
-
-  var x;
-  var y;
-  var z;
-
   @override
   Widget build(BuildContext context) {
-    Step();
-    Lsh();
-    Kkal();
-    Put();
     return SafeArea(
       child: Container(
         height: 200,
@@ -116,7 +107,7 @@ class _Parameters2State extends State<Parameters2> {
                     padding: EdgeInsets.only(right: 34),
                     alignment: Alignment.center,
                     child: Text(
-                      '${step}',
+                      '$step',
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,
@@ -184,7 +175,7 @@ class _Parameters2State extends State<Parameters2> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.only(right: 34),
                     child: Text(
-                      '$_km',
+                      '$km',
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,

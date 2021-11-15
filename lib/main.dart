@@ -1,14 +1,19 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
+
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:pedometer/firstPage/Buttons.dart';
 // import 'package:pedometer/scondPage/SecondPage.dart';
 
 import 'package:splash_screen_view/SplashScreenView.dart';
+import 'ADSScreen/adsAndroidScreen.dart';
 import 'firstPage/HelloScreen.dart';
 import 'settingsFivesPage/Settings.dart';
 import 'package:easy_localization/easy_localization.dart';
+
+import 'thirdPage/thirdPageVTWO.dart';
 // import 'package:sizer/sizer.dart';
 // import 'package:responsive_sizer/responsive_sizer.dart';
 // import 'package:flutter_sizer/flutter_sizer.dart';
@@ -18,6 +23,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     child: MyApp(),
@@ -34,7 +40,6 @@ Future<void> main() async {
       Locale('en', 'TR'),
     ],
     path: 'assets/translate',
-    saveLocale: true,
     fallbackLocale: Locale('en', 'EN'),
   ));
 }
