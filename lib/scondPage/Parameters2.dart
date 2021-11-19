@@ -12,8 +12,8 @@ class Parameters2 extends StatefulWidget {
   _Parameters2State createState() => _Parameters2State();
 }
 
-double lsh = 59.0;
-var Q;
+late double lsh;
+var Kal;
 var km;
 var step;
 var kkal;
@@ -37,27 +37,36 @@ void Put() {
 }
 
 void Lsh() {
+  int i = 120;
   if (gender == Gender.man) {
-    lsh = 59.0;
-    for (var i = 120; i > height; i++) {
+    for (var i = 120; i < height; i++) {
       lsh += 0.3;
     }
   } else if (gender == Gender.woman) {
-    lsh = 57;
-    for (var i = 120; i > height; i++) {
+    for (var i = 120; i < height; i++) {
       lsh += 0.3;
     }
   } else if (gender == Gender.other) {
-    lsh = 58;
-    for (var i = 120; i > height; i++) {
+    for (var i = 120; i < height; i++) {
       lsh += 0.3;
     }
   }
 }
 
+void LshFirstPage() {
+  int i = 120;
+  if (gender == Gender.man) {
+    lsh = 59.0;
+  } else if (gender == Gender.woman) {
+    lsh = 57.0;
+  } else if (gender == Gender.other) {
+    lsh = 58.0;
+  }
+}
+
 void Kkal() {
   var k = 1;
-  Q = k * weight * step * lsh / 100000;
+  Kal = ((k * weight * step * lsh).round()) / 100000;
 }
 
 class _Parameters2State extends State<Parameters2> {
@@ -142,7 +151,7 @@ class _Parameters2State extends State<Parameters2> {
                       alignment: Alignment.center,
                       padding: EdgeInsets.only(right: 34),
                       child: Text(
-                        Q.toStringAsFixed(0),
+                        Kal.toStringAsFixed(0),
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,

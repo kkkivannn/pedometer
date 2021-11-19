@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, file_names, constant_identifier_names
 
+import 'dart:developer';
+
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pedometer/BackEnd/Storage.dart';
 
 import 'package:pedometer/firstPage/Buttons.dart';
@@ -15,22 +18,12 @@ class settingPage extends StatefulWidget {
   _settingPageState createState() => _settingPageState();
 }
 
-String text = "text52".tr().toString();
+String textForLang = "text52".tr().toString();
+String textForEd = "text52".tr().toString();
+// String newText1 = "text54".tr().toString();
+// String newText2 = "text55".tr().toString();
 dynamic value;
 final model = StorageModel();
-
-// void _SetSteps() {
-//   AlertDialog(
-//     title: Text('text53'.tr().toString()),
-//     content: TextField(
-//       decoration: InputDecoration(
-//           border: OutlineInputBorder(borderRadius: BorderRadius.circular(7))),
-//       onChanged: (var value) {
-//         step = value;
-//       },
-//     ),
-//   );
-//}
 
 class _settingPageState extends State<settingPage> {
   @override
@@ -73,7 +66,6 @@ class _settingPageState extends State<settingPage> {
                       color: Colors.white,
                     ),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Container(
                           padding: EdgeInsets.only(left: 70),
@@ -149,16 +141,23 @@ class _settingPageState extends State<settingPage> {
                                       decoration: InputDecoration(
                                           border: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        height = value;
+                                                  BorderRadius.circular(10))),
+                                      onChanged: (var value) {
+                                        var n = int.tryParse(value);
+                                        height = n;
                                       },
                                     ),
                                     actions: [
                                       IconButton(
                                         onPressed: () {
                                           setState(() {
+                                            if (height > 220) {
+                                              height = 220;
+                                            } else if (height < 120) {
+                                              height = 120;
+                                            }
                                             model.Height();
+                                            Lsh();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -177,13 +176,6 @@ class _settingPageState extends State<settingPage> {
                                   color: Color(0xff5F6CFF)),
                             ),
                           ),
-                          // child: Text(
-                          //   '${height} см',
-                          //   style: TextStyle(
-                          //       fontFamily: "Gilroy",
-                          //       fontSize: 18,
-                          //       color: Color(0xff5F6CFF)),
-                          // ),
                         )
                       ],
                     ),
@@ -225,15 +217,20 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        weight = value;
+                                      onChanged: (var value) {
+                                        var ves = int.tryParse(value);
+                                        weight = ves;
                                       },
                                     ),
                                     actions: [
                                       IconButton(
                                         onPressed: () {
                                           setState(() {
+                                            if (weight < 50) {
+                                              weight = 50;
+                                            }
                                             model.Weight();
+                                            Kkal();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -294,14 +291,21 @@ class _settingPageState extends State<settingPage> {
                                               borderRadius:
                                                   BorderRadius.circular(7))),
                                       onChanged: (dynamic value) {
-                                        age = value;
+                                        var let = int.tryParse(value);
+                                        age = let;
                                       },
                                     ),
                                     actions: [
                                       IconButton(
                                         onPressed: () {
+                                          if (age > 80) {
+                                            age = 80;
+                                          } else if (age < 12) {
+                                            age = 12;
+                                          }
                                           setState(() {
                                             model.Age();
+                                            Steps();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -313,20 +317,13 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${age} кг',
+                              '${age}',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
                                   color: Color(0xff5F6CFF)),
                             ),
                           ),
-                          // child: Text(
-                          //   '${age}',
-                          //   style: TextStyle(
-                          //       fontFamily: "Gilroy",
-                          //       fontSize: 18,
-                          //       color: Color(0xff5F6CFF)),
-                          // ),
                         )
                       ],
                     ),
@@ -359,12 +356,46 @@ class _settingPageState extends State<settingPage> {
                             Spacer(),
                             Container(
                               padding: EdgeInsets.only(right: 30),
-                              child: Text(
-                                '${lsh} см',
-                                style: TextStyle(
-                                    fontFamily: "Gilroy",
-                                    fontSize: 18,
-                                    color: Color(0xff5F6CFF)),
+                              child: GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        content: TextField(
+                                          keyboardType: TextInputType.number,
+                                          decoration: InputDecoration(
+                                              border: OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          7))),
+                                          onChanged: (dynamic value) {
+                                            lsh = value;
+                                          },
+                                        ),
+                                        actions: [
+                                          IconButton(
+                                            onPressed: () {
+                                              setState(() {
+                                                model.Lsh();
+                                              });
+                                              Navigator.of(context).pop();
+                                            },
+                                            icon: Icon(
+                                                Icons.done_outline_rounded),
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                },
+                                child: Text(
+                                  '${lsh.toStringAsFixed(1)} см',
+                                  style: TextStyle(
+                                      fontFamily: "Gilroy",
+                                      fontSize: 18,
+                                      color: Color(0xff5F6CFF)),
+                                ),
                               ),
                             )
                           ],
@@ -390,18 +421,20 @@ class _settingPageState extends State<settingPage> {
                                 borderRadius: BorderRadius.circular(15)),
                             onPressed: () {
                               setState(() {
-                                gender = Gender.man;
+                                gender = Gender.woman;
+                                LshFirstPage();
+                                Lsh();
                               });
                             },
-                            color: gender == Gender.man
+                            color: gender == Gender.woman
                                 ? bottomColor2
                                 : bottomColor1,
                             child: Text(
-                              'text37'.tr().toString(),
+                              'text38'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: "Gilroy2",
                                 fontSize: 14,
-                                color: gender == Gender.man
+                                color: gender == Gender.woman
                                     ? textColor2
                                     : textColor1,
                               ),
@@ -419,18 +452,20 @@ class _settingPageState extends State<settingPage> {
                               borderRadius: BorderRadius.circular(15)),
                           onPressed: () {
                             setState(() {
-                              gender = Gender.woman;
+                              gender = Gender.man;
+                              LshFirstPage();
+                              Lsh();
                             });
                           },
-                          color: gender == Gender.woman
+                          color: gender == Gender.man
                               ? bottomColor2
                               : bottomColor1,
                           child: Text(
-                            'text38'.tr().toString(),
+                            'text37'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
-                              color: gender == Gender.woman
+                              color: gender == Gender.man
                                   ? textColor2
                                   : textColor1,
                             ),
@@ -448,6 +483,8 @@ class _settingPageState extends State<settingPage> {
                           onPressed: () {
                             setState(() {
                               gender = Gender.other;
+                              LshFirstPage();
+                              Lsh();
                             });
                           },
                           color: gender == Gender.other
@@ -527,6 +564,8 @@ class _settingPageState extends State<settingPage> {
                                         onPressed: () {
                                           setState(() {
                                             model.Step();
+                                            Put();
+                                            Kkal();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -574,12 +613,45 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${Q}',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        var n = int.tryParse(value);
+                                        Kal = n;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.kal();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              Kal.toStringAsFixed(0),
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
                         )
                       ],
@@ -610,12 +682,45 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${km}',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: GestureDetector(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    content: TextField(
+                                      keyboardType: TextInputType.number,
+                                      decoration: InputDecoration(
+                                          border: OutlineInputBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(7))),
+                                      onChanged: (dynamic value) {
+                                        var n = double.tryParse(value);
+                                        km = n;
+                                      },
+                                    ),
+                                    actions: [
+                                      IconButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            model.KM();
+                                          });
+                                          Navigator.of(context).pop();
+                                        },
+                                        icon: Icon(Icons.done_outline_rounded),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                            child: Text(
+                              km.toStringAsFixed(1),
+                              style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF)),
+                            ),
                           ),
                         )
                       ],
@@ -663,7 +768,7 @@ class _settingPageState extends State<settingPage> {
                           child: PopupMenuButton(
                             child: Container(
                               child: Text(
-                                text,
+                                textForLang,
                                 style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -675,7 +780,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'RU');
-                                  text = Rus;
+                                  textForLang = Rus;
                                 },
                                 child: Text(
                                   Rus,
@@ -689,7 +794,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'EN');
-                                  text = Eng;
+                                  textForLang = Eng;
                                 },
                                 child: Text(
                                   Eng,
@@ -703,7 +808,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'TR');
-                                  text = Tr;
+                                  textForLang = Tr;
                                 },
                                 child: Text(
                                   Tr,
@@ -717,7 +822,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'DE');
-                                  text = De;
+                                  textForLang = De;
                                 },
                                 child: Text(
                                   De,
@@ -731,7 +836,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'ES');
-                                  text = Es;
+                                  textForLang = Es;
                                 },
                                 child: Text(
                                   Es,
@@ -745,7 +850,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'FR');
-                                  text = Fr;
+                                  textForLang = Fr;
                                 },
                                 child: Text(
                                   Fr,
@@ -759,7 +864,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'IN');
-                                  text = In;
+                                  textForLang = In;
                                 },
                                 child: Text(
                                   In,
@@ -773,7 +878,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'IT');
-                                  text = It;
+                                  textForLang = It;
                                 },
                                 child: Text(
                                   It,
@@ -787,7 +892,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'PL');
-                                  text = Pl;
+                                  textForLang = Pl;
                                 },
                                 child: Text(
                                   Pl,
@@ -801,7 +906,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   context.locale = Locale('en', 'PT');
-                                  text = Pt;
+                                  textForLang = Pt;
                                 },
                                 child: Text(
                                   Pt,
@@ -843,54 +948,93 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Container(
-                    width: 343,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15)),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 30),
-                          child: Text(
-                            'text47'.tr().toString(),
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: "Gilroy2",
-                              color: Colors.black,
+                          child: PopupMenuButton(
+                            child: Container(
+                              child: Text(
+                                textForEd,
+                                style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 18,
+                                  color: Color(0xff5F6CFF),
+                                ),
+                              ),
                             ),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            '${lsh} см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                            itemBuilder: (BuildContext bc) => [
+                              PopupMenuItem(
+                                onTap: () {
+                                  // context.locale = Locale('en', 'DE');
+                                  // textForEd = De;
+                                  meter();
+                                  textForEd = MeterRu;
+                                },
+                                child: Text(
+                                  MeterRu,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                              PopupMenuItem(
+                                onTap: () {
+                                  // context.locale = Locale('en', 'DE');
+                                  // text = "text54".tr().toString();
+                                  engl();
+                                  textForEd = EnglRu;
+                                },
+                                child: Text(
+                                  EnglRu,
+                                  style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         )
                       ],
                     ),
                   ),
                 ),
+                // Container(
+                //   padding: EdgeInsets.only(top: 10),
+                //   child: Container(
+                //     width: 343,
+                //     height: 40,
+                //     decoration: BoxDecoration(
+                //         color: Colors.white,
+                //         borderRadius: BorderRadius.circular(15)),
+                //     child: Row(
+                //       children: [
+                //         Container(
+                //           padding: EdgeInsets.only(left: 30),
+                //           child: Text(
+                //             'text47'.tr().toString(),
+                //             style: TextStyle(
+                //               fontSize: 16,
+                //               fontFamily: "Gilroy2",
+                //               color: Colors.black,
+                //             ),
+                //           ),
+                //         ),
+                //         Spacer(),
+                //         Container(
+                //           padding: EdgeInsets.only(right: 30),
+                //           child: Text(
+                //             ' см',
+                //             style: TextStyle(
+                //                 fontFamily: "Gilroy",
+                //                 fontSize: 18,
+                //                 color: Color(0xff5F6CFF)),
+                //           ),
+                //         )
+                //       ],
+                //     ),
+                //   ),
+                // ),
                 Container(
                   padding: EdgeInsets.only(
                     left: 16,
@@ -930,7 +1074,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(right: 30),
                           child: Text(
-                            '${lsh} см',
+                            ' см',
                             style: TextStyle(
                                 fontFamily: "Gilroy",
                                 fontSize: 18,
@@ -966,7 +1110,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(right: 30),
                           child: Text(
-                            '${lsh} см',
+                            ' см',
                             style: TextStyle(
                                 fontFamily: "Gilroy",
                                 fontSize: 18,
@@ -1007,4 +1151,18 @@ class _settingPageState extends State<settingPage> {
           )),
     );
   }
+}
+
+void engl() {
+  height = height / 2.5;
+  weight = weight / 453;
+  lsh = lsh / 2.5;
+  km = km / 0.3;
+}
+
+void meter() {
+  height = height * 2.5;
+  weight = weight * 453;
+  lsh = lsh * 2.5;
+  km = km * 0.3;
 }

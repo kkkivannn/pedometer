@@ -2,12 +2,16 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
 
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/NextPage.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 
 class HelloScreen extends StatelessWidget {
+  @override
+  void initState() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

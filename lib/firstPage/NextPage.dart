@@ -15,6 +15,7 @@ class NextButton extends StatefulWidget {
 
 class _NextButtonState extends State<NextButton> {
   final model = StorageModel();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -29,11 +30,12 @@ class _NextButtonState extends State<NextButton> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
             onPressed: () {
+              LshFirstPage();
               Steps();
-              Lsh();
               Kkal();
               Put();
               model.SaveNextPage();
+
               // model.Print();
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => SecondPage()));

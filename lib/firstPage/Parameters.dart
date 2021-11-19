@@ -12,9 +12,9 @@ class param extends StatefulWidget {
   _paramState createState() => _paramState();
 }
 
-var height = 120;
-var weight = 50;
-var age = 12;
+dynamic height = 120;
+dynamic weight = 50;
+dynamic age = 12;
 
 class _paramState extends State<param> {
   @override
@@ -78,7 +78,7 @@ class _paramState extends State<param> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          height++;
+                          height += 1;
                         });
                       },
                       icon: Icon(Icons.add_sharp),
