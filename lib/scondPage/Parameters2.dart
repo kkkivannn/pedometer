@@ -2,23 +2,23 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
-import 'package:sensors_plus/sensors_plus.dart';
-import 'dart:async';
 
 class Parameters2 extends StatefulWidget {
   @override
   _Parameters2State createState() => _Parameters2State();
 }
 
-late double lsh;
-var Kal;
+final model = StorageModel();
+
+var lsh;
+var kal;
 var km;
 var step;
-var kkal;
 
-void Steps() {
+void StepsNextPage() {
   if (age <= 18) {
     step = 15000;
   } else if (age > 18 && age <= 40) {
@@ -32,57 +32,80 @@ void Steps() {
   }
 }
 
-void Put() {
-  km = (step * lsh) / 100000;
+void Km() {
+  km = step * lsh / 100000;
 }
 
 void Lsh() {
   int i = 120;
-  if (gender == Gender.man) {
+  if (gender == 1) {
     for (var i = 120; i < height; i++) {
       lsh += 0.3;
     }
-  } else if (gender == Gender.woman) {
+  } else if (gender == 2) {
     for (var i = 120; i < height; i++) {
       lsh += 0.3;
     }
-  } else if (gender == Gender.other) {
+  } else if (gender == 3) {
     for (var i = 120; i < height; i++) {
+      lsh += 0.3;
+    }
+  }
+  Km();
+  model.KmSet();
+  model.KmGet();
+}
+
+void LshNextPage() {
+  int i = 120;
+  if (gender == 1) {
+    for (var i = 120; i < height; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == 2) {
+    for (var i = 120; i < height; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == 3) {
+    for (var i = 120; i < height; i++) {
+      lsh += 0.3;
+    }
+  }
+}
+
+void LshForGender() {
+  int i = 120;
+  if (gender == 1) {
+    for (var i = 120; i < heightGet; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == 2) {
+    for (var i = 120; i < heightGet; i++) {
+      lsh += 0.3;
+    }
+  } else if (gender == 3) {
+    for (var i = 120; i < heightGet; i++) {
       lsh += 0.3;
     }
   }
 }
 
 void LshFirstPage() {
-  int i = 120;
-  if (gender == Gender.man) {
+  if (gender == 1) {
     lsh = 59.0;
-  } else if (gender == Gender.woman) {
+  } else if (gender == 2) {
     lsh = 57.0;
-  } else if (gender == Gender.other) {
+  } else if (gender == 3) {
     lsh = 58.0;
   }
 }
 
 void Kkal() {
-  var k = 1;
-  Kal = ((k * weight * step * lsh).round()) / 100000;
+  var k = 0.8;
+  kal = k * weight * step * lsh / 100000;
 }
 
 class _Parameters2State extends State<Parameters2> {
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   userAccelerometerEvents.listen((UserAccelerometerEvent event) {
-  //     setState(() {
-  //       x = event.x;
-  //       y = event.y;
-  //       z = event.z;
-  //     });
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -151,7 +174,7 @@ class _Parameters2State extends State<Parameters2> {
                       alignment: Alignment.center,
                       padding: EdgeInsets.only(right: 34),
                       child: Text(
-                        Kal.toStringAsFixed(0),
+                        kal.toStringAsFixed(1),
                         style: TextStyle(
                             color: Color(0xff5F6CFF),
                             fontSize: 18,
@@ -184,7 +207,7 @@ class _Parameters2State extends State<Parameters2> {
                     alignment: Alignment.center,
                     padding: EdgeInsets.only(right: 34),
                     child: Text(
-                      '$km',
+                      km.toStringAsFixed(1),
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,

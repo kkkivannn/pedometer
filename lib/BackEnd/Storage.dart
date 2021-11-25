@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
 import 'package:pedometer/firstPage/Buttons.dart';
@@ -10,99 +10,129 @@ import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final Storage = SharedPreferences.getInstance();
+dynamic heightGet;
+dynamic weightGet;
+dynamic ageGet;
+dynamic stepsGet;
+dynamic kmGet;
+dynamic kalGet;
+dynamic genderGet;
 
 class StorageModel {
-  Future<void> SaveNextPage() async {
+  Future<void> SaveNextPageSet() async {
     final storage = await Storage;
-    final Height = storage.setInt('height', height);
-    final Weight = storage.setInt('weight', weight);
-    final Age = storage.setInt('age', age);
+    storage.setDouble('height', height);
+    storage.setDouble('weight', weight);
+    storage.setInt('age', age);
   }
 
-  Future<void> SaveReady() async {
+  Future<void> SaveNextPageGet() async {
     final storage = await Storage;
-    final Steps = storage.setInt('steps', step);
-    final Km = storage.setDouble('km', km);
-    final kal = storage.setDouble('Kal', Kal);
+    heightGet = storage.getDouble('height');
+    weightGet = storage.getDouble('weight');
+    ageGet = storage.getInt('age');
   }
 
-  // Future<void> Print() async {
-  //   final storage = await _storage;
-  //   final Height = storage.getInt('height');
-  //   print(Height);
-  // }
-  Future<void> check() async {
+  Future<void> SaveReadySet() async {
     final storage = await Storage;
-    if (storage.containsKey('height')) {
-      Activity();
-    }
+    storage.setInt('step', step);
+    storage.setDouble('km', km);
+    storage.setDouble('kal', kal);
+    storage.setDouble('lsh', lsh);
   }
 
-  Future<void> Step() async {
+  Future<void> SaveReadyGet() async {
     final storage = await Storage;
-    final Steps = storage.setInt('steps', step);
+    stepsGet = storage.getInt('step');
+    kmGet = storage.getDouble('km');
+    kalGet = storage.getDouble('kal');
+    lshGet = storage.getDouble('lsh');
   }
 
-  Future<void> Height() async {
+  Future<void> StepSet() async {
     final storage = await Storage;
-    final Height = storage.setInt('Height', height);
+    storage.setInt('step', step);
   }
 
-  Future<void> Weight() async {
+  Future<void> StepGet() async {
     final storage = await Storage;
-    final Weight = storage.setInt('Weight', weight);
+    stepsGet = storage.getInt('step');
   }
 
-  Future<void> Age() async {
+  Future<void> HeightSet() async {
     final storage = await Storage;
-    final Age = storage.setInt('Age', age);
+    storage.setDouble('height', height);
   }
 
-  Future<void> Lsh() async {
+  Future<void> HeightGet() async {
     final storage = await Storage;
-    final Lsh = storage.setDouble('Lsh', lsh);
+    heightGet = storage.getDouble('height');
   }
 
-  Future<void> kal() async {
+  Future<void> WeightSet() async {
     final storage = await Storage;
-    final kal = storage.setDouble('Kal', Kal);
+    storage.setDouble('weight', weight);
   }
 
-  Future<void> KM() async {
+  Future<void> WeightGet() async {
     final storage = await Storage;
-    final KM = storage.setDouble('Km', km);
+    weightGet = storage.getDouble('weight');
+  }
+
+  Future<void> AgeSet() async {
+    final storage = await Storage;
+    storage.setInt('age', age);
+  }
+
+  Future<void> AgeGet() async {
+    final storage = await Storage;
+    ageGet = storage.getInt('age');
+  }
+
+  Future<void> LshSet() async {
+    final storage = await Storage;
+    storage.setDouble('lsh', lsh);
+  }
+
+  Future<void> LshGet() async {
+    final storage = await Storage;
+    lshGet = storage.getDouble('lsh');
+  }
+
+  Future<void> KalSet() async {
+    final storage = await Storage;
+    storage.setDouble('kal', kal);
+  }
+
+  Future<void> KalGet() async {
+    final storage = await Storage;
+    kalGet = storage.getDouble('kal');
+  }
+
+  Future<void> KmSet() async {
+    final storage = await Storage;
+    storage.setDouble('km', km);
+  }
+
+  Future<void> KmGet() async {
+    final storage = await Storage;
+    kmGet = storage.getDouble('km');
+  }
+
+  Future<void> GenderSet() async {
+    final storage = await Storage;
+    storage.setInt('gender', gender);
+  }
+
+  Future<void> GenderGet() async {
+    final storage = await Storage;
+    genderGet = storage.getInt('gender');
   }
 }
 
-// class FirstLogIn {
-//   Future<void> checkLogin() async {
-//     final storage = await Storage;
-//     if (cheked = true) {
-//       print(cheked);
-//       Activity();
-//     }
-//   }
-// }
-// class FirstLogIn extends StatelessWidget {
-//   final model = FirstLogIn();
-//   void checkLogin() {
-//     final storage = Storage;
-//     if (cheked == true) {
-//       print(cheked);
-//       Activity();
-//     } else if (cheked == false) {
-//       HelloScreen();
-//     }
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     checkLogin();
-//     return Container();
-//   }
-// }
-
 late final checked;
+dynamic lshGet;
+dynamic langGet;
 
 class LogIn {
   final Storage = SharedPreferences.getInstance();

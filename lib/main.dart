@@ -13,14 +13,7 @@ import 'thirdPage/thirdPageVTWO.dart';
 final model2 = LogIn();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   model2.login();
-  // final model = LogIn();
-  // model.ligin();
-  // SharedPreferences prefs = await SharedPreferences.getInstance(); // Хранилище
-  // banner = (prefs.getBool('banner') ?? true);
-  // final model = LogIn();
-  // model.ligin();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     child: MyApp(),
@@ -59,30 +52,6 @@ class _MyAppState extends State<MyApp> {
   }
 }
 
-// class splashScreen extends StatefulWidget {
-//   splashScreen(Future<SharedPreferences> Storage);
-
-//   @override
-//   _splashScreenState createState() => _splashScreenState();
-// }
-
-// class _splashScreenState extends State<splashScreen> {
-//   final model = LogIn();
-//   @override
-//   Widget build(BuildContext context) {
-//     model.Set();
-//     return SplashScreenView(
-//       navigateRoute: HelloScreen(),
-//       backgroundColor: Colors.white,
-//       imageSrc: "images/Vector2.png",
-//       duration: 100,
-//       imageSize: 50,
-//       text: "load".tr().toString(),
-//       textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
-//     );
-//   }
-// }
-@override
 Widget splashScreen() {
   return SplashScreenView(
     navigateRoute: HelloScreen(),
@@ -95,7 +64,6 @@ Widget splashScreen() {
   );
 }
 
-@override
 Widget splashScreen2() {
   return SplashScreenView(
     navigateRoute: Activity(),
@@ -107,23 +75,3 @@ Widget splashScreen2() {
     textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
   );
 }
-// class splashScreen2 extends StatefulWidget {
-//   splashScreen2(Future<SharedPreferences> Storage);
-//   @override
-//   _splashScreen2State createState() => _splashScreen2State();
-// }
-
-// class _splashScreen2State extends State<splashScreen2> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return SplashScreenView(
-//       navigateRoute: Activity(),
-//       backgroundColor: Colors.white,
-//       imageSrc: "images/Vector2.png",
-//       duration: 100,
-//       imageSize: 50,
-//       text: "load".tr().toString(),
-//       textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
-//     );
-//   }
-// }

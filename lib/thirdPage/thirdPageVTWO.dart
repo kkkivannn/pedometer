@@ -13,13 +13,18 @@ class Activity extends StatefulWidget {
   ActivityState createState() => ActivityState();
 }
 
+final model = StorageModel();
+
 class ActivityState extends State<Activity> {
-  void settings() {
-    setState(() {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => settingPage()));
-    });
-  }
+  // void settings() {
+  //   setState(() {
+  //     model.SaveNextPageGet();
+  //     model.SaveReadyGet();
+  //     model.GenderGet();
+  //     Navigator.push(
+  //         context, MaterialPageRoute(builder: (context) => settingPage()));
+  //   });
+  // }
 
   final model = StorageModel();
   @override
@@ -29,8 +34,6 @@ class ActivityState extends State<Activity> {
         child: Column(
           children: [
             Container(
-              // width: 475,
-              // height: 220,
               decoration: BoxDecoration(
                 color: Color(0xff5F6CFF),
               ),
@@ -51,7 +54,15 @@ class ActivityState extends State<Activity> {
                         Spacer(),
                         IconButton(
                           onPressed: () {
-                            settings();
+                            setState(() {
+                              model.SaveNextPageGet();
+                              model.SaveReadyGet();
+                              model.GenderGet();
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => settingPage()));
+                            });
                           },
                           icon: Image.asset(
                             'icons/settings2.png',

@@ -12,9 +12,9 @@ class param extends StatefulWidget {
   _paramState createState() => _paramState();
 }
 
-dynamic height = 120;
-dynamic weight = 50;
-dynamic age = 12;
+dynamic height = 120.0;
+dynamic weight = 50.0;
+dynamic age = 12.0;
 
 class _paramState extends State<param> {
   @override

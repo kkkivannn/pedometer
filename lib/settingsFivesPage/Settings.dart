@@ -1,15 +1,14 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, file_names, constant_identifier_names
-
-import 'dart:developer';
+import 'dart:ui';
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pedometer/BackEnd/Storage.dart';
-
 import 'package:pedometer/firstPage/Buttons.dart';
 import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer/firstPage/colors.dart';
+import 'package:pedometer/main.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
 import 'package:pedometer/settingsFivesPage/langs.dart';
 
@@ -18,14 +17,14 @@ class settingPage extends StatefulWidget {
   _settingPageState createState() => _settingPageState();
 }
 
-String textForLang = "text52".tr().toString();
-String textForEd = "text52".tr().toString();
-// String newText1 = "text54".tr().toString();
-// String newText2 = "text55".tr().toString();
-dynamic value;
+bool push = true;
+
+String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
 
 class _settingPageState extends State<settingPage> {
+  String textForEd = 'text56'.tr().toString();
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -143,8 +142,7 @@ class _settingPageState extends State<settingPage> {
                                               borderRadius:
                                                   BorderRadius.circular(10))),
                                       onChanged: (var value) {
-                                        var n = int.tryParse(value);
-                                        height = n;
+                                        height = int.tryParse(value);
                                       },
                                     ),
                                     actions: [
@@ -156,9 +154,13 @@ class _settingPageState extends State<settingPage> {
                                             } else if (height < 120) {
                                               height = 120;
                                             }
-                                            model.Height();
-                                            Lsh();
                                           });
+                                          model.HeightSet();
+                                          model.HeightGet();
+                                          LshFirstPage();
+                                          LshNextPage();
+                                          model.LshSet();
+                                          model.LshGet();
                                           Navigator.of(context).pop();
                                         },
                                         icon: Icon(Icons.done_outline_rounded),
@@ -169,7 +171,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${height} см',
+                              '$heightGet см',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -217,9 +219,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (var value) {
-                                        var ves = int.tryParse(value);
-                                        weight = ves;
+                                      onChanged: (String value) {
+                                        weight = int.tryParse(value);
                                       },
                                     ),
                                     actions: [
@@ -229,8 +230,11 @@ class _settingPageState extends State<settingPage> {
                                             if (weight < 50) {
                                               weight = 50;
                                             }
-                                            model.Weight();
+                                            model.WeightSet();
+                                            model.WeightGet();
                                             Kkal();
+                                            model.KalSet();
+                                            model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -242,7 +246,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${weight} кг',
+                              '${weightGet} кг',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -291,8 +295,7 @@ class _settingPageState extends State<settingPage> {
                                               borderRadius:
                                                   BorderRadius.circular(7))),
                                       onChanged: (dynamic value) {
-                                        var let = int.tryParse(value);
-                                        age = let;
+                                        age = int.tryParse(value);
                                       },
                                     ),
                                     actions: [
@@ -304,8 +307,14 @@ class _settingPageState extends State<settingPage> {
                                             age = 12;
                                           }
                                           setState(() {
-                                            model.Age();
-                                            Steps();
+                                            model.AgeSet();
+                                            model.AgeGet();
+                                            StepsNextPage();
+                                            model.StepSet();
+                                            model.StepGet();
+                                            Kkal();
+                                            model.KalSet();
+                                            model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -317,7 +326,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${age}',
+                              '${ageGet}',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -356,46 +365,12 @@ class _settingPageState extends State<settingPage> {
                             Spacer(),
                             Container(
                               padding: EdgeInsets.only(right: 30),
-                              child: GestureDetector(
-                                onTap: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return AlertDialog(
-                                        content: TextField(
-                                          keyboardType: TextInputType.number,
-                                          decoration: InputDecoration(
-                                              border: OutlineInputBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          7))),
-                                          onChanged: (dynamic value) {
-                                            lsh = value;
-                                          },
-                                        ),
-                                        actions: [
-                                          IconButton(
-                                            onPressed: () {
-                                              setState(() {
-                                                model.Lsh();
-                                              });
-                                              Navigator.of(context).pop();
-                                            },
-                                            icon: Icon(
-                                                Icons.done_outline_rounded),
-                                          ),
-                                        ],
-                                      );
-                                    },
-                                  );
-                                },
-                                child: Text(
-                                  '${lsh.toStringAsFixed(1)} см',
-                                  style: TextStyle(
-                                      fontFamily: "Gilroy",
-                                      fontSize: 18,
-                                      color: Color(0xff5F6CFF)),
-                                ),
+                              child: Text(
+                                '${lshGet.toStringAsFixed(1)} см',
+                                style: TextStyle(
+                                    fontFamily: "Gilroy",
+                                    fontSize: 18,
+                                    color: Color(0xff5F6CFF)),
                               ),
                             )
                           ],
@@ -421,22 +396,28 @@ class _settingPageState extends State<settingPage> {
                                 borderRadius: BorderRadius.circular(15)),
                             onPressed: () {
                               setState(() {
-                                gender = Gender.woman;
+                                gender = 2;
+                                model.GenderSet();
+                                model.GenderGet();
                                 LshFirstPage();
-                                Lsh();
+                                LshForGender();
+                                StepsNextPage();
+                                model.StepSet();
+                                model.StepGet();
+                                model.LshSet();
+                                model.LshGet();
+                                Kkal();
+                                model.KalSet();
+                                model.KalGet();
                               });
                             },
-                            color: gender == Gender.woman
-                                ? bottomColor2
-                                : bottomColor1,
+                            color: genderGet == 2 ? bottomColor2 : bottomColor1,
                             child: Text(
                               'text38'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: "Gilroy2",
                                 fontSize: 14,
-                                color: gender == Gender.woman
-                                    ? textColor2
-                                    : textColor1,
+                                color: genderGet == 2 ? textColor2 : textColor1,
                               ),
                             ),
                           ),
@@ -452,22 +433,29 @@ class _settingPageState extends State<settingPage> {
                               borderRadius: BorderRadius.circular(15)),
                           onPressed: () {
                             setState(() {
-                              gender = Gender.man;
+                              gender = 1;
+                              model.GenderSet();
+                              model.GenderGet();
+
                               LshFirstPage();
-                              Lsh();
+                              LshForGender();
+                              StepsNextPage();
+                              model.StepSet();
+                              model.StepGet();
+                              model.LshSet();
+                              model.LshGet();
+                              Kkal();
+                              model.KalSet();
+                              model.KalGet();
                             });
                           },
-                          color: gender == Gender.man
-                              ? bottomColor2
-                              : bottomColor1,
+                          color: genderGet == 1 ? bottomColor2 : bottomColor1,
                           child: Text(
                             'text37'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
-                              color: gender == Gender.man
-                                  ? textColor2
-                                  : textColor1,
+                              color: genderGet == 1 ? textColor2 : textColor1,
                             ),
                           ),
                         ),
@@ -482,22 +470,29 @@ class _settingPageState extends State<settingPage> {
                               borderRadius: BorderRadius.circular(15)),
                           onPressed: () {
                             setState(() {
-                              gender = Gender.other;
+                              gender = 3;
+                              model.GenderSet();
+                              model.GenderGet();
+
                               LshFirstPage();
-                              Lsh();
+                              LshForGender();
+                              StepsNextPage();
+                              model.StepSet();
+                              model.StepGet();
+                              model.LshSet();
+                              model.LshGet();
+                              Kkal();
+                              model.KalSet();
+                              model.KalGet();
                             });
                           },
-                          color: gender == Gender.other
-                              ? bottomColor2
-                              : bottomColor1,
+                          color: genderGet == 3 ? bottomColor2 : bottomColor1,
                           child: Text(
                             'text39'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
-                              color: gender == Gender.other
-                                  ? textColor2
-                                  : textColor1,
+                              color: genderGet == 3 ? textColor2 : textColor1,
                             ),
                           ),
                         ),
@@ -555,18 +550,24 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        step = value;
+                                      onChanged: (String value) {
+                                        step = int.parse(value);
                                       },
                                     ),
                                     actions: [
                                       IconButton(
                                         onPressed: () {
                                           setState(() {
-                                            model.Step();
-                                            Put();
+                                            model.StepSet();
+                                            model.StepGet();
                                             Kkal();
+                                            model.KalSet();
+                                            model.KalGet();
+                                            Km();
+                                            model.KmSet();
+                                            model.KmGet();
                                           });
+
                                           Navigator.of(context).pop();
                                         },
                                         icon: Icon(Icons.done_outline_rounded),
@@ -577,7 +578,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${step}',
+                              '$stepsGet',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -613,45 +614,12 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: GestureDetector(
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    content: TextField(
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        var n = int.tryParse(value);
-                                        Kal = n;
-                                      },
-                                    ),
-                                    actions: [
-                                      IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            model.kal();
-                                          });
-                                          Navigator.of(context).pop();
-                                        },
-                                        icon: Icon(Icons.done_outline_rounded),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            child: Text(
-                              Kal.toStringAsFixed(0),
-                              style: TextStyle(
-                                  fontFamily: "Gilroy",
-                                  fontSize: 18,
-                                  color: Color(0xff5F6CFF)),
-                            ),
+                          child: Text(
+                            '${kalGet.toStringAsFixed(1)}',
+                            style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF)),
                           ),
                         )
                       ],
@@ -682,45 +650,12 @@ class _settingPageState extends State<settingPage> {
                         Spacer(),
                         Container(
                           padding: EdgeInsets.only(right: 30),
-                          child: GestureDetector(
-                            onTap: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    content: TextField(
-                                      keyboardType: TextInputType.number,
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        var n = double.tryParse(value);
-                                        km = n;
-                                      },
-                                    ),
-                                    actions: [
-                                      IconButton(
-                                        onPressed: () {
-                                          setState(() {
-                                            model.KM();
-                                          });
-                                          Navigator.of(context).pop();
-                                        },
-                                        icon: Icon(Icons.done_outline_rounded),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            },
-                            child: Text(
-                              km.toStringAsFixed(1),
-                              style: TextStyle(
-                                  fontFamily: "Gilroy",
-                                  fontSize: 18,
-                                  color: Color(0xff5F6CFF)),
-                            ),
+                          child: Text(
+                            '${kmGet.toStringAsFixed(1)}',
+                            style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF)),
                           ),
                         )
                       ],
@@ -779,8 +714,10 @@ class _settingPageState extends State<settingPage> {
                             itemBuilder: (BuildContext bc) => [
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'RU');
-                                  textForLang = Rus;
+                                  setState(() {
+                                    context.locale = Locale('en', 'RU');
+                                    textForLang = Rus;
+                                  });
                                 },
                                 child: Text(
                                   Rus,
@@ -961,14 +898,19 @@ class _settingPageState extends State<settingPage> {
                             ),
                             itemBuilder: (BuildContext bc) => [
                               PopupMenuItem(
-                                onTap: () {
-                                  // context.locale = Locale('en', 'DE');
-                                  // textForEd = De;
-                                  meter();
-                                  textForEd = MeterRu;
+                                onTap: () async {
+                                  setState(() {
+                                    meter();
+                                    // var select = 'text54'.tr().toString();
+                                    // textForEd = select;
+                                    // if (!push) {
+                                    //   meter();
+                                    //   push = true;
+                                    // }
+                                  });
                                 },
                                 child: Text(
-                                  MeterRu,
+                                  'text54'.tr().toString(),
                                   style: TextStyle(
                                     fontFamily: "Gilroy",
                                     fontSize: 18,
@@ -977,14 +919,19 @@ class _settingPageState extends State<settingPage> {
                                 ),
                               ),
                               PopupMenuItem(
-                                onTap: () {
-                                  // context.locale = Locale('en', 'DE');
-                                  // text = "text54".tr().toString();
-                                  engl();
-                                  textForEd = EnglRu;
+                                onTap: () async {
+                                  setState(() {
+                                    engl();
+                                    // var select = 'text55'.tr().toString();
+                                    // textForEd = select;
+                                    // if (push) {
+                                    //   engl();
+                                    //   push = false;
+                                    // }
+                                  });
                                 },
                                 child: Text(
-                                  EnglRu,
+                                  'text55'.tr().toString(),
                                   style: TextStyle(
                                     fontFamily: "Gilroy",
                                     fontSize: 18,
@@ -999,42 +946,6 @@ class _settingPageState extends State<settingPage> {
                     ),
                   ),
                 ),
-                // Container(
-                //   padding: EdgeInsets.only(top: 10),
-                //   child: Container(
-                //     width: 343,
-                //     height: 40,
-                //     decoration: BoxDecoration(
-                //         color: Colors.white,
-                //         borderRadius: BorderRadius.circular(15)),
-                //     child: Row(
-                //       children: [
-                //         Container(
-                //           padding: EdgeInsets.only(left: 30),
-                //           child: Text(
-                //             'text47'.tr().toString(),
-                //             style: TextStyle(
-                //               fontSize: 16,
-                //               fontFamily: "Gilroy2",
-                //               color: Colors.black,
-                //             ),
-                //           ),
-                //         ),
-                //         Spacer(),
-                //         Container(
-                //           padding: EdgeInsets.only(right: 30),
-                //           child: Text(
-                //             ' см',
-                //             style: TextStyle(
-                //                 fontFamily: "Gilroy",
-                //                 fontSize: 18,
-                //                 color: Color(0xff5F6CFF)),
-                //           ),
-                //         )
-                //       ],
-                //     ),
-                //   ),
-                // ),
                 Container(
                   padding: EdgeInsets.only(
                     left: 16,
@@ -1154,15 +1065,36 @@ class _settingPageState extends State<settingPage> {
 }
 
 void engl() {
-  height = height / 2.5;
-  weight = weight / 453;
-  lsh = lsh / 2.5;
-  km = km / 0.3;
+  height = double.parse((heightGet / 2.5).toStringAsFixed(1));
+  weight = double.parse((weightGet / 453).toStringAsFixed(1));
+  lsh = double.parse((lshGet / 2.5).toStringAsFixed(1));
+  km = double.parse((kmGet / 0.3).toStringAsFixed(1));
+  model.HeightSet();
+  model.HeightGet();
+  model.WeightSet();
+  model.WeightGet();
+  model.LshSet();
+  model.LshGet();
+  model.KmSet();
+  model.KmGet();
 }
 
 void meter() {
-  height = height * 2.5;
-  weight = weight * 453;
-  lsh = lsh * 2.5;
-  km = km * 0.3;
+  heightGet = num.parse((heightGet * 2.5).toStringAsFixed(1));
+  if (weightGet < 50) {
+    weightGet = 50;
+  } else {
+    weightGet = num.parse((weightGet * 453).toStringAsFixed(1));
+  }
+
+  lshGet = double.parse((lshGet * 2.5).toStringAsFixed(1));
+  kmGet = num.parse((kmGet * 0.3).toStringAsFixed(1));
+  model.HeightSet();
+  model.HeightGet();
+  model.WeightSet();
+  model.WeightGet();
+  model.LshSet();
+  model.LshGet();
+  model.KmSet();
+  model.KmGet();
 }

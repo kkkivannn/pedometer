@@ -1,13 +1,11 @@
-// ignore_for_file: file_names, prefer_const_constructors, dead_code
+// ignore_for_file: file_names, prefer_const_constructors, dead_code, implementation_imports
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer/main.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
-
 import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
-// import 'package:sizer/sizer.dart';
 
 class ButtonReady extends StatefulWidget {
   @override
@@ -31,9 +29,9 @@ class _ButtonReadyState extends State<ButtonReady> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
                 onPressed: () {
-                  Lsh();
-                  model.SaveReady();
-                  model2.Set();
+                  model.SaveReadySet();
+                  model.SaveReadyGet();
+
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Activity()));
                 },
