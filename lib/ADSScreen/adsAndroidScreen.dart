@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class adsAndroid extends StatefulWidget {
@@ -20,7 +21,7 @@ class _adsAndroidState extends State<adsAndroid> {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.only(),
+                  padding: EdgeInsets.only(left: 16, top: 25),
                   child: Text(
                     'X',
                     style: TextStyle(
@@ -30,8 +31,40 @@ class _adsAndroidState extends State<adsAndroid> {
                     ),
                   ),
                 ),
+                Spacer(),
+                Container(
+                  padding: EdgeInsets.only(right: 16, top: 25),
+                  child: Image(
+                    height: 25,
+                    width: 25,
+                    color: Colors.white,
+                    image: AssetImage('icons/settings2.png'),
+                  ),
+                ),
               ],
-            )
+            ),
+            Spacer(),
+            Container(
+              child: Text(
+                "text57".tr().toString(),
+                style: TextStyle(
+                  fontFamily: "Gilroy",
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Spacer(),
+            Container(
+              child: Text(
+                "text57".tr().toString(),
+                style: TextStyle(
+                  fontFamily: "Gilroy",
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
           ],
         ),
       ),

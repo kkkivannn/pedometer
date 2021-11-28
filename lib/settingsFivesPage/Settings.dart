@@ -17,8 +17,6 @@ class settingPage extends StatefulWidget {
   _settingPageState createState() => _settingPageState();
 }
 
-bool push = true;
-
 String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
 
@@ -436,7 +434,6 @@ class _settingPageState extends State<settingPage> {
                               gender = 1;
                               model.GenderSet();
                               model.GenderGet();
-
                               LshFirstPage();
                               LshForGender();
                               StepsNextPage();
@@ -473,7 +470,6 @@ class _settingPageState extends State<settingPage> {
                               gender = 3;
                               model.GenderSet();
                               model.GenderGet();
-
                               LshFirstPage();
                               LshForGender();
                               StepsNextPage();
@@ -900,13 +896,12 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   setState(() {
-                                    meter();
-                                    // var select = 'text54'.tr().toString();
-                                    // textForEd = select;
-                                    // if (!push) {
-                                    //   meter();
-                                    //   push = true;
-                                    // }
+                                    if (pushGet == 0) {
+                                      push = 1;
+                                      model.SetFlag();
+                                      model.GetFlag();
+                                      meter();
+                                    }
                                   });
                                 },
                                 child: Text(
@@ -921,13 +916,12 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   setState(() {
-                                    engl();
-                                    // var select = 'text55'.tr().toString();
-                                    // textForEd = select;
-                                    // if (push) {
-                                    //   engl();
-                                    //   push = false;
-                                    // }
+                                    if (pushGet == 1) {
+                                      push = 0;
+                                      model.SetFlag();
+                                      model.GetFlag();
+                                      engl();
+                                    }
                                   });
                                 },
                                 child: Text(
@@ -1066,9 +1060,10 @@ class _settingPageState extends State<settingPage> {
 
 void engl() {
   height = double.parse((heightGet / 2.5).toStringAsFixed(1));
-  weight = double.parse((weightGet / 453).toStringAsFixed(1));
+  weight = double.parse((weightGet / 0.453).toStringAsFixed(1));
   lsh = double.parse((lshGet / 2.5).toStringAsFixed(1));
-  km = double.parse((kmGet / 0.3).toStringAsFixed(1));
+  km = double.parse(((kmGet * 1000) / 2.5).toStringAsFixed(1));
+
   model.HeightSet();
   model.HeightGet();
   model.WeightSet();
@@ -1080,15 +1075,16 @@ void engl() {
 }
 
 void meter() {
-  heightGet = num.parse((heightGet * 2.5).toStringAsFixed(1));
-  if (weightGet < 50) {
-    weightGet = 50;
+  height = double.parse((heightGet * 2.5).toStringAsFixed(1));
+  if (weight < 50) {
+    weight = 50;
   } else {
-    weightGet = num.parse((weightGet * 453).toStringAsFixed(1));
+    weight = double.parse((weightGet * 0.453).toStringAsFixed(1));
   }
 
-  lshGet = double.parse((lshGet * 2.5).toStringAsFixed(1));
-  kmGet = num.parse((kmGet * 0.3).toStringAsFixed(1));
+  lsh = double.parse((lshGet * 2.5).toStringAsFixed(1));
+  km = double.parse(((kmGet / 1000) * 2.5).toStringAsFixed(1));
+
   model.HeightSet();
   model.HeightGet();
   model.WeightSet();
@@ -1097,4 +1093,16 @@ void meter() {
   model.LshGet();
   model.KmSet();
   model.KmGet();
+}
+
+void englForLsh() {
+  if (push) {
+    lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
+  }
+}
+
+void meterlForLsh() {
+  if (!push) {
+    lsh = double.parse((lsh * 2.5).toStringAsFixed(1));
+  }
 }

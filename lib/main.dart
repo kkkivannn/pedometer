@@ -47,6 +47,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
+      // home: adsAndroid(),
       home: (checked) ? splashScreen() : splashScreen2(),
     );
   }

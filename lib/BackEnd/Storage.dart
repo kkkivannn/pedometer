@@ -10,13 +10,15 @@ import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final Storage = SharedPreferences.getInstance();
-dynamic heightGet;
-dynamic weightGet;
+double heightGet = 0;
+double weightGet = 0;
 dynamic ageGet;
 dynamic stepsGet;
-dynamic kmGet;
-dynamic kalGet;
+double kmGet = 0;
+double kalGet = 0;
 dynamic genderGet;
+dynamic push;
+dynamic pushGet;
 
 class StorageModel {
   Future<void> SaveNextPageSet() async {
@@ -28,8 +30,8 @@ class StorageModel {
 
   Future<void> SaveNextPageGet() async {
     final storage = await Storage;
-    heightGet = storage.getDouble('height');
-    weightGet = storage.getDouble('weight');
+    heightGet = storage.getDouble('height')!;
+    weightGet = storage.getDouble('weight')!;
     ageGet = storage.getInt('age');
   }
 
@@ -44,8 +46,8 @@ class StorageModel {
   Future<void> SaveReadyGet() async {
     final storage = await Storage;
     stepsGet = storage.getInt('step');
-    kmGet = storage.getDouble('km');
-    kalGet = storage.getDouble('kal');
+    kmGet = storage.getDouble('km')!;
+    kalGet = storage.getDouble('kal')!;
     lshGet = storage.getDouble('lsh');
   }
 
@@ -66,7 +68,7 @@ class StorageModel {
 
   Future<void> HeightGet() async {
     final storage = await Storage;
-    heightGet = storage.getDouble('height');
+    heightGet = storage.getDouble('height')!;
   }
 
   Future<void> WeightSet() async {
@@ -76,7 +78,7 @@ class StorageModel {
 
   Future<void> WeightGet() async {
     final storage = await Storage;
-    weightGet = storage.getDouble('weight');
+    weightGet = storage.getDouble('weight')!;
   }
 
   Future<void> AgeSet() async {
@@ -106,7 +108,7 @@ class StorageModel {
 
   Future<void> KalGet() async {
     final storage = await Storage;
-    kalGet = storage.getDouble('kal');
+    kalGet = storage.getDouble('kal')!;
   }
 
   Future<void> KmSet() async {
@@ -116,7 +118,7 @@ class StorageModel {
 
   Future<void> KmGet() async {
     final storage = await Storage;
-    kmGet = storage.getDouble('km');
+    kmGet = storage.getDouble('km')!;
   }
 
   Future<void> GenderSet() async {
@@ -127,6 +129,16 @@ class StorageModel {
   Future<void> GenderGet() async {
     final storage = await Storage;
     genderGet = storage.getInt('gender');
+  }
+
+  Future<void> SetFlag() async {
+    final storage = await Storage;
+    storage.setInt('push', push);
+  }
+
+  Future<void> GetFlag() async {
+    final storage = await Storage;
+    pushGet = storage.getInt('push');
   }
 }
 

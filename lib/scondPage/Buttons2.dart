@@ -31,7 +31,8 @@ class _ButtonReadyState extends State<ButtonReady> {
                 onPressed: () {
                   model.SaveReadySet();
                   model.SaveReadyGet();
-
+                  model.SetFlag();
+                  model.GetFlag();
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => Activity()));
                 },

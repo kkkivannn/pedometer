@@ -34,6 +34,7 @@ class _NextButtonState extends State<NextButton> {
               StepsNextPage();
               Km();
               Kkal();
+              push = 1;
               model.SaveNextPageSet();
               model.SaveNextPageGet();
               model.GenderSet();

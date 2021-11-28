@@ -88,6 +88,9 @@ void LshForGender() {
       lsh += 0.3;
     }
   }
+  if (push == 0) {
+    lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
+  }
 }
 
 void LshFirstPage() {

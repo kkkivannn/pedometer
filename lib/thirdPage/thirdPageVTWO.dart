@@ -58,6 +58,7 @@ class ActivityState extends State<Activity> {
                               model.SaveNextPageGet();
                               model.SaveReadyGet();
                               model.GenderGet();
+                              model.GetFlag();
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
