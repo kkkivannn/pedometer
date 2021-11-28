@@ -16,16 +16,6 @@ class Activity extends StatefulWidget {
 final model = StorageModel();
 
 class ActivityState extends State<Activity> {
-  // void settings() {
-  //   setState(() {
-  //     model.SaveNextPageGet();
-  //     model.SaveReadyGet();
-  //     model.GenderGet();
-  //     Navigator.push(
-  //         context, MaterialPageRoute(builder: (context) => settingPage()));
-  //   });
-  // }
-
   final model = StorageModel();
   @override
   Widget build(BuildContext context) {

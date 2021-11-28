@@ -19,6 +19,15 @@ double kalGet = 0;
 dynamic genderGet;
 dynamic push;
 dynamic pushGet;
+dynamic Kg;
+dynamic CmHight;
+dynamic CmStep;
+dynamic foot;
+dynamic inch;
+dynamic mile;
+dynamic GetIs1;
+dynamic GetIs2;
+dynamic GetIs3;
 
 class StorageModel {
   Future<void> SaveNextPageSet() async {

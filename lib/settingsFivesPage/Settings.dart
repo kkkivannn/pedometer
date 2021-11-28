@@ -19,12 +19,21 @@ class settingPage extends StatefulWidget {
 
 String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
+late String Ism;
+void IsmSet() {
+  if (pushGet == 1) {
+    Ism = "Metric system";
+  } else if (pushGet == 0) {
+    Ism = "Anglican system";
+  }
+}
 
 class _settingPageState extends State<settingPage> {
   String textForEd = 'text56'.tr().toString();
 
   @override
   Widget build(BuildContext context) {
+    IsmSet();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Color(0xff5F6CFF),
@@ -91,7 +100,6 @@ class _settingPageState extends State<settingPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    left: 16,
                     top: 26,
                   ),
                   child: Text(
@@ -101,6 +109,16 @@ class _settingPageState extends State<settingPage> {
                       fontSize: 14,
                       color: Color(0xffA0A8FF),
                     ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(top: 5),
+                  child: Text(
+                    Ism,
+                    style: TextStyle(
+                        fontFamily: "Gilroy",
+                        fontSize: 16,
+                        color: Colors.white),
                   ),
                 ),
                 Container(
@@ -169,14 +187,14 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '$heightGet см',
+                              '$heightGet',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
                                   color: Color(0xff5F6CFF)),
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -244,7 +262,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${weightGet} кг',
+                              '${weightGet}',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -364,7 +382,7 @@ class _settingPageState extends State<settingPage> {
                             Container(
                               padding: EdgeInsets.only(right: 30),
                               child: Text(
-                                '${lshGet.toStringAsFixed(1)} см',
+                                '${lshGet.toStringAsFixed(1)}',
                                 style: TextStyle(
                                     fontFamily: "Gilroy",
                                     fontSize: 18,
@@ -498,7 +516,6 @@ class _settingPageState extends State<settingPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    left: 16,
                     top: 26,
                   ),
                   child: Text(
@@ -660,7 +677,6 @@ class _settingPageState extends State<settingPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    left: 16,
                     top: 26,
                   ),
                   child: Text(
@@ -942,7 +958,6 @@ class _settingPageState extends State<settingPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(
-                    left: 16,
                     top: 26,
                   ),
                   child: Text(
@@ -1062,7 +1077,7 @@ void engl() {
   height = double.parse((heightGet / 2.5).toStringAsFixed(1));
   weight = double.parse((weightGet / 0.453).toStringAsFixed(1));
   lsh = double.parse((lshGet / 2.5).toStringAsFixed(1));
-  km = double.parse(((kmGet * 1000) / 2.5).toStringAsFixed(1));
+  km = double.parse(((kmGet * 1000) / 1600).toStringAsFixed(2));
 
   model.HeightSet();
   model.HeightGet();
@@ -1083,7 +1098,7 @@ void meter() {
   }
 
   lsh = double.parse((lshGet * 2.5).toStringAsFixed(1));
-  km = double.parse(((kmGet / 1000) * 2.5).toStringAsFixed(1));
+  km = double.parse(((kmGet / 1000) * 1600).toStringAsFixed(2));
 
   model.HeightSet();
   model.HeightGet();

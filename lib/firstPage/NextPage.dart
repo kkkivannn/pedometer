@@ -3,6 +3,7 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/BackEnd/Storage.dart';
+import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer/scondPage/Parameters2.dart';
 
 import 'package:pedometer/scondPage/SecondPage.dart';
@@ -35,6 +36,12 @@ class _NextButtonState extends State<NextButton> {
               Km();
               Kkal();
               push = 1;
+              CmHight = "Cm";
+              Kg = "Kg";
+              CmStep = "Cm";
+              foot = "Ft";
+              inch = "In";
+              mile = "Ml";
               model.SaveNextPageSet();
               model.SaveNextPageGet();
               model.GenderSet();
