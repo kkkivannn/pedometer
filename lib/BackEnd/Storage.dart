@@ -1,12 +1,15 @@
 // ignore_for_file: file_names, prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:pedometer/firstPage/Buttons.dart';
-import 'package:pedometer/firstPage/HelloScreen.dart';
-import 'package:pedometer/firstPage/Parameters.dart';
-import 'package:pedometer/scondPage/Parameters2.dart';
-import 'package:pedometer/settingsFivesPage/Settings.dart';
-import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
+import 'package:pedometer2/firstPage/Buttons.dart';
+// import 'package:pedometer/firstPage/Buttons.dart';
+// import 'package:pedometer/firstPage/HelloScreen.dart';
+// import 'package:pedometer/firstPage/Parameters.dart';
+// import 'package:pedometer/scondPage/Parameters2.dart';
+// import 'package:pedometer/settingsFivesPage/Settings.dart';
+// import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
+import 'package:pedometer2/firstPage/Parameters.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final Storage = SharedPreferences.getInstance();
@@ -28,6 +31,12 @@ dynamic mile;
 dynamic GetIs1;
 dynamic GetIs2;
 dynamic GetIs3;
+
+dynamic StepsCount;
+dynamic savedStepsCount;
+
+dynamic lastDaySaved;
+dynamic lastDay;
 
 class StorageModel {
   Future<void> SaveNextPageSet() async {
@@ -166,5 +175,27 @@ class LogIn {
   Future<void> Set() async {
     final storage = await Storage;
     storage.setBool('checked', false);
+  }
+}
+
+class Steps {
+  Future<void> StepsGet() async {
+    final storage = await Storage;
+    savedStepsCount = storage.getInt('StepsCount');
+  }
+
+  Future<void> StepsSet() async {
+    final storage = await Storage;
+    storage.setInt('StepsCount', StepsCount);
+  }
+
+  Future<void> DayGet() async {
+    final storage = await Storage;
+    lastDaySaved = storage.getInt('lastDay');
+  }
+
+  Future<void> DaySet() async {
+    final storage = await Storage;
+    storage.setInt('lastDay', lastDay);
   }
 }

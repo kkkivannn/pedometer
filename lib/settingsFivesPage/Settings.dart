@@ -4,13 +4,19 @@ import 'dart:ui';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pedometer/BackEnd/Storage.dart';
-import 'package:pedometer/firstPage/Buttons.dart';
-import 'package:pedometer/firstPage/Parameters.dart';
-import 'package:pedometer/firstPage/colors.dart';
-import 'package:pedometer/main.dart';
-import 'package:pedometer/scondPage/Parameters2.dart';
-import 'package:pedometer/settingsFivesPage/langs.dart';
+// import 'package:pedometer/BackEnd/Storage.dart';
+// import 'package:pedometer/firstPage/Buttons.dart';
+// import 'package:pedometer/firstPage/Parameters.dart';
+// import 'package:pedometer/firstPage/colors.dart';
+// import 'package:pedometer/main.dart';
+// import 'package:pedometer/scondPage/Parameters2.dart';
+// import 'package:pedometer/settingsFivesPage/langs.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/firstPage/Buttons.dart';
+import 'package:pedometer2/firstPage/Parameters.dart';
+import 'package:pedometer2/firstPage/colors.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
+import 'package:pedometer2/settingsFivesPage/langs.dart';
 
 class settingPage extends StatefulWidget {
   @override
@@ -1108,16 +1114,4 @@ void meter() {
   model.LshGet();
   model.KmSet();
   model.KmGet();
-}
-
-void englForLsh() {
-  if (push) {
-    lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
-  }
-}
-
-void meterlForLsh() {
-  if (!push) {
-    lsh = double.parse((lsh * 2.5).toStringAsFixed(1));
-  }
 }

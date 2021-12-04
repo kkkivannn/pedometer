@@ -1,10 +1,12 @@
 // ignore_for_file: file_names, use_key_in_widget_constructors, prefer_const_constructors, deprecated_member_use, unrelated_type_equality_checks, dead_code
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer/BackEnd/Storage.dart';
-import 'package:pedometer/firstPage/colors.dart';
-import 'package:pedometer/scondPage/SecondPage.dart';
+// import 'package:pedometer/BackEnd/Storage.dart';
+// import 'package:pedometer/firstPage/colors.dart';
+// import 'package:pedometer/scondPage/SecondPage.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/firstPage/colors.dart';
 // import 'package:sizer/sizer.dart';
 
 // enum Gender { woman, man, other }

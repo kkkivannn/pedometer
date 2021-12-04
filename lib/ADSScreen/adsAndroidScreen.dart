@@ -4,8 +4,6 @@ import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class adsAndroid extends StatefulWidget {
-  const adsAndroid({Key? key}) : super(key: key);
-
   @override
   _adsAndroidState createState() => _adsAndroidState();
 }

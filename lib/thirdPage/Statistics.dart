@@ -2,8 +2,9 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer/firstPage/Parameters.dart';
-import 'package:pedometer/foorthPage/achievements.dart';
+// import 'package:pedometer/firstPage/Parameters.dart';
+// import 'package:pedometer/foorthPage/achievements.dart';
+import 'package:pedometer2/foorthPage/achievements.dart';
 
 class statics extends StatefulWidget {
   @override

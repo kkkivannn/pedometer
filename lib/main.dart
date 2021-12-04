@@ -1,7 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:pedometer/BackEnd/Storage.dart';
+// import 'package:pedometer/BackEnd/Storage.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'ADSScreen/adsAndroidScreen.dart';
@@ -47,8 +49,8 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      // home: adsAndroid(),
-      home: (checked) ? splashScreen() : splashScreen2(),
+      home: DailySteps(),
+      // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
 }

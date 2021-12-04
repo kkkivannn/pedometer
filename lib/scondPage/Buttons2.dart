@@ -2,10 +2,12 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer/BackEnd/Storage.dart';
-import 'package:pedometer/main.dart';
-import 'package:pedometer/scondPage/Parameters2.dart';
-import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
+// import 'package:pedometer/BackEnd/Storage.dart';
+// import 'package:pedometer/main.dart';
+// import 'package:pedometer/scondPage/Parameters2.dart';
+// import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/thirdPage/thirdPageVTWO.dart';
 
 class ButtonReady extends StatefulWidget {
   @override

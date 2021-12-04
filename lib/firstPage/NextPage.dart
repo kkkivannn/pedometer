@@ -2,11 +2,14 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer/BackEnd/Storage.dart';
-import 'package:pedometer/firstPage/Parameters.dart';
-import 'package:pedometer/scondPage/Parameters2.dart';
+// import 'package:pedometer/BackEnd/Storage.dart';
+// import 'package:pedometer/firstPage/Parameters.dart';
+// import 'package:pedometer/scondPage/Parameters2.dart';
 
-import 'package:pedometer/scondPage/SecondPage.dart';
+// import 'package:pedometer/scondPage/SecondPage.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
+import 'package:pedometer2/scondPage/SecondPage.dart';
 
 class NextButton extends StatefulWidget {
   @override
