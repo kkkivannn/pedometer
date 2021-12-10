@@ -2,14 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:pedometer2/firstPage/Buttons.dart';
-// import 'package:pedometer/firstPage/Buttons.dart';
-// import 'package:pedometer/firstPage/HelloScreen.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
-// import 'package:pedometer/scondPage/Parameters2.dart';
-// import 'package:pedometer/settingsFivesPage/Settings.dart';
-// import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final Storage = SharedPreferences.getInstance();
@@ -32,11 +27,13 @@ dynamic GetIs1;
 dynamic GetIs2;
 dynamic GetIs3;
 
-dynamic StepsCount;
-dynamic savedStepsCount;
+// int StepsCount = 0;
+// dynamic savedStepsCount;
 
-dynamic lastDaySaved;
-dynamic lastDay;
+// dynamic lastDaySaved = 0;
+// int? todaySteps;
+// dynamic lastDay;
+late int steps;
 
 class StorageModel {
   Future<void> SaveNextPageSet() async {
@@ -178,24 +175,36 @@ class LogIn {
   }
 }
 
-class Steps {
-  Future<void> StepsGet() async {
-    final storage = await Storage;
-    savedStepsCount = storage.getInt('StepsCount');
-  }
+// class Steps {
+//   Future<void> StepsGet() async {
+//     final storage = await Storage;
+//     savedStepsCount = storage.getInt('savedStepsCountKey');
+//   }
 
-  Future<void> StepsSet() async {
-    final storage = await Storage;
-    storage.setInt('StepsCount', StepsCount);
-  }
+//   Future<void> StepsSet() async {
+//     final storage = await Storage;
+//     storage.setInt('savedStepsCountKey', StepsCount);
+//   }
 
-  Future<void> DayGet() async {
-    final storage = await Storage;
-    lastDaySaved = storage.getInt('lastDay');
-  }
+//   Future<void> TodayStepsGet() async {
+//     final storage = await Storage;
+//     todaySteps = storage.getInt('steps');
+//   }
 
-  Future<void> DaySet() async {
-    final storage = await Storage;
-    storage.setInt('lastDay', lastDay);
-  }
-}
+//   Future<void> TodayStepsSet() async {
+//     final storage = await Storage;
+//     storage.setInt('steps', steps);
+//   }
+
+//   Future<void> DayGet() async {
+//     final storage = await Storage;
+//     lastDaySaved = storage.getInt('lastDay');
+//   }
+
+//   Future<void> DaySet() async {
+//     final storage = await Storage;
+//     storage.setInt('lastDay', lastDay);
+//   }
+
+  
+// }

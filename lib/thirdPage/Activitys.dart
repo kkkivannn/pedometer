@@ -2,11 +2,21 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
+
 // import 'package:sizer/sizer.dart';
+void culculatePuts() {
+  if (todaySteps > 10000) {
+    todaySteps * 0.00001;
+  } else if (todaySteps < 10000) {
+    todaySteps * 0.0001;
+  }
+}
 
 class MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
+    culculatePuts();
     final paint = Paint();
     paint.color = Color(0xffb0b5fe);
     paint.style = PaintingStyle.fill;
@@ -21,7 +31,7 @@ class MyPainter extends CustomPainter {
     canvas.drawArc(
       Offset(4.5, 4.5) & Size(size.width - 9, size.height - 9),
       -pi / 2,
-      pi * 2 * puts,
+      pi * 2 * todaySteps,
       false,
       strokePaint,
     );

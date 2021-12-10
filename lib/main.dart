@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 // import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
@@ -11,10 +12,14 @@ import 'firstPage/HelloScreen.dart';
 import 'settingsFivesPage/Settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'thirdPage/thirdPageVTWO.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 final model2 = LogIn();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
+
+  var box = await Hive.openBox<int>('steps');
   model2.login();
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
@@ -49,7 +54,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: DailySteps(),
+      home: Activity(),
       // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
