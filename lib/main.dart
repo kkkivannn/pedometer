@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 // import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 import 'ADSScreen/adsAndroidScreen.dart';
@@ -15,6 +16,13 @@ import 'thirdPage/thirdPageVTWO.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 final model2 = LogIn();
+Future<void> check() async {
+  var status = await Permission.activityRecognition.status;
+  if (!status.isGranted) {
+    await Permission.activityRecognition.request();
+  }
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
@@ -54,13 +62,14 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: Activity(),
+      home: DailySteps(),
       // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
 }
 
 Widget splashScreen() {
+  check();
   return SplashScreenView(
     navigateRoute: HelloScreen(),
     backgroundColor: Colors.white,
@@ -73,6 +82,7 @@ Widget splashScreen() {
 }
 
 Widget splashScreen2() {
+  check();
   return SplashScreenView(
     navigateRoute: Activity(),
     backgroundColor: Colors.white,

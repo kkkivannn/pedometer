@@ -1,40 +1,46 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:jiffy/jiffy.dart';
+import 'package:pedometer/pedometer.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 // import 'package:sizer/sizer.dart';
 void culculatePuts() {
   if (todaySteps > 10000) {
-    todaySteps * 0.00001;
+    value = todaySteps * 0.00001;
   } else if (todaySteps < 10000) {
-    todaySteps * 0.0001;
+    value = todaySteps * 0.0001;
   }
 }
+
+dynamic value;
 
 class MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    culculatePuts();
-    final paint = Paint();
-    paint.color = Color(0xffb0b5fe);
-    paint.style = PaintingStyle.fill;
-    canvas.drawCircle(Offset(size.height / 2, size.width / 2), 49, paint);
+    // culculatePuts();
+    // final paint = Paint();
+    // paint.color = Color(0xffb0b5fe);
+    // paint.style = PaintingStyle.fill;
+    // canvas.drawCircle(Offset(size.height / 2, size.width / 2), 49, paint);
 
-    final double puts = 0.50;
-    final strokePaint = Paint();
-    strokePaint.color = Color(0xff414DD4);
-    strokePaint.style = PaintingStyle.stroke;
-    strokePaint.strokeWidth = 9;
-    strokePaint.strokeCap = StrokeCap.round;
-    canvas.drawArc(
-      Offset(4.5, 4.5) & Size(size.width - 9, size.height - 9),
-      -pi / 2,
-      pi * 2 * todaySteps,
-      false,
-      strokePaint,
-    );
+    // final strokePaint = Paint();
+    // strokePaint.color = Color(0xff414DD4);
+    // strokePaint.style = PaintingStyle.stroke;
+    // strokePaint.strokeWidth = 9;
+    // strokePaint.strokeCap = StrokeCap.round;
+    // canvas.drawArc(
+    //   Offset(4.5, 4.5) & Size(size.width - 9, size.height - 9),
+    //   -pi / 2,
+    //   pi * 2 * value,
+    //   false,
+    //   strokePaint,
+    // );
 
     final feelPaint = Paint();
     feelPaint.color = Color(0xffffffff);

@@ -2,16 +2,13 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
-// import 'package:pedometer/settingsFivesPage/Settings.dart';
-// import 'package:pedometer/thirdPage/Activitys.dart';
-// import 'package:pedometer/thirdPage/Ads.dart';
-// import 'package:pedometer/thirdPage/Statistics.dart';
+
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:pedometer2/thirdPage/Activitys.dart';
 import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/Statistics.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 
 class Activity extends StatefulWidget {
   @override
@@ -21,7 +18,6 @@ class Activity extends StatefulWidget {
 final model = StorageModel();
 
 class ActivityState extends State<Activity> {
-  final model = StorageModel();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
