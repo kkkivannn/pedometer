@@ -2,9 +2,13 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
 // import 'package:pedometer/firstPage/Parameters.dart';
 // import 'package:pedometer/foorthPage/achievements.dart';
 import 'package:pedometer2/foorthPage/achievements.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
+
+import 'Activitys.dart';
 
 class statics extends StatefulWidget {
   @override
@@ -174,7 +178,7 @@ class _staticsState extends State<statics> {
                           Spacer(),
                           Container(
                             child: Text(
-                              '1 500  км', // поменять стиль "КМ"
+                              '${KmTodaySaved.toStringAsFixed(0)}', // поменять стиль "КМ"
                               style: TextStyle(
                                 fontFamily: 'Gilroy',
                                 fontSize: 24,
@@ -225,7 +229,7 @@ class _staticsState extends State<statics> {
                           Spacer(),
                           Container(
                             child: Text(
-                              '4 000  ккал', //поменять стиль ККАЛ
+                              '${KalTodaySaved.toStringAsFixed(0)}', //поменять стиль ККАЛ
                               style: TextStyle(
                                 fontFamily: 'Gilroy',
                                 fontSize: 24,

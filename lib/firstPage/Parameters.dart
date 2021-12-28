@@ -3,6 +3,7 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
 // import 'package:pedometer/firstPage/colors.dart';
 // import 'package:scroll_snap_list/scroll_snap_list.dart';
 // import 'package:flutter_sizer/flutter_sizer.dart';

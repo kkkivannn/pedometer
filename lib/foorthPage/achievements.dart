@@ -73,16 +73,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '5 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -91,16 +118,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '25 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -109,16 +163,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '125 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -127,16 +208,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '625 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -145,16 +253,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '3 125 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -163,16 +298,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/3.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/3.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '15 625 000',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -209,16 +371,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '5',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -227,16 +416,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '25',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -245,16 +461,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '125',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -263,16 +506,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '625',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -281,16 +551,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '3 125',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -299,16 +596,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/1.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/1.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '15 625',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff4FBD6E),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -345,16 +669,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '2',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -363,16 +714,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '4',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -381,16 +759,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '6',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -399,16 +804,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '8',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -417,16 +849,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '10',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                         Container(
@@ -435,16 +894,43 @@ class _AchiveState extends State<Achive> {
                           width: 200,
                           // decoration: BoxDecoration(
                           //     border: Border.all(color: Colors.red)),
-                          child: Container(
-                            child: Image(
-                              image: AssetImage('images/2.png'),
-                            ),
-                            height: 90,
-                            width: 160,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(7),
-                            ),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        child: Image(
+                                          image: AssetImage('images/2.png'),
+                                        ),
+                                        height: 90,
+                                        width: 160,
+                                        decoration: BoxDecoration(
+                                          color: Colors.white.withOpacity(0.5),
+                                          borderRadius:
+                                              BorderRadius.circular(7),
+                                        ),
+                                      ),
+                                      Container(
+                                        height: 90,
+                                        width: 160,
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          '12',
+                                          style: TextStyle(
+                                            fontSize: 24,
+                                            fontFamily: "Gilroy",
+                                            color: Color(0xff414DD4),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
                         ),
                       ],
@@ -453,7 +939,6 @@ class _AchiveState extends State<Achive> {
                 ],
               ),
             ),
-            ADS()
           ],
         ),
       ),

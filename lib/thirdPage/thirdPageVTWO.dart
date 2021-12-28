@@ -100,7 +100,6 @@ class ActivityState extends State<Activity> {
               ),
             ),
             statics(),
-            ADS(),
           ],
         ),
       ),

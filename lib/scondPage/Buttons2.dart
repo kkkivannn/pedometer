@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 // import 'package:pedometer/scondPage/Parameters2.dart';
 // import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:pedometer2/thirdPage/thirdPageVTWO.dart';
 
 class ButtonReady extends StatefulWidget {
@@ -31,12 +32,14 @@ class _ButtonReadyState extends State<ButtonReady> {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(7)),
                 onPressed: () {
-                  model.SaveReadySet();
-                  model.SaveReadyGet();
-                  model.SetFlag();
-                  model.GetFlag();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Activity()));
+                  setState(() {
+                    model.SaveReadySet();
+                    model.SaveReadyGet();
+                    model.SetFlag();
+                    model.GetFlag();
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => DailySteps()));
+                  });
                 },
                 child: Text(
                   "text15".tr().toString(),

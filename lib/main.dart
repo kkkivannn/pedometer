@@ -1,9 +1,14 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:pedometer2/ADSScreen/add.dart';
 // import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/foorthPage/achievements.dart';
+import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -14,6 +19,7 @@ import 'settingsFivesPage/Settings.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'thirdPage/thirdPageVTWO.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 final model2 = LogIn();
 Future<void> check() async {
@@ -25,8 +31,11 @@ Future<void> check() async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
+  if (_isBannerAdReady) {
+    ADS();
+  }
   await Hive.initFlutter();
-
   var box = await Hive.openBox<int>('steps');
   model2.login();
   await EasyLocalization.ensureInitialized();
@@ -54,7 +63,31 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+late BannerAd _bannerAd;
+bool _isBannerAdReady = false;
+
 class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    _bannerAd = BannerAd(
+        size: AdSize(width: 375, height: 65),
+        adUnitId: NewAdd.bannerAdUnitId,
+        listener: BannerAdListener(
+          onAdLoaded: (ad) {
+            setState(() {
+              _isBannerAdReady = true;
+            });
+          },
+          onAdFailedToLoad: (ad, error) {
+            print('Error 404!');
+            _isBannerAdReady = false;
+            ad.dispose();
+          },
+        ),
+        request: AdRequest())
+      ..load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,7 +95,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: DailySteps(),
+      home: Achive(),
       // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
@@ -84,7 +117,7 @@ Widget splashScreen() {
 Widget splashScreen2() {
   check();
   return SplashScreenView(
-    navigateRoute: Activity(),
+    navigateRoute: DailySteps(),
     backgroundColor: Colors.white,
     imageSrc: "images/Vector2.png",
     duration: 100,
@@ -92,4 +125,22 @@ Widget splashScreen2() {
     // text: 'load'.tr().toString(),
     textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
   );
+}
+
+class ADS extends StatefulWidget {
+  @override
+  _ADSState createState() => _ADSState();
+}
+
+class _ADSState extends State<ADS> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: _bannerAd.size.height.toDouble(),
+      width: _bannerAd.size.width.toDouble(),
+      child: AdWidget(
+        ad: _bannerAd,
+      ),
+    );
+  }
 }

@@ -7,6 +7,8 @@ import 'dart:async';
 import 'package:pedometer/pedometer.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/firstPage/Parameters.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -23,6 +25,12 @@ class DailySteps extends StatefulWidget {
 dynamic todaySteps = 0;
 var status = Permission.sensors.status;
 final model = StorageModel();
+double KalToday = 0;
+dynamic KalTodaySaved = 0.0;
+dynamic KmTodaySaved = 0.0;
+double KmToday = 0;
+double valueKal = 0;
+double valueKm = 0;
 
 class _DailyStepsState extends State<DailySteps> {
   final stepCountStream = Pedometer.stepCountStream;
@@ -34,7 +42,6 @@ class _DailyStepsState extends State<DailySteps> {
 
   @override
   void initState() {
-    super.initState();
     initPlatformState();
   }
 
@@ -46,6 +53,7 @@ class _DailyStepsState extends State<DailySteps> {
 
   @override
   Widget build(BuildContext context) {
+    model.GetFlag();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -95,72 +103,23 @@ class _DailyStepsState extends State<DailySteps> {
                   Container(
                     height: 150,
                     width: 475,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Container(
-                          height: 99,
-                          width: 99,
-                          child: CircularPercentIndicator(
-                              radius: 99,
-                              animation: true,
-                              animationDuration: 1500,
-                              percent: value,
-                              progressColor: Color(0xff414DD5),
-                              backgroundColor: Color(0xffE8E8E8),
-                              lineWidth: 9,
-                              circularStrokeCap: CircularStrokeCap.round,
-                              center: Stack(
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                        padding: EdgeInsets.only(left: 10),
-                                        child: CustomPaint(
-                                          painter: MyPainter(),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Spacer(
-                                        flex: 2,
-                                      ),
-                                      Spacer(),
-                                      Image(
-                                        image: AssetImage("images/Step.png"),
-                                      ),
-                                      Spacer(),
-                                      Text(
-                                        '$todaySteps',
-                                        style: TextStyle(
-                                            color: Color(0xff414DD5),
-                                            fontFamily: "Gilroy",
-                                            fontSize: 16),
-                                      ),
-                                      Spacer(
-                                        flex: 2,
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              )),
-                        ),
-                        Container(
-                          height: 99,
-                          width: 99,
-                          child: CustomPaint(
-                            painter: MyPainter2(),
-                          ),
-                        ),
-                        Container(
-                          height: 99,
-                          width: 99,
-                          child: CustomPaint(
-                            painter: MyPainter3(),
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Text(
+                                "${todaySteps}",
+                                style: TextStyle(
+                                  fontFamily: "Gilroy",
+                                  fontSize: 65,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
@@ -169,7 +128,6 @@ class _DailyStepsState extends State<DailySteps> {
               ),
             ),
             statics(),
-            ADS(),
           ],
         ),
       ),
@@ -210,37 +168,33 @@ class _DailyStepsState extends State<DailySteps> {
 
     setState(() {
       todaySteps = _steps - savedStepsCount;
+      culculateKL();
+      culculateKM();
     });
     stepsBox.put(todayDayNow, todaySteps);
-    culculatePuts();
+
     return todaySteps;
   }
 
   void stopListening() {
     _subscription.cancel();
   }
+}
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   // TODO: implement build
-  //   throw UnimplementedError();
-  // }
+void culculateKL() {
+  model.WeightGet();
+  model.LshGet();
+  var a = 0.8;
+  KalToday = a * weightGet * todaySteps * lshGet / 100000;
+  model.SetKmToday();
+  model.GetKmToday();
+  print(lshGet);
+  // print(weightGet);
+}
 
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     backgroundColor: Colors.white,
-  //     body: Center(
-  //       child: Container(
-  //         child: Text(
-  //           '$todaySteps',
-  //           style: TextStyle(
-  //             color: Colors.black,
-  //             fontSize: 20,
-  //           ),
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
+void culculateKM() {
+  KmToday = todaySteps * lshGet / 1000;
+  model.SetKalToday();
+  model.GetKalToday();
+  // print(lshGet);
 }

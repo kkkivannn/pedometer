@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class ADS extends StatelessWidget {
+class ADS1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(

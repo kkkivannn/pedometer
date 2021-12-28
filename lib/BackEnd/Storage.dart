@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final Storage = SharedPreferences.getInstance();
 double heightGet = 0;
-double weightGet = 0;
+double weightGet = 0.0;
 dynamic ageGet;
 dynamic stepsGet;
 double kmGet = 0;
@@ -26,6 +26,7 @@ dynamic mile;
 dynamic GetIs1;
 dynamic GetIs2;
 dynamic GetIs3;
+double lshGet = 0.0;
 
 // int StepsCount = 0;
 // dynamic savedStepsCount;
@@ -63,7 +64,7 @@ class StorageModel {
     stepsGet = storage.getInt('step');
     kmGet = storage.getDouble('km')!;
     kalGet = storage.getDouble('kal')!;
-    lshGet = storage.getDouble('lsh');
+    lshGet = storage.getDouble('lsh')!;
   }
 
   Future<void> StepSet() async {
@@ -113,7 +114,7 @@ class StorageModel {
 
   Future<void> LshGet() async {
     final storage = await Storage;
-    lshGet = storage.getDouble('lsh');
+    lshGet = storage.getDouble('lsh')!;
   }
 
   Future<void> KalSet() async {
@@ -155,10 +156,29 @@ class StorageModel {
     final storage = await Storage;
     pushGet = storage.getInt('push');
   }
+
+  Future<void> SetKmToday() async {
+    final storage = await Storage;
+    storage.setDouble("KmToday", KmToday);
+  }
+
+  Future<void> GetKmToday() async {
+    final storage = await Storage;
+    KmTodaySaved = storage.getDouble("KmToday");
+  }
+
+  Future<void> SetKalToday() async {
+    final storage = await Storage;
+    storage.setDouble("KalToday", KalToday);
+  }
+
+  Future<void> GetKalToday() async {
+    final storage = await Storage;
+    KalTodaySaved = storage.getDouble("KalToday");
+  }
 }
 
 late final checked;
-dynamic lshGet;
 dynamic langGet;
 
 class LogIn {

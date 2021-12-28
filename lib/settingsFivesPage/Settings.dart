@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pedometer2/%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0.dart';
 // import 'package:pedometer/BackEnd/Storage.dart';
 // import 'package:pedometer/firstPage/Buttons.dart';
 // import 'package:pedometer/firstPage/Parameters.dart';
@@ -12,6 +13,7 @@ import 'package:flutter/services.dart';
 // import 'package:pedometer/scondPage/Parameters2.dart';
 // import 'package:pedometer/settingsFivesPage/langs.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
+
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/firstPage/colors.dart';
@@ -25,7 +27,7 @@ class settingPage extends StatefulWidget {
 
 String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
-late String Ism;
+dynamic Ism;
 void IsmSet() {
   if (pushGet == 1) {
     Ism = "Metric system";
@@ -33,6 +35,8 @@ void IsmSet() {
     Ism = "Anglican system";
   }
 }
+
+dynamic time = 1;
 
 class _settingPageState extends State<settingPage> {
   String textForEd = 'text56'.tr().toString();
@@ -998,13 +1002,61 @@ class _settingPageState extends State<settingPage> {
                         ),
                         Spacer(),
                         Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            ' см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: ButtonTheme(
+                            height: 25,
+                            minWidth: 45,
+                            child: RaisedButton(
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7)),
+                              onPressed: () {
+                                NotificationApi.showNotification(
+                                  title: 'Привет',
+                                  body: "Hello world!",
+                                  payload: 'sarah.abs',
+                                );
+                                setState(() {
+                                  time = 1;
+                                });
+                              },
+                              color: time == 1 ? bottomColor2 : bottomColor1,
+                              child: Text(
+                                // "text3".tr().toString(),
+                                "09:00",
+                                style: TextStyle(
+                                  fontFamily: "Gilroy2",
+                                  fontSize: 14,
+                                  color: time == 1 ? textColor2 : textColor1,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: 15),
+                          child: ButtonTheme(
+                            height: 25,
+                            minWidth: 45,
+                            child: RaisedButton(
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(7)),
+                              onPressed: () {
+                                setState(() {
+                                  time = 2;
+                                });
+                              },
+                              color: time == 2 ? bottomColor2 : bottomColor1,
+                              child: Text(
+                                // "text4".tr().toString(), ДОБАВЬ В json
+                                "ВЫКЛ",
+                                style: TextStyle(
+                                  fontFamily: "Gilroy2",
+                                  fontSize: 14,
+                                  color: time == 2 ? textColor2 : textColor1,
+                                ),
+                              ),
+                            ),
                           ),
                         )
                       ],

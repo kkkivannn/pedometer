@@ -16,10 +16,10 @@ class Parameters2 extends StatefulWidget {
 
 final model = StorageModel();
 
-var lsh;
-var kal;
-var km;
-var step;
+dynamic lsh;
+dynamic kal;
+dynamic km;
+dynamic step;
 
 void StepsNextPage() {
   if (age <= 18) {
