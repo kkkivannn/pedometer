@@ -1,7 +1,8 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, prefer_const_constructors, implementation_imports
 
-import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class adsAndroid extends StatefulWidget {
   @override
@@ -44,7 +45,21 @@ class _adsAndroidState extends State<adsAndroid> {
             Spacer(),
             Container(
               child: Text(
-                "text57".tr().toString(),
+                'Удалите рекламу',
+                textAlign: TextAlign.center,
+                // 'text58'.tr().toString(),
+                style: TextStyle(
+                  fontFamily: "Gilroy",
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
+              child: Text(
+                'из приложения',
+                textAlign: TextAlign.center,
+                // 'text57'.tr().toString(),
                 style: TextStyle(
                   fontFamily: "Gilroy",
                   fontSize: 24,
@@ -55,14 +70,39 @@ class _adsAndroidState extends State<adsAndroid> {
             Spacer(),
             Container(
               child: Text(
-                "text57".tr().toString(),
+                'Пользуйтесь приложением',
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: "Gilroy",
-                  fontSize: 24,
-                  color: Colors.white,
+                  fontFamily: "Gilroy2",
+                  fontSize: 14,
+                  color: Color(0xffD0D4FF),
                 ),
               ),
             ),
+            Container(
+              child: Text(
+                'без рекламы всего за',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: "Gilroy2",
+                  fontSize: 14,
+                  color: Color(0xffD0D4FF),
+                ),
+              ),
+            ),
+            Spacer(),
+            Container(
+                child: Text(
+              "190 рублей в месяц",
+              style: TextStyle(
+                fontFamily: "Gilroy",
+                fontSize: 24,
+                color: Color(
+                  0xffffffff,
+                ),
+              ),
+            )),
+            Spacer(),
           ],
         ),
       ),

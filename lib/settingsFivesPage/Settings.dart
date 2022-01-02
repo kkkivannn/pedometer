@@ -1,24 +1,22 @@
 // ignore_for_file: prefer_const_constructors, use_key_in_widget_constructors, camel_case_types, file_names, constant_identifier_names
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:pedometer2/%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F/%D0%A3%D0%B2%D0%B5%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%B8%D1%8F%D0%9A%D0%BB%D0%B8%D0%B5%D0%BD%D1%82%D0%B0.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
-// import 'package:pedometer/firstPage/Buttons.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
-// import 'package:pedometer/firstPage/colors.dart';
-// import 'package:pedometer/main.dart';
-// import 'package:pedometer/scondPage/Parameters2.dart';
-// import 'package:pedometer/settingsFivesPage/langs.dart';
+import 'package:pedometer2/ADSScreen/adsAndroidScreen.dart';
+import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
+
 import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/Notifications/NotificationClients.dart';
 
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/firstPage/colors.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/langs.dart';
+import 'package:device_info/device_info.dart';
 
 class settingPage extends StatefulWidget {
   @override
@@ -36,6 +34,7 @@ void IsmSet() {
   }
 }
 
+final DeviceInfoPlugin Device = DeviceInfoPlugin();
 dynamic time = 1;
 
 class _settingPageState extends State<settingPage> {
@@ -74,37 +73,41 @@ class _settingPageState extends State<settingPage> {
                 ),
                 Container(
                   padding: EdgeInsets.only(top: 17),
-                  child: Container(
-                    height: 60,
-                    width: 343,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: Colors.white,
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          padding: EdgeInsets.only(left: 70),
-                          child: Image(
-                            height: 30,
-                            width: 30,
-                            image: AssetImage('icons/ADS.png'),
-                          ),
-                        ),
-                        Spacer(),
-                        Container(
-                          width: 218,
-                          padding: EdgeInsets.only(right: 40),
-                          child: Text(
-                            'text31'.tr().toString(),
-                            style: TextStyle(
-                              fontFamily: "Gilroy",
-                              fontSize: 18,
-                              color: Color(0xff5F6CFF),
+                  child: GestureDetector(
+                    onTap: () =>
+                        Platform.isAndroid ? adsAndroid() : IosAddScreen(),
+                    child: Container(
+                      height: 60,
+                      width: 343,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.white,
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: EdgeInsets.only(left: 70),
+                            child: Image(
+                              height: 30,
+                              width: 30,
+                              image: AssetImage('icons/ADS.png'),
                             ),
                           ),
-                        )
-                      ],
+                          Spacer(),
+                          Container(
+                            width: 218,
+                            padding: EdgeInsets.only(right: 40),
+                            child: Text(
+                              'text31'.tr().toString(),
+                              style: TextStyle(
+                                fontFamily: "Gilroy",
+                                fontSize: 18,
+                                color: Color(0xff5F6CFF),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),

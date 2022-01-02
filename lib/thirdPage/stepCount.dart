@@ -11,7 +11,6 @@ import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import 'Activitys.dart';
 import 'Ads.dart';
 import 'Statistics.dart';

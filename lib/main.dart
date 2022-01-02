@@ -32,9 +32,9 @@ Future<void> check() async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   MobileAds.instance.initialize();
-  if (_isBannerAdReady) {
-    ADS();
-  }
+  // if (_isBannerAdReady) {
+  //   ADS();
+  // }
   await Hive.initFlutter();
   var box = await Hive.openBox<int>('steps');
   model2.login();
@@ -54,7 +54,7 @@ Future<void> main() async {
       Locale('en', 'TR'),
     ],
     path: 'assets/translate',
-    fallbackLocale: Locale('en', 'EN'),
+    fallbackLocale: Locale('en', 'RU'),
   ));
 }
 
@@ -68,25 +68,25 @@ bool _isBannerAdReady = false;
 
 class _MyAppState extends State<MyApp> {
   @override
-  void initState() {
-    _bannerAd = BannerAd(
-        size: AdSize(width: 375, height: 65),
-        adUnitId: NewAdd.bannerAdUnitId,
-        listener: BannerAdListener(
-          onAdLoaded: (ad) {
-            setState(() {
-              _isBannerAdReady = true;
-            });
-          },
-          onAdFailedToLoad: (ad, error) {
-            print('Error 404!');
-            _isBannerAdReady = false;
-            ad.dispose();
-          },
-        ),
-        request: AdRequest())
-      ..load();
-  }
+  // void initState() {
+  //   _bannerAd = BannerAd(
+  //       size: AdSize(width: 375, height: 65),
+  //       adUnitId: NewAdd.bannerAdUnitId,
+  //       listener: BannerAdListener(
+  //         onAdLoaded: (ad) {
+  //           setState(() {
+  //             _isBannerAdReady = true;
+  //           });
+  //         },
+  //         onAdFailedToLoad: (ad, error) {
+  //           print('Error 404!');
+  //           _isBannerAdReady = false;
+  //           ad.dispose();
+  //         },
+  //       ),
+  //       request: AdRequest())
+  //     ..load();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: Achive(),
+      home: adsAndroid(),
       // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
@@ -109,7 +109,6 @@ Widget splashScreen() {
     imageSrc: "images/Vector2.png",
     duration: 100,
     imageSize: 50,
-    // text: 'load'.tr().toString(),
     textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
   );
 }
@@ -122,25 +121,24 @@ Widget splashScreen2() {
     imageSrc: "images/Vector2.png",
     duration: 100,
     imageSize: 50,
-    // text: 'load'.tr().toString(),
     textStyle: TextStyle(fontFamily: 'Gilroy', fontSize: 24),
   );
 }
 
-class ADS extends StatefulWidget {
-  @override
-  _ADSState createState() => _ADSState();
-}
+// class ADS extends StatefulWidget {
+//   @override
+//   _ADSState createState() => _ADSState();
+// }
 
-class _ADSState extends State<ADS> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: _bannerAd.size.height.toDouble(),
-      width: _bannerAd.size.width.toDouble(),
-      child: AdWidget(
-        ad: _bannerAd,
-      ),
-    );
-  }
-}
+// class _ADSState extends State<ADS> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: _bannerAd.size.height.toDouble(),
+//       width: _bannerAd.size.width.toDouble(),
+//       child: AdWidget(
+//         ad: _bannerAd,
+//       ),
+//     );
+//   }
+// }
