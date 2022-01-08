@@ -4,6 +4,7 @@ import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/main.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:pedometer2/thirdPage/Activitys.dart';
 import 'package:pedometer2/thirdPage/Ads.dart';

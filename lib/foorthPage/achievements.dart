@@ -2,6 +2,7 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer2/main.dart';
 import 'package:pedometer2/thirdPage/Ads.dart';
 
 class Achive extends StatefulWidget {
@@ -939,6 +940,8 @@ class _AchiveState extends State<Achive> {
                 ],
               ),
             ),
+            Spacer(),
+            ADS(),
           ],
         ),
       ),

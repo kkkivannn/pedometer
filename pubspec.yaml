@@ -51,7 +51,6 @@ dependencies:
   percent_indicator: ^3.4.0
   flutter_local_notifications: ^7.0.0
   google_mobile_ads: ^1.0.1
- 
   device_info: ^2.0.3
 
   

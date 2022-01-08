@@ -8,6 +8,7 @@ import 'package:pedometer/pedometer.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
+import 'package:pedometer2/main.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -127,6 +128,8 @@ class _DailyStepsState extends State<DailySteps> {
               ),
             ),
             statics(),
+            Spacer(),
+            ADS(),
           ],
         ),
       ),
@@ -187,13 +190,10 @@ void culculateKL() {
   KalToday = a * weightGet * todaySteps * lshGet / 100000;
   model.SetKmToday();
   model.GetKmToday();
-  print(lshGet);
-  // print(weightGet);
 }
 
 void culculateKM() {
   KmToday = todaySteps * lshGet / 1000;
   model.SetKalToday();
   model.GetKalToday();
-  // print(lshGet);
 }

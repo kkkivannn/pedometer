@@ -1,10 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types
 
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pedometer2/ADSScreen/add.dart';
+import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
 // import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/foorthPage/achievements.dart';
@@ -68,25 +67,26 @@ bool _isBannerAdReady = false;
 
 class _MyAppState extends State<MyApp> {
   @override
-  // void initState() {
-  //   _bannerAd = BannerAd(
-  //       size: AdSize(width: 375, height: 65),
-  //       adUnitId: NewAdd.bannerAdUnitId,
-  //       listener: BannerAdListener(
-  //         onAdLoaded: (ad) {
-  //           setState(() {
-  //             _isBannerAdReady = true;
-  //           });
-  //         },
-  //         onAdFailedToLoad: (ad, error) {
-  //           print('Error 404!');
-  //           _isBannerAdReady = false;
-  //           ad.dispose();
-  //         },
-  //       ),
-  //       request: AdRequest())
-  //     ..load();
-  // }
+  void initState() {
+    super.initState();
+    _bannerAd = BannerAd(
+        size: AdSize.banner,
+        adUnitId: NewAdd.bannerAdUnitId,
+        listener: BannerAdListener(
+          onAdLoaded: (_) {
+            setState(() {
+              _isBannerAdReady = true;
+            });
+          },
+          onAdFailedToLoad: (ad, error) {
+            print('Error 404!');
+            _isBannerAdReady = false;
+            ad.dispose();
+          },
+        ),
+        request: AdRequest())
+      ..load();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: adsAndroid(),
+      home: Achive(),
       // home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
@@ -125,20 +125,27 @@ Widget splashScreen2() {
   );
 }
 
-// class ADS extends StatefulWidget {
-//   @override
-//   _ADSState createState() => _ADSState();
-// }
+class ADS extends StatefulWidget {
+  @override
+  _ADSState createState() => _ADSState();
+}
 
-// class _ADSState extends State<ADS> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: _bannerAd.size.height.toDouble(),
-//       width: _bannerAd.size.width.toDouble(),
-//       child: AdWidget(
-//         ad: _bannerAd,
-//       ),
-//     );
-//   }
-// }
+class _ADSState extends State<ADS> {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        if (_isBannerAdReady)
+          Expanded(
+            child: Container(
+              height: _bannerAd.size.height.toDouble(),
+              width: _bannerAd.size.width.toDouble(),
+              child: AdWidget(
+                ad: _bannerAd,
+              ),
+            ),
+          )
+      ],
+    );
+  }
+}
