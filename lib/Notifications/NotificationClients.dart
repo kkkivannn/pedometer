@@ -1,33 +1,68 @@
-// ignore_for_file: prefer_const_constructors, file_names
+// ignore_for_file: prefer_const_constructors, file_names, non_constant_identifier_names
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
+import 'package:pedometer2/scondPage/Parameters2.dart';
+import 'package:jiffy/jiffy.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+Future<void> NotificationGoal() async {
+  StepsNextPage();
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+      id: 1,
+      channelKey: 'key1',
+      title: "Цель на сегодня $stepsGet шагов",
+      body: 'Цели можно скорректировать в настройках.', //добавь в json
+    ),
+    schedule: NotificationCalendar(
+      hour: 9,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    ),
+  );
+}
 
-class NotificationApi {
-  static final _notifications = FlutterLocalNotificationsPlugin();
+Future<void> NotificationReport() async {
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+      id: 1,
+      channelKey: 'key2',
+      title: "Вы выполнили цель. Поздравляем!",
+      body: 'Вы молодец!', //добавь в json
+    ),
+    schedule: NotificationCalendar(
+      hour: 21,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    ),
+  );
+}
 
-  static Future _notificationDetails() async {
-    return NotificationDetails(
-      android: AndroidNotificationDetails(
-        'channel id',
-        'channel name',
-        'channel description',
-        importance: Importance.max,
-      ),
-      iOS: IOSNotificationDetails(),
-    );
-  }
+Future<void> IfNotDoneNotificationReport() async {
+  int remainderSteps = stepsGet - todaySteps;
+  await AwesomeNotifications().createNotification(
+    content: NotificationContent(
+      id: 3,
+      channelKey: 'key2',
+      title: "Осталось еще немного, $remainderSteps шагов",
+      body: 'Вы отлично справляитесь!', //добавь в json
+    ),
+    schedule: NotificationCalendar(
+      hour: 21,
+      minute: 0,
+      second: 0,
+      millisecond: 0,
+    ),
+  );
+}
 
-  static Future showNotification({
-    int id = 0,
-    String? title,
-    String? body,
-    String? payload,
-  }) async =>
-      _notifications.show(
-        id,
-        title,
-        body,
-        await _notificationDetails(),
-        payload: payload,
-      );
+Future<void> cancelScheduledNotifications1() async {
+  await AwesomeNotifications().cancelNotificationsByChannelKey('key1');
+}
+
+Future<void> cancelScheduledNotifications2() async {
+  await AwesomeNotifications().cancelNotificationsByChannelKey('key2');
 }

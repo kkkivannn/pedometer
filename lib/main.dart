@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pedometer2/ADSScreen/add.dart';
 import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/foorthPage/achievements.dart';
 import 'package:pedometer2/thirdPage/Ads.dart';
@@ -19,6 +18,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'thirdPage/thirdPageVTWO.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:awesome_notifications/awesome_notifications.dart';
 
 final model2 = LogIn();
 Future<void> check() async {
@@ -30,10 +30,20 @@ Future<void> check() async {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  AwesomeNotifications().initialize(null, [
+    NotificationChannel(
+      channelKey: 'key1',
+      channelName: 'Name',
+      channelDescription: 'Example',
+      defaultColor: Color(0xff9050dd),
+      ledColor: Colors.white,
+      playSound: true,
+      enableLights: true,
+      enableVibration: true,
+      importance: NotificationImportance.High,
+    ),
+  ]);
   MobileAds.instance.initialize();
-  // if (_isBannerAdReady) {
-  //   ADS();
-  // }
   await Hive.initFlutter();
   var box = await Hive.openBox<int>('steps');
   model2.login();
@@ -95,8 +105,8 @@ class _MyAppState extends State<MyApp> {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      home: Achive(),
-      // home: (checked) ? splashScreen() : splashScreen2(),
+      // home: settingPage(),
+      home: (checked) ? splashScreen() : splashScreen2(),
     );
   }
 }
@@ -138,6 +148,7 @@ class _ADSState extends State<ADS> {
         if (_isBannerAdReady)
           Expanded(
             child: Container(
+              // padding: EdgeInsets.only(bottom: 10),
               height: _bannerAd.size.height.toDouble(),
               width: _bannerAd.size.width.toDouble(),
               child: AdWidget(

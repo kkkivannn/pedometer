@@ -941,7 +941,6 @@ class _AchiveState extends State<Achive> {
               ),
             ),
             Spacer(),
-            ADS(),
           ],
         ),
       ),

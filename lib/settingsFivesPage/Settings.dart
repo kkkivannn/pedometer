@@ -17,6 +17,7 @@ import 'package:pedometer2/firstPage/colors.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/langs.dart';
 import 'package:device_info/device_info.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 
 class settingPage extends StatefulWidget {
   @override
@@ -36,6 +37,7 @@ void IsmSet() {
 
 final DeviceInfoPlugin Device = DeviceInfoPlugin();
 dynamic time = 1;
+dynamic time2 = 1;
 
 class _settingPageState extends State<settingPage> {
   String textForEd = 'text56'.tr().toString();
@@ -74,8 +76,18 @@ class _settingPageState extends State<settingPage> {
                 Container(
                   padding: EdgeInsets.only(top: 17),
                   child: GestureDetector(
-                    onTap: () =>
-                        Platform.isAndroid ? adsAndroid() : IosAddScreen(),
+                    onTap: () {
+                      setState(() {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Platform.isAndroid
+                                ? adsAndroid()
+                                : IosAddScreen(),
+                          ),
+                        );
+                      });
+                    },
                     child: Container(
                       height: 60,
                       width: 343,
@@ -149,7 +161,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text33'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -227,7 +239,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text34'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -302,7 +314,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text35'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -385,7 +397,7 @@ class _settingPageState extends State<settingPage> {
                               child: Text(
                                 'text36'.tr().toString(),
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontFamily: "Gilroy2",
                                   color: Colors.black,
                                 ),
@@ -555,7 +567,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text41'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -631,7 +643,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text42'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -667,7 +679,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text43'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -716,7 +728,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text45'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -901,7 +913,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text46'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -997,7 +1009,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text49'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -1011,15 +1023,11 @@ class _settingPageState extends State<settingPage> {
                             child: RaisedButton(
                               elevation: 0.0,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(7)),
+                                  borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
-                                NotificationApi.showNotification(
-                                  title: 'Привет',
-                                  body: "Hello world!",
-                                  payload: 'sarah.abs',
-                                );
                                 setState(() {
                                   time = 1;
+                                  NotificationGoal();
                                 });
                               },
                               color: time == 1 ? bottomColor2 : bottomColor1,
@@ -1028,7 +1036,7 @@ class _settingPageState extends State<settingPage> {
                                 "09:00",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   color: time == 1 ? textColor2 : textColor1,
                                 ),
                               ),
@@ -1043,19 +1051,20 @@ class _settingPageState extends State<settingPage> {
                             child: RaisedButton(
                               elevation: 0.0,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(7)),
+                                  borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
                                 setState(() {
                                   time = 2;
+                                  cancelScheduledNotifications1();
                                 });
                               },
                               color: time == 2 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text4".tr().toString(), ДОБАВЬ В json
-                                "ВЫКЛ",
+                                "выкл",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
-                                  fontSize: 14,
+                                  fontSize: 12,
                                   color: time == 2 ? textColor2 : textColor1,
                                 ),
                               ),
@@ -1081,7 +1090,7 @@ class _settingPageState extends State<settingPage> {
                           child: Text(
                             'text50'.tr().toString(),
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 14,
                               fontFamily: "Gilroy2",
                               color: Colors.black,
                             ),
@@ -1089,13 +1098,62 @@ class _settingPageState extends State<settingPage> {
                         ),
                         Spacer(),
                         Container(
-                          padding: EdgeInsets.only(right: 30),
-                          child: Text(
-                            ' см',
-                            style: TextStyle(
-                                fontFamily: "Gilroy",
-                                fontSize: 18,
-                                color: Color(0xff5F6CFF)),
+                          child: ButtonTheme(
+                            height: 25,
+                            minWidth: 45,
+                            child: RaisedButton(
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(13)),
+                              onPressed: () {
+                                setState(() {
+                                  time2 = 1;
+                                  // if (todaySteps >= step) {
+                                  //   NotificationReport();
+                                  // } else {
+                                  //   IfNotDoneNotificationReport();
+                                  // }
+                                });
+                              },
+                              color: time2 == 1 ? bottomColor2 : bottomColor1,
+                              child: Text(
+                                // "text3".tr().toString(),
+                                "вкл",
+                                style: TextStyle(
+                                  fontFamily: "Gilroy2",
+                                  fontSize: 12,
+                                  color: time2 == 1 ? textColor2 : textColor1,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(right: 15),
+                          child: ButtonTheme(
+                            height: 25,
+                            minWidth: 45,
+                            child: RaisedButton(
+                              elevation: 0.0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(13)),
+                              onPressed: () {
+                                setState(() {
+                                  // cancelScheduledNotifications2();
+                                  time2 = 2;
+                                });
+                              },
+                              color: time2 == 2 ? bottomColor2 : bottomColor1,
+                              child: Text(
+                                // "text4".tr().toString(), ДОБАВЬ В json
+                                "выкл",
+                                style: TextStyle(
+                                  fontFamily: "Gilroy2",
+                                  fontSize: 12,
+                                  color: time2 == 2 ? textColor2 : textColor1,
+                                ),
+                              ),
+                            ),
                           ),
                         )
                       ],
