@@ -5,12 +5,11 @@ import 'dart:ui';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:pedometer2/ADSScreen/adsAndroidScreen.dart';
 import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
-
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/Notifications/NotificationClients.dart';
-
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/firstPage/colors.dart';
@@ -26,7 +25,13 @@ class settingPage extends StatefulWidget {
 
 String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
+final modelTime = Time();
 dynamic Ism;
+
+Box<dynamic> stepsBox = Hive.box('steps');
+int savedTime1 = stepsBox.get('time1', defaultValue: 2);
+int savedTime2 = stepsBox.get('time2', defaultValue: 2);
+
 void IsmSet() {
   if (pushGet == 1) {
     Ism = "Metric system";
@@ -36,8 +41,6 @@ void IsmSet() {
 }
 
 final DeviceInfoPlugin Device = DeviceInfoPlugin();
-dynamic time = 1;
-dynamic time2 = 1;
 
 class _settingPageState extends State<settingPage> {
   String textForEd = 'text56'.tr().toString();
@@ -57,6 +60,15 @@ class _settingPageState extends State<settingPage> {
               children: [
                 Row(
                   children: [
+                    // IconButton(
+                    //   onPressed: () {
+                    //     setState(() {});
+                    //   },
+                    //   icon: Icon(Icons.arrow_back),
+                    //   color: Colors.white,
+
+                    // ),
+
                     Expanded(
                       child: Container(
                         padding: EdgeInsets.only(top: 27),
@@ -70,7 +82,7 @@ class _settingPageState extends State<settingPage> {
                           ),
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
                 Container(
@@ -1026,18 +1038,21 @@ class _settingPageState extends State<settingPage> {
                                   borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
                                 setState(() {
-                                  time = 1;
+                                  savedTime1 = 1;
+                                  stepsBox.put('time1', savedTime1);
                                   NotificationGoal();
                                 });
                               },
-                              color: time == 1 ? bottomColor2 : bottomColor1,
+                              color:
+                                  savedTime1 == 1 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text3".tr().toString(),
                                 "09:00",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
-                                  color: time == 1 ? textColor2 : textColor1,
+                                  color:
+                                      savedTime1 == 1 ? textColor2 : textColor1,
                                 ),
                               ),
                             ),
@@ -1054,18 +1069,21 @@ class _settingPageState extends State<settingPage> {
                                   borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
                                 setState(() {
-                                  time = 2;
+                                  savedTime1 = 2;
+                                  stepsBox.put('time1', savedTime1);
                                   cancelScheduledNotifications1();
                                 });
                               },
-                              color: time == 2 ? bottomColor2 : bottomColor1,
+                              color:
+                                  savedTime1 == 2 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text4".tr().toString(), ДОБАВЬ В json
                                 "выкл",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
-                                  color: time == 2 ? textColor2 : textColor1,
+                                  color:
+                                      savedTime1 == 2 ? textColor2 : textColor1,
                                 ),
                               ),
                             ),
@@ -1107,22 +1125,25 @@ class _settingPageState extends State<settingPage> {
                                   borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
                                 setState(() {
-                                  time2 = 1;
-                                  // if (todaySteps >= step) {
-                                  //   NotificationReport();
-                                  // } else {
-                                  //   IfNotDoneNotificationReport();
-                                  // }
+                                  savedTime2 = 1;
+                                  stepsBox.put('time2', savedTime2);
+                                  if (todaySteps >= stepsGet) {
+                                    NotificationReport();
+                                  } else {
+                                    IfNotDoneNotificationReport();
+                                  }
                                 });
                               },
-                              color: time2 == 1 ? bottomColor2 : bottomColor1,
+                              color:
+                                  savedTime2 == 1 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text3".tr().toString(),
                                 "вкл",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
-                                  color: time2 == 1 ? textColor2 : textColor1,
+                                  color:
+                                      savedTime2 == 1 ? textColor2 : textColor1,
                                 ),
                               ),
                             ),
@@ -1139,18 +1160,21 @@ class _settingPageState extends State<settingPage> {
                                   borderRadius: BorderRadius.circular(13)),
                               onPressed: () {
                                 setState(() {
-                                  // cancelScheduledNotifications2();
-                                  time2 = 2;
+                                  cancelScheduledNotifications2();
+                                  savedTime2 = 2;
+                                  stepsBox.put('time2', savedTime2);
                                 });
                               },
-                              color: time2 == 2 ? bottomColor2 : bottomColor1,
+                              color:
+                                  savedTime2 == 2 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text4".tr().toString(), ДОБАВЬ В json
                                 "выкл",
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
-                                  color: time2 == 2 ? textColor2 : textColor1,
+                                  color:
+                                      savedTime2 == 2 ? textColor2 : textColor1,
                                 ),
                               ),
                             ),

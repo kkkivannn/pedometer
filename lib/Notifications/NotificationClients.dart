@@ -7,6 +7,8 @@ import 'package:jiffy/jiffy.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 
 Future<void> NotificationGoal() async {
+  int time = Jiffy(DateTime.now()).hour;
+
   StepsNextPage();
   await AwesomeNotifications().createNotification(
     content: NotificationContent(
@@ -16,7 +18,7 @@ Future<void> NotificationGoal() async {
       body: 'Цели можно скорректировать в настройках.', //добавь в json
     ),
     schedule: NotificationCalendar(
-      hour: 9,
+      hour: time,
       minute: 0,
       second: 0,
       millisecond: 0,
@@ -27,7 +29,7 @@ Future<void> NotificationGoal() async {
 Future<void> NotificationReport() async {
   await AwesomeNotifications().createNotification(
     content: NotificationContent(
-      id: 1,
+      id: 2,
       channelKey: 'key2',
       title: "Вы выполнили цель. Поздравляем!",
       body: 'Вы молодец!', //добавь в json

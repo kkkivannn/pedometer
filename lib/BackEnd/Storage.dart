@@ -1,9 +1,9 @@
 // ignore_for_file: file_names, prefer_typing_uninitialized_variables
-
 import 'package:flutter/material.dart';
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
+import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,13 +27,11 @@ dynamic GetIs1;
 dynamic GetIs2;
 dynamic GetIs3;
 double lshGet = 0.0;
+dynamic getTime;
+dynamic getTime2;
+dynamic time = 2;
+dynamic time2 = 2;
 
-// int StepsCount = 0;
-// dynamic savedStepsCount;
-
-// dynamic lastDaySaved = 0;
-// int? todaySteps;
-// dynamic lastDay;
 late int steps;
 
 class StorageModel {
@@ -178,6 +176,19 @@ class StorageModel {
   }
 }
 
+class Time {
+  final Storage = SharedPreferences.getInstance();
+  Future<void> SetTime() async {
+    final storage = await Storage;
+    storage.setInt("time", time);
+  }
+
+  Future<void> GetTime() async {
+    final storage = await Storage;
+    getTime = storage.getInt("time");
+  }
+}
+
 late final checked;
 dynamic langGet;
 
@@ -194,37 +205,3 @@ class LogIn {
     storage.setBool('checked', false);
   }
 }
-
-// class Steps {
-//   Future<void> StepsGet() async {
-//     final storage = await Storage;
-//     savedStepsCount = storage.getInt('savedStepsCountKey');
-//   }
-
-//   Future<void> StepsSet() async {
-//     final storage = await Storage;
-//     storage.setInt('savedStepsCountKey', StepsCount);
-//   }
-
-//   Future<void> TodayStepsGet() async {
-//     final storage = await Storage;
-//     todaySteps = storage.getInt('steps');
-//   }
-
-//   Future<void> TodayStepsSet() async {
-//     final storage = await Storage;
-//     storage.setInt('steps', steps);
-//   }
-
-//   Future<void> DayGet() async {
-//     final storage = await Storage;
-//     lastDaySaved = storage.getInt('lastDay');
-//   }
-
-//   Future<void> DaySet() async {
-//     final storage = await Storage;
-//     storage.setInt('lastDay', lastDay);
-//   }
-
-  
-// }

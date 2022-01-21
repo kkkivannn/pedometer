@@ -1,4 +1,6 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, must_call_super, non_constant_identifier_names, unused_field
+
+import 'dart:convert';
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class DailySteps extends StatefulWidget {
   _DailyStepsState createState() => _DailyStepsState();
 }
 
-dynamic todaySteps = 0;
+int todaySteps = 0;
 var status = Permission.sensors.status;
 final model = StorageModel();
 double KalToday = 0;
@@ -32,12 +34,16 @@ double KmToday = 0;
 double valueKal = 0;
 double valueKm = 0;
 
+int savedAllSteps = stepsBox.get('savedAllSteps', defaultValue: 0);
+int savedCountofSteps = stepsBox.get('savedCountofSteps', defaultValue: 0);
+double savedAverageSteps = stepsBox.get('savedAverageSteps', defaultValue: 0.0);
+
+Box<dynamic> stepsBox = Hive.box('steps');
+
 class _DailyStepsState extends State<DailySteps> {
   final stepCountStream = Pedometer.stepCountStream;
   late StreamSubscription<StepCount> _subscription;
   late Stream<StepCount> _stepCountStreamState;
-  Box<int> stepsBox = Hive.box('steps');
-
   late int _steps;
 
   @override
@@ -111,7 +117,7 @@ class _DailyStepsState extends State<DailySteps> {
                           children: [
                             Container(
                               child: Text(
-                                "${todaySteps}",
+                                "$todaySteps",
                                 style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 65,
@@ -147,24 +153,30 @@ class _DailyStepsState extends State<DailySteps> {
 
   Future<int> getTodaySteps(StepCount value) async {
     _steps = value.steps;
-    int savedStepsCountKey = 999999;
-    int savedStepsCount = stepsBox.get(savedStepsCountKey, defaultValue: 0)!;
+    int savedStepsCount = stepsBox.get('savedStepsCountKey', defaultValue: 0)!;
     int todayDayNow = Jiffy(DateTime.now()).dayOfYear;
+    int lastDaySaved = stepsBox.get('lastDaySavedKey', defaultValue: 0)!;
+
     if (_steps < savedStepsCount) {
       setState(() {
         savedStepsCount = 0;
-        stepsBox.put(savedStepsCountKey, savedStepsCount);
+        stepsBox.put('savedStepsCountKey', savedStepsCount);
       });
     }
-    int lastDaySavedKey = 888888;
-    int lastDaySaved = stepsBox.get(lastDaySavedKey, defaultValue: 0)!;
+
     if (lastDaySaved < todayDayNow) {
       setState(() {
+        savedCountofSteps++;
+        savedAllSteps += todaySteps;
+        savedAverageSteps = savedAllSteps / savedCountofSteps;
         lastDaySaved = todayDayNow;
         savedStepsCount = _steps;
         stepsBox
-          ..put(lastDaySavedKey, lastDaySaved)
-          ..put(savedStepsCountKey, savedStepsCount);
+          ..put('savedCountofSteps', savedCountofSteps)
+          ..put('savedAllSteps', savedAllSteps)
+          ..put('savedAverageSteps', savedAverageSteps)
+          ..put('lastDaySavedKey', lastDaySaved)
+          ..put('savedStepsCountKey', savedStepsCount);
       });
     }
 
@@ -183,6 +195,10 @@ class _DailyStepsState extends State<DailySteps> {
   }
 }
 
+// void averageOfDay() {
+//   averageSteps = AllSteps / CountOfSteps;
+// }
+
 void culculateKL() {
   model.WeightGet();
   model.LshGet();
@@ -197,3 +213,6 @@ void culculateKM() {
   model.SetKalToday();
   model.GetKalToday();
 }
+
+
+//Создать метод, который будет расчитывать сколько пользователь сделал всего шагов. Прошел, закидываю в бокс, на следующий день прошел шаги, прибавил к шагам из бокса и потом опять закинул в бокс и так репит

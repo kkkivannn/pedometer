@@ -4,6 +4,7 @@ import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer2/main.dart';
 import 'package:pedometer2/thirdPage/Ads.dart';
+import 'package:pedometer2/thirdPage/stepCount.dart';
 
 class Achive extends StatefulWidget {
   @override
@@ -88,7 +89,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 5000)
+                                              ? Colors.white.withOpacity(0)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -133,7 +136,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 25000)
+                                              ? Colors.white.withOpacity(0)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -178,7 +183,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 125000)
+                                              ? Colors.white.withOpacity(0)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -223,7 +230,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 625000)
+                                              ? Colors.white.withOpacity(0)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -268,7 +277,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 3125000)
+                                              ? Colors.white.withOpacity(0)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),

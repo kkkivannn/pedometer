@@ -67,7 +67,7 @@ class _paramState extends State<param> {
                     width: 40,
                     alignment: Alignment.center,
                     child: Text(
-                      '${height}',
+                      '$height',
                       style: TextStyle(
                           color: Color(0xff5F6CFF),
                           fontSize: 18,

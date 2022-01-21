@@ -29,9 +29,6 @@ class _staticsState extends State<statics> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        // decoration: BoxDecoration(border: Border.all(color: Colors.red)),
-        // width: 475,
-        // height: 400,
         child: Column(
           children: [
             Container(
@@ -40,6 +37,7 @@ class _staticsState extends State<statics> {
               child: Row(
                 children: [
                   Container(
+                    height: 50,
                     alignment: Alignment.center,
                     child: Text(
                       'text17'.tr().toString(),
@@ -47,36 +45,36 @@ class _staticsState extends State<statics> {
                     ),
                   ),
                   Spacer(),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 130,
-                    child: ExpansionTile(
-                      collapsedIconColor: Color(0xff5F6CFF),
-                      title: Text(
-                        'text18'.tr().toString(),
-                        style: TextStyle(
-                            color: Color(0xff5F6CFF),
-                            fontSize: 18,
-                            fontFamily: "Gilroy"),
-                      ),
-                      children: [
-                        Text(
-                          'text19'.tr().toString(),
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: "Gilroy"),
-                        ),
-                        Text(
-                          'text20'.tr().toString(),
-                          style: TextStyle(
-                              color: Color(0xff5F6CFF),
-                              fontSize: 18,
-                              fontFamily: "Gilroy"),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Container(
+                  //   alignment: Alignment.center,
+                  //   width: 130,
+                  //   child: ExpansionTile(
+                  //     collapsedIconColor: Color(0xff5F6CFF),
+                  //     title: Text(
+                  //       'text18'.tr().toString(),
+                  //       style: TextStyle(
+                  //           color: Color(0xff5F6CFF),
+                  //           fontSize: 18,
+                  //           fontFamily: "Gilroy"),
+                  //     ),
+                  //     children: [
+                  //       Text(
+                  //         'text19'.tr().toString(),
+                  //         style: TextStyle(
+                  //             color: Color(0xff5F6CFF),
+                  //             fontSize: 18,
+                  //             fontFamily: "Gilroy"),
+                  //       ),
+                  //       Text(
+                  //         'text20'.tr().toString(),
+                  //         style: TextStyle(
+                  //             color: Color(0xff5F6CFF),
+                  //             fontSize: 18,
+                  //             fontFamily: "Gilroy"),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               ),
             ),
@@ -119,7 +117,7 @@ class _staticsState extends State<statics> {
                             Container(
                               padding: EdgeInsets.only(left: 15),
                               child: Text(
-                                '155 000',
+                                '$savedAllSteps',
                                 style: TextStyle(
                                   fontFamily: 'Gilroy',
                                   fontSize: 24,
@@ -141,7 +139,7 @@ class _staticsState extends State<statics> {
                             Container(
                               padding: EdgeInsets.only(left: 15),
                               child: Text(
-                                '4 000',
+                                savedAverageSteps.toStringAsFixed(0),
                                 style: TextStyle(
                                   fontFamily: 'Gilroy',
                                   fontSize: 24,

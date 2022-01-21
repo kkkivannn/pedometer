@@ -21,10 +21,11 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
 
 final model2 = LogIn();
+
 Future<void> check() async {
   var status = await Permission.activityRecognition.status;
   if (!status.isGranted) {
-    await Permission.activityRecognition.request();
+    Permission.activityRecognition.request();
   }
 }
 
@@ -33,7 +34,20 @@ Future<void> main() async {
   AwesomeNotifications().initialize(null, [
     NotificationChannel(
       channelKey: 'key1',
-      channelName: 'Name',
+      channelName: 'Name1',
+      channelDescription: 'Example',
+      defaultColor: Color(0xff9050dd),
+      ledColor: Colors.white,
+      playSound: true,
+      enableLights: true,
+      enableVibration: true,
+      importance: NotificationImportance.High,
+    ),
+  ]);
+  AwesomeNotifications().initialize(null, [
+    NotificationChannel(
+      channelKey: 'key2',
+      channelName: 'Name2',
       channelDescription: 'Example',
       defaultColor: Color(0xff9050dd),
       ledColor: Colors.white,
@@ -44,9 +58,9 @@ Future<void> main() async {
     ),
   ]);
   MobileAds.instance.initialize();
-  await Hive.initFlutter();
-  var box = await Hive.openBox<int>('steps');
   model2.login();
+  await Hive.initFlutter();
+  var box = await Hive.openBox<dynamic>('steps');
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     child: MyApp(),
@@ -148,7 +162,6 @@ class _ADSState extends State<ADS> {
         if (_isBannerAdReady)
           Expanded(
             child: Container(
-              // padding: EdgeInsets.only(bottom: 10),
               height: _bannerAd.size.height.toDouble(),
               width: _bannerAd.size.width.toDouble(),
               child: AdWidget(
