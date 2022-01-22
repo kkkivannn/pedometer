@@ -6,16 +6,26 @@ import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:hive/hive.dart';
 
+Box<dynamic> stepsBox = Hive.box('steps');
 final Storage = SharedPreferences.getInstance();
-double heightGet = 0;
-double weightGet = 0.0;
-dynamic ageGet;
+
+double height = stepsBox.get('heightGet', defaultValue: 120.0);
+double weight = stepsBox.get('weightGet', defaultValue: 50.0);
+int age = stepsBox.get('ageGet', defaultValue: 12);
+int gender = stepsBox.get('gender', defaultValue: 0);
+dynamic lsh = stepsBox.get('lsh', defaultValue: 0.0);
+dynamic kal = stepsBox.get('kal', defaultValue: 0.0);
+dynamic km = stepsBox.get('km', defaultValue: 0.0);
+dynamic step = stepsBox.get('step', defaultValue: 0);
+dynamic push = stepsBox.get('push', defaultValue: 0);
+
 dynamic stepsGet;
 double kmGet = 0;
 double kalGet = 0;
 dynamic genderGet;
-dynamic push;
+
 dynamic pushGet;
 dynamic Kg;
 dynamic CmHight;
@@ -35,125 +45,126 @@ dynamic time2 = 2;
 late int steps;
 
 class StorageModel {
-  Future<void> SaveNextPageSet() async {
-    final storage = await Storage;
-    storage.setDouble('height', height);
-    storage.setDouble('weight', weight);
-    storage.setInt('age', age);
+  // Future<void> SaveNextPageSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('height', height);
+  //   storage.setDouble('weight', weight);
+  //   storage.setInt('age', age);
+  // }
+
+//ИСПРАВЛЕНО
+  Future<void> SaveNextPage() async {
+    stepsBox
+      ..put('height', height)
+      ..put('weight', weight)
+      ..put('age', age);
   }
 
-  Future<void> SaveNextPageGet() async {
-    final storage = await Storage;
-    heightGet = storage.getDouble('height')!;
-    weightGet = storage.getDouble('weight')!;
-    ageGet = storage.getInt('age');
+  Future<void> Gender() async {
+    stepsBox.put('gender', gender);
   }
 
-  Future<void> SaveReadySet() async {
-    final storage = await Storage;
-    storage.setInt('step', step);
-    storage.setDouble('km', km);
-    storage.setDouble('kal', kal);
-    storage.setDouble('lsh', lsh);
+//ЕЩЕ НЕТ
+
+  Future<void> SaveReady() async {
+    stepsBox
+      ..put('step', step)
+      ..put('km', km)
+      ..put('kal', kal)
+      ..put('lsh', lsh);
   }
 
-  Future<void> SaveReadyGet() async {
-    final storage = await Storage;
-    stepsGet = storage.getInt('step');
-    kmGet = storage.getDouble('km')!;
-    kalGet = storage.getDouble('kal')!;
-    lshGet = storage.getDouble('lsh')!;
-  }
+  // Future<void> SaveReadyGet() async {
+  //   final storage = await Storage;
+  //   stepsGet = storage.getInt('step');
+  //   kmGet = storage.getDouble('km')!;
+  //   kalGet = storage.getDouble('kal')!;
+  //   lshGet = storage.getDouble('lsh')!;
+  // }
 
-  Future<void> StepSet() async {
-    final storage = await Storage;
-    storage.setInt('step', step);
-  }
+  // Future<void> StepSet() async {
+  //   final storage = await Storage;
+  //   storage.setInt('step', step);
+  // }
 
-  Future<void> StepGet() async {
-    final storage = await Storage;
-    stepsGet = storage.getInt('step');
-  }
+  // Future<void> StepGet() async {
+  //   final storage = await Storage;
+  //   stepsGet = storage.getInt('step');
+  // }
 
-  Future<void> HeightSet() async {
-    final storage = await Storage;
-    storage.setDouble('height', height);
-  }
+  // Future<void> HeightSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('height', height);
+  // }
 
-  Future<void> HeightGet() async {
-    final storage = await Storage;
-    heightGet = storage.getDouble('height')!;
-  }
+  // Future<void> HeightGet() async {
+  //   final storage = await Storage;
+  //   heightGet = storage.getDouble('height')!;
+  // }
 
-  Future<void> WeightSet() async {
-    final storage = await Storage;
-    storage.setDouble('weight', weight);
-  }
+  // Future<void> WeightSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('weight', weight);
+  // }
 
-  Future<void> WeightGet() async {
-    final storage = await Storage;
-    weightGet = storage.getDouble('weight')!;
-  }
+  // Future<void> WeightGet() async {
+  //   final storage = await Storage;
+  //   weightGet = storage.getDouble('weight')!;
+  // }
 
-  Future<void> AgeSet() async {
-    final storage = await Storage;
-    storage.setInt('age', age);
-  }
+  // Future<void> AgeSet() async {
+  //   final storage = await Storage;
+  //   storage.setInt('age', age);
+  // }
 
-  Future<void> AgeGet() async {
-    final storage = await Storage;
-    ageGet = storage.getInt('age');
-  }
+  // Future<void> AgeGet() async {
+  //   final storage = await Storage;
+  //   ageGet = storage.getInt('age');
+  // }
 
-  Future<void> LshSet() async {
-    final storage = await Storage;
-    storage.setDouble('lsh', lsh);
-  }
+  // Future<void> LshSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('lsh', lsh);
+  // }
 
-  Future<void> LshGet() async {
-    final storage = await Storage;
-    lshGet = storage.getDouble('lsh')!;
-  }
+  // Future<void> LshGet() async {
+  //   final storage = await Storage;
+  //   lshGet = storage.getDouble('lsh')!;
+  // }
 
-  Future<void> KalSet() async {
-    final storage = await Storage;
-    storage.setDouble('kal', kal);
-  }
+  // Future<void> KalSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('kal', kal);
+  // }
 
-  Future<void> KalGet() async {
-    final storage = await Storage;
-    kalGet = storage.getDouble('kal')!;
-  }
+  // Future<void> KalGet() async {
+  //   final storage = await Storage;
+  //   kalGet = storage.getDouble('kal')!;
+  // }
 
-  Future<void> KmSet() async {
-    final storage = await Storage;
-    storage.setDouble('km', km);
-  }
+  // Future<void> KmSet() async {
+  //   final storage = await Storage;
+  //   storage.setDouble('km', km);
+  // }
 
-  Future<void> KmGet() async {
-    final storage = await Storage;
-    kmGet = storage.getDouble('km')!;
-  }
+  // Future<void> KmGet() async {
+  //   final storage = await Storage;
+  //   kmGet = storage.getDouble('km')!;
+  //}
 
-  Future<void> GenderSet() async {
-    final storage = await Storage;
-    storage.setInt('gender', gender);
-  }
-
-  Future<void> GenderGet() async {
-    final storage = await Storage;
-    genderGet = storage.getInt('gender');
-  }
+  // Future<void> GenderSet() async {
+  //   final storage = await Storage;
+  //   storage.setInt('gender', gender);
+  // }
 
   Future<void> SetFlag() async {
-    final storage = await Storage;
-    storage.setInt('push', push);
+    stepsBox.put('push', push);
   }
 
-  Future<void> GetFlag() async {
-    final storage = await Storage;
-    pushGet = storage.getInt('push');
-  }
+  // Future<void> GetFlag() async {
+  //   final storage = await Storage;
+  //   pushGet = storage.getInt('push');
+  // }
 
   Future<void> SetKmToday() async {
     final storage = await Storage;
