@@ -973,7 +973,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   setState(() {
-                                    if (pushGet == 0) {
+                                    if (push == 0) {
                                       push = 1;
                                       model.SetFlag();
                                       // model.GetFlag();
@@ -993,7 +993,7 @@ class _settingPageState extends State<settingPage> {
                               PopupMenuItem(
                                 onTap: () async {
                                   setState(() {
-                                    if (pushGet == 1) {
+                                    if (push == 1) {
                                       push = 0;
                                       model.SetFlag();
                                       // model.GetFlag();
@@ -1151,7 +1151,7 @@ class _settingPageState extends State<settingPage> {
                                 setState(() {
                                   savedTime2 = 1;
                                   stepsBox.put('time2', savedTime2);
-                                  if (todaySteps >= stepsGet) {
+                                  if (todaySteps >= step) {
                                     NotificationReport();
                                   } else {
                                     IfNotDoneNotificationReport();
@@ -1243,8 +1243,8 @@ class _settingPageState extends State<settingPage> {
 void engl() {
   height = double.parse((height / 2.5).toStringAsFixed(1));
   weight = double.parse((weight / 0.453).toStringAsFixed(1));
-  lsh = double.parse((lshGet / 2.5).toStringAsFixed(1));
-  km = double.parse(((kmGet * 1000) / 1600).toStringAsFixed(2));
+  lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
+  km = double.parse(((km * 1000) / 1600).toStringAsFixed(2));
   stepsBox
     ..put('height', height)
     ..put('weight', weight)
@@ -1268,8 +1268,8 @@ void meter() {
     weight = double.parse((weight * 0.453).toStringAsFixed(1));
   }
 
-  lsh = double.parse((lshGet * 2.5).toStringAsFixed(1));
-  km = double.parse(((kmGet / 1000) * 1600).toStringAsFixed(2));
+  lsh = double.parse((lsh * 2.5).toStringAsFixed(1));
+  km = double.parse(((km / 1000) * 1600).toStringAsFixed(2));
   stepsBox
     ..put('height', height)
     ..put('weight', weight)
