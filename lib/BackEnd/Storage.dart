@@ -1,25 +1,26 @@
 // ignore_for_file: file_names, prefer_typing_uninitialized_variables
 import 'package:flutter/material.dart';
-import 'package:pedometer2/firstPage/Buttons.dart';
-import 'package:pedometer2/firstPage/Parameters.dart';
-import 'package:pedometer2/scondPage/Parameters2.dart';
-import 'package:pedometer2/settingsFivesPage/Settings.dart';
-import 'package:pedometer2/thirdPage/stepCount.dart';
+// import 'package:pedometer2/firstPage/Buttons.dart';
+// import 'package:pedometer2/firstPage/Parameters.dart';
+// import 'package:pedometer2/scondPage/Parameters2.dart';
+// import 'package:pedometer2/settingsFivesPage/Settings.dart';
+// import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 Box<dynamic> stepsBox = Hive.box('steps');
 final Storage = SharedPreferences.getInstance();
 
-double height = stepsBox.get('heightGet', defaultValue: 120.0);
-double weight = stepsBox.get('weightGet', defaultValue: 50.0);
-int age = stepsBox.get('ageGet', defaultValue: 12);
+double height = stepsBox.get('height', defaultValue: 120.0);
+double weight = stepsBox.get('weight', defaultValue: 50.0);
+int age = stepsBox.get('age', defaultValue: 12);
 int gender = stepsBox.get('gender', defaultValue: 0);
-dynamic lsh = stepsBox.get('lsh', defaultValue: 0.0);
-dynamic kal = stepsBox.get('kal', defaultValue: 0.0);
-dynamic km = stepsBox.get('km', defaultValue: 0.0);
-dynamic step = stepsBox.get('step', defaultValue: 0);
-dynamic push = stepsBox.get('push', defaultValue: 0);
+double lsh = stepsBox.get('lsh', defaultValue: 0.0);
+double kal = stepsBox.get('kal', defaultValue: 0.0);
+double km = stepsBox.get('km', defaultValue: 0.0);
+int step = stepsBox.get('step', defaultValue: 0);
+int push = stepsBox.get('push', defaultValue: 0);
 double KmToday = stepsBox.get('KmToday', defaultValue: 0.0);
 double valueKal = stepsBox.get('valueKal', defaultValue: 0.0);
 double valueKm = stepsBox.get('valueKm', defaultValue: 0.0);
@@ -74,8 +75,8 @@ class StorageModel {
     stepsBox
       ..put('step', step)
       ..put('km', km)
-      ..put('kal', kal)
-      ..put('lsh', lsh);
+      ..put('lsh', lsh)
+      ..put('kal', kal);
   }
 
   Future<void> SetFlag() async {

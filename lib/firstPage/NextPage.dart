@@ -32,13 +32,11 @@ class _NextButtonState extends State<NextButton> {
               model.Gender();
               push = 1;
               model2.Set();
-
-              LshGet();
+              LshFirstPage();
               // LshNextPage();
               StepsNextPage();
               Km();
               Kkal();
-
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => SecondPage()));
             },

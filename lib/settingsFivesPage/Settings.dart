@@ -193,8 +193,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10))),
-                                      onChanged: (dynamic value) {
-                                        height = value;
+                                      onChanged: (String value) {
+                                        height = double.parse(value);
                                       },
                                     ),
                                     actions: [
@@ -206,16 +206,16 @@ class _settingPageState extends State<settingPage> {
                                             } else if (height < 120) {
                                               height = 120;
                                             }
+                                            stepsBox.put('height', height);
+                                            // model.HeightSet();
+                                            // model.HeightGet();
+                                            LshGet();
+                                            // LshNextPage();
+                                            stepsBox.put('lsh', lsh);
+                                            // model.LshSet();
+                                            // model.LshGet();
+                                            Navigator.of(context).pop();
                                           });
-                                          stepsBox.put('height', height);
-                                          // model.HeightSet();
-                                          // model.HeightGet();
-                                          LshFirstPage();
-                                          // LshNextPage();
-                                          stepsBox.put('lsh', lsh);
-                                          // model.LshSet();
-                                          // model.LshGet();
-                                          Navigator.of(context).pop();
                                         },
                                         icon: Icon(Icons.done_outline_rounded),
                                       ),
@@ -273,8 +273,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        weight = value;
+                                      onChanged: (String value) {
+                                        weight = double.parse(value);
                                       },
                                     ),
                                     actions: [
@@ -350,8 +350,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (dynamic value) {
-                                        age = value;
+                                      onChanged: (String value) {
+                                        age = int.parse(value);
                                       },
                                     ),
                                     actions: [
@@ -460,6 +460,7 @@ class _settingPageState extends State<settingPage> {
                                 // model.GenderSet();
                                 // model.GenderGet();
                                 LshFirstPage();
+                                LshGet();
                                 // LshForGender();
                                 StepsNextPage();
                                 stepsBox.put('step', step);
@@ -474,13 +475,13 @@ class _settingPageState extends State<settingPage> {
                                 // model.KalGet();
                               });
                             },
-                            color: genderGet == 2 ? bottomColor2 : bottomColor1,
+                            color: gender == 2 ? bottomColor2 : bottomColor1,
                             child: Text(
                               'text38'.tr().toString(),
                               style: TextStyle(
                                 fontFamily: "Gilroy2",
                                 fontSize: 14,
-                                color: genderGet == 2 ? textColor2 : textColor1,
+                                color: gender == 2 ? textColor2 : textColor1,
                               ),
                             ),
                           ),
@@ -501,6 +502,7 @@ class _settingPageState extends State<settingPage> {
                               // model.GenderSet();
                               // model.GenderGet();
                               LshFirstPage();
+                              LshGet();
                               // LshForGender();
                               StepsNextPage();
                               stepsBox.put('step', step);
@@ -515,13 +517,13 @@ class _settingPageState extends State<settingPage> {
                               // model.KalGet();
                             });
                           },
-                          color: genderGet == 1 ? bottomColor2 : bottomColor1,
+                          color: gender == 1 ? bottomColor2 : bottomColor1,
                           child: Text(
                             'text37'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
-                              color: genderGet == 1 ? textColor2 : textColor1,
+                              color: gender == 1 ? textColor2 : textColor1,
                             ),
                           ),
                         ),
@@ -541,6 +543,7 @@ class _settingPageState extends State<settingPage> {
                               // model.GenderSet();
                               // model.GenderGet();
                               LshFirstPage();
+                              LshGet();
                               // LshForGender();
                               StepsNextPage();
                               stepsBox.put('step', step);
@@ -555,13 +558,13 @@ class _settingPageState extends State<settingPage> {
                               // model.KalGet();
                             });
                           },
-                          color: genderGet == 3 ? bottomColor2 : bottomColor1,
+                          color: gender == 3 ? bottomColor2 : bottomColor1,
                           child: Text(
                             'text39'.tr().toString(),
                             style: TextStyle(
                               fontFamily: "Gilroy2",
                               fontSize: 14,
-                              color: genderGet == 3 ? textColor2 : textColor1,
+                              color: gender == 3 ? textColor2 : textColor1,
                             ),
                           ),
                         ),
@@ -722,7 +725,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(right: 30),
                           child: Text(
-                            '${kmGet.toStringAsFixed(1)}',
+                            '${km.toStringAsFixed(1)}',
                             style: TextStyle(
                                 fontFamily: "Gilroy",
                                 fontSize: 18,
