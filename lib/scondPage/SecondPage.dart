@@ -1,11 +1,9 @@
-//Navigator.push(context, MaterialPageRoute(builder: (context) => SecondScreen()));
 // ignore_for_file: use_key_in_widget_constructors, file_names, prefer_const_constructors
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'Buttons2.dart';
-// import 'package:sizer/sizer.dart';
 
 class SecondPage extends StatefulWidget {
   @override

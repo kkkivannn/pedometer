@@ -1,12 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, file_names, prefer_const_constructors
+// ignore_for_file: use_key_in_widget_constructors, file_names, prefer_const_constructors, deprecated_member_use
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
-// import 'package:pedometer/scondPage/Parameters2.dart';
-
-// import 'package:pedometer/scondPage/SecondPage.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/scondPage/SecondPage.dart';
@@ -33,23 +28,17 @@ class _NextButtonState extends State<NextButton> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
             onPressed: () {
-              LshFirstPage();
-              LshNextPage();
+              model.SaveNextPage();
+              model.Gender();
+              push = 1;
+              model2.Set();
+
+              LshGet();
+              // LshNextPage();
               StepsNextPage();
               Km();
               Kkal();
-              push = 1;
-              CmHight = "Cm";
-              Kg = "Kg";
-              CmStep = "Cm";
-              foot = "Ft";
-              inch = "In";
-              mile = "Ml";
-              model.SaveNextPageSet();
-              model.SaveNextPageGet();
-              model.GenderSet();
-              model.GenderGet();
-              model2.Set();
+
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => SecondPage()));
             },

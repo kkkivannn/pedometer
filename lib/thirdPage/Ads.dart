@@ -14,7 +14,6 @@ class ADS1 extends StatelessWidget {
               child: Container(
                 height: 65,
                 alignment: Alignment.center,
-                // width: 400,
                 color: Color(0xff7ABFFF),
                 child: Text(
                   'ADS',

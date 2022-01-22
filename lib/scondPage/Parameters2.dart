@@ -1,10 +1,7 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// ignore_for_file: file_names, prefer_const_constructors, use_key_in_widget_constructors
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
-// import 'package:pedometer/firstPage/Buttons.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';
@@ -13,13 +10,6 @@ class Parameters2 extends StatefulWidget {
   @override
   _Parameters2State createState() => _Parameters2State();
 }
-
-final model = StorageModel();
-
-dynamic lsh;
-dynamic kal;
-dynamic km;
-dynamic step;
 
 void StepsNextPage() {
   if (age <= 18) {
@@ -39,8 +29,27 @@ void Km() {
   km = step * lsh / 100000;
 }
 
-void Lsh() {
-  int i = 120;
+// void Lsh() {
+//   int i = 120;
+//   if (gender == 1) {
+//     for (var i = 120; i < height; i++) {
+//       lsh += 0.3;
+//     }
+//   } else if (gender == 2) {
+//     for (var i = 120; i < height; i++) {
+//       lsh += 0.3;
+//     }
+//   } else if (gender == 3) {
+//     for (var i = 120; i < height; i++) {
+//       lsh += 0.3;
+//     }
+//   }
+//   Km();
+//   model.KmSet();
+//   model.KmGet();
+// }
+
+void LshGet() {
   if (gender == 1) {
     for (var i = 120; i < height; i++) {
       lsh += 0.3;
@@ -54,47 +63,27 @@ void Lsh() {
       lsh += 0.3;
     }
   }
-  Km();
-  model.KmSet();
-  model.KmGet();
 }
 
-void LshNextPage() {
-  int i = 120;
-  if (gender == 1) {
-    for (var i = 120; i < height; i++) {
-      lsh += 0.3;
-    }
-  } else if (gender == 2) {
-    for (var i = 120; i < height; i++) {
-      lsh += 0.3;
-    }
-  } else if (gender == 3) {
-    for (var i = 120; i < height; i++) {
-      lsh += 0.3;
-    }
-  }
-}
-
-void LshForGender() {
-  int i = 120;
-  if (gender == 1) {
-    for (var i = 120; i < heightGet; i++) {
-      lsh += 0.3;
-    }
-  } else if (gender == 2) {
-    for (var i = 120; i < heightGet; i++) {
-      lsh += 0.3;
-    }
-  } else if (gender == 3) {
-    for (var i = 120; i < heightGet; i++) {
-      lsh += 0.3;
-    }
-  }
-  if (push == 0) {
-    lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
-  }
-}
+// void LshForGender() {
+//   int i = 120;
+//   if (gender == 1) {
+//     for (var i = 120; i < heightGet; i++) {
+//       lsh += 0.3;
+//     }
+//   } else if (gender == 2) {
+//     for (var i = 120; i < heightGet; i++) {
+//       lsh += 0.3;
+//     }
+//   } else if (gender == 3) {
+//     for (var i = 120; i < heightGet; i++) {
+//       lsh += 0.3;
+//     }
+//   }
+//   if (push == 0) {
+//     lsh = double.parse((lsh / 2.5).toStringAsFixed(1));
+//   }
+// }
 
 void LshFirstPage() {
   if (gender == 1) {

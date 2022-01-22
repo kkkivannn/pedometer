@@ -33,9 +33,9 @@ int savedTime1 = stepsBox.get('time1', defaultValue: 2);
 int savedTime2 = stepsBox.get('time2', defaultValue: 2);
 
 void IsmSet() {
-  if (pushGet == 1) {
+  if (push == 1) {
     Ism = "Metric system";
-  } else if (pushGet == 0) {
+  } else if (push == 0) {
     Ism = "Anglican system";
   }
 }
@@ -68,7 +68,6 @@ class _settingPageState extends State<settingPage> {
                     //   color: Colors.white,
 
                     // ),
-
                     Expanded(
                       child: Container(
                         padding: EdgeInsets.only(top: 27),
@@ -194,8 +193,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(10))),
-                                      onChanged: (var value) {
-                                        height = int.tryParse(value);
+                                      onChanged: (dynamic value) {
+                                        height = value;
                                       },
                                     ),
                                     actions: [
@@ -208,12 +207,14 @@ class _settingPageState extends State<settingPage> {
                                               height = 120;
                                             }
                                           });
-                                          model.HeightSet();
-                                          model.HeightGet();
+                                          stepsBox.put('height', height);
+                                          // model.HeightSet();
+                                          // model.HeightGet();
                                           LshFirstPage();
-                                          LshNextPage();
-                                          model.LshSet();
-                                          model.LshGet();
+                                          // LshNextPage();
+                                          stepsBox.put('lsh', lsh);
+                                          // model.LshSet();
+                                          // model.LshGet();
                                           Navigator.of(context).pop();
                                         },
                                         icon: Icon(Icons.done_outline_rounded),
@@ -224,7 +225,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '$heightGet',
+                              '$height',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -272,8 +273,8 @@ class _settingPageState extends State<settingPage> {
                                           border: OutlineInputBorder(
                                               borderRadius:
                                                   BorderRadius.circular(7))),
-                                      onChanged: (String value) {
-                                        weight = int.tryParse(value);
+                                      onChanged: (dynamic value) {
+                                        weight = value;
                                       },
                                     ),
                                     actions: [
@@ -283,11 +284,13 @@ class _settingPageState extends State<settingPage> {
                                             if (weight < 50) {
                                               weight = 50;
                                             }
-                                            model.WeightSet();
-                                            model.WeightGet();
+                                            stepsBox.put('weight', weight);
+                                            // model.WeightSet();
+                                            // model.WeightGet();
                                             Kkal();
-                                            model.KalSet();
-                                            model.KalGet();
+                                            stepsBox.put('kal', kal);
+                                            // model.KalSet();
+                                            // model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -299,7 +302,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${weightGet}',
+                              '${weight}',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -348,7 +351,7 @@ class _settingPageState extends State<settingPage> {
                                               borderRadius:
                                                   BorderRadius.circular(7))),
                                       onChanged: (dynamic value) {
-                                        age = int.tryParse(value);
+                                        age = value;
                                       },
                                     ),
                                     actions: [
@@ -360,14 +363,17 @@ class _settingPageState extends State<settingPage> {
                                             age = 12;
                                           }
                                           setState(() {
-                                            model.AgeSet();
-                                            model.AgeGet();
+                                            stepsBox.put('age', age);
+                                            // model.AgeSet();
+                                            // model.AgeGet();
                                             StepsNextPage();
-                                            model.StepSet();
-                                            model.StepGet();
+                                            stepsBox.put('step', step);
+                                            // model.StepSet();
+                                            // model.StepGet();
                                             Kkal();
-                                            model.KalSet();
-                                            model.KalGet();
+                                            stepsBox.put('kal', kal);
+                                            // model.KalSet();
+                                            // model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -379,7 +385,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '${ageGet}',
+                              '${age}',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -419,7 +425,7 @@ class _settingPageState extends State<settingPage> {
                             Container(
                               padding: EdgeInsets.only(right: 30),
                               child: Text(
-                                '${lshGet.toStringAsFixed(1)}',
+                                '${lsh.toStringAsFixed(1)}',
                                 style: TextStyle(
                                     fontFamily: "Gilroy",
                                     fontSize: 18,
@@ -450,18 +456,22 @@ class _settingPageState extends State<settingPage> {
                             onPressed: () {
                               setState(() {
                                 gender = 2;
-                                model.GenderSet();
-                                model.GenderGet();
+                                stepsBox.put('gender', gender);
+                                // model.GenderSet();
+                                // model.GenderGet();
                                 LshFirstPage();
-                                LshForGender();
+                                // LshForGender();
                                 StepsNextPage();
-                                model.StepSet();
-                                model.StepGet();
-                                model.LshSet();
-                                model.LshGet();
+                                stepsBox.put('step', step);
+                                stepsBox.put('lsh', lsh);
+                                // model.StepSet();
+                                // model.StepGet();
+                                // model.LshSet();
+                                // model.LshGet();
                                 Kkal();
-                                model.KalSet();
-                                model.KalGet();
+                                stepsBox.put('kal', kal);
+                                // model.KalSet();
+                                // model.KalGet();
                               });
                             },
                             color: genderGet == 2 ? bottomColor2 : bottomColor1,
@@ -487,18 +497,22 @@ class _settingPageState extends State<settingPage> {
                           onPressed: () {
                             setState(() {
                               gender = 1;
-                              model.GenderSet();
-                              model.GenderGet();
+                              stepsBox.put('gender', gender);
+                              // model.GenderSet();
+                              // model.GenderGet();
                               LshFirstPage();
-                              LshForGender();
+                              // LshForGender();
                               StepsNextPage();
-                              model.StepSet();
-                              model.StepGet();
-                              model.LshSet();
-                              model.LshGet();
+                              stepsBox.put('step', step);
+                              stepsBox.put('lsh', lsh);
+                              // model.StepSet();
+                              // model.StepGet();
+                              // model.LshSet();
+                              // model.LshGet();
                               Kkal();
-                              model.KalSet();
-                              model.KalGet();
+                              stepsBox.put('kal', kal);
+                              // model.KalSet();
+                              // model.KalGet();
                             });
                           },
                           color: genderGet == 1 ? bottomColor2 : bottomColor1,
@@ -523,18 +537,22 @@ class _settingPageState extends State<settingPage> {
                           onPressed: () {
                             setState(() {
                               gender = 3;
-                              model.GenderSet();
-                              model.GenderGet();
+                              stepsBox.put('gender', gender);
+                              // model.GenderSet();
+                              // model.GenderGet();
                               LshFirstPage();
-                              LshForGender();
+                              // LshForGender();
                               StepsNextPage();
-                              model.StepSet();
-                              model.StepGet();
-                              model.LshSet();
-                              model.LshGet();
+                              stepsBox.put('step', step);
+                              stepsBox.put('lsh', lsh);
+                              // model.StepSet();
+                              // model.StepGet();
+                              // model.LshSet();
+                              // model.LshGet();
                               Kkal();
-                              model.KalSet();
-                              model.KalGet();
+                              stepsBox.put('kal', kal);
+                              // model.KalSet();
+                              // model.KalGet();
                             });
                           },
                           color: genderGet == 3 ? bottomColor2 : bottomColor1,
@@ -608,14 +626,17 @@ class _settingPageState extends State<settingPage> {
                                       IconButton(
                                         onPressed: () {
                                           setState(() {
-                                            model.StepSet();
-                                            model.StepGet();
+                                            stepsBox.put('step', step);
+                                            // model.StepSet();
+                                            // model.StepGet();
                                             Kkal();
-                                            model.KalSet();
-                                            model.KalGet();
+                                            stepsBox.put('kal', kal);
+                                            // model.KalSet();
+                                            // model.KalGet();
                                             Km();
-                                            model.KmSet();
-                                            model.KmGet();
+                                            stepsBox.put('km', km);
+                                            // model.KmSet();
+                                            // model.KmGet();
                                           });
 
                                           Navigator.of(context).pop();
@@ -628,7 +649,7 @@ class _settingPageState extends State<settingPage> {
                               );
                             },
                             child: Text(
-                              '$stepsGet',
+                              '$step',
                               style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -665,7 +686,7 @@ class _settingPageState extends State<settingPage> {
                         Container(
                           padding: EdgeInsets.only(right: 30),
                           child: Text(
-                            '${kalGet.toStringAsFixed(1)}',
+                            '${kal.toStringAsFixed(1)}',
                             style: TextStyle(
                                 fontFamily: "Gilroy",
                                 fontSize: 18,
@@ -952,7 +973,7 @@ class _settingPageState extends State<settingPage> {
                                     if (pushGet == 0) {
                                       push = 1;
                                       model.SetFlag();
-                                      model.GetFlag();
+                                      // model.GetFlag();
                                       meter();
                                     }
                                   });
@@ -972,7 +993,7 @@ class _settingPageState extends State<settingPage> {
                                     if (pushGet == 1) {
                                       push = 0;
                                       model.SetFlag();
-                                      model.GetFlag();
+                                      // model.GetFlag();
                                       engl();
                                     }
                                   });
@@ -1217,38 +1238,46 @@ class _settingPageState extends State<settingPage> {
 }
 
 void engl() {
-  height = double.parse((heightGet / 2.5).toStringAsFixed(1));
-  weight = double.parse((weightGet / 0.453).toStringAsFixed(1));
+  height = double.parse((height / 2.5).toStringAsFixed(1));
+  weight = double.parse((weight / 0.453).toStringAsFixed(1));
   lsh = double.parse((lshGet / 2.5).toStringAsFixed(1));
   km = double.parse(((kmGet * 1000) / 1600).toStringAsFixed(2));
-
-  model.HeightSet();
-  model.HeightGet();
-  model.WeightSet();
-  model.WeightGet();
-  model.LshSet();
-  model.LshGet();
-  model.KmSet();
-  model.KmGet();
+  stepsBox
+    ..put('height', height)
+    ..put('weight', weight)
+    ..put('lsh', lsh)
+    ..put('km', km);
+  // model.HeightSet();
+  // model.HeightGet();
+  // model.WeightSet();
+  // model.WeightGet();
+  // model.LshSet();
+  // model.LshGet();
+  // model.KmSet();
+  // model.KmGet();
 }
 
 void meter() {
-  height = double.parse((heightGet * 2.5).toStringAsFixed(1));
+  height = double.parse((height * 2.5).toStringAsFixed(1));
   if (weight < 50) {
     weight = 50;
   } else {
-    weight = double.parse((weightGet * 0.453).toStringAsFixed(1));
+    weight = double.parse((weight * 0.453).toStringAsFixed(1));
   }
 
   lsh = double.parse((lshGet * 2.5).toStringAsFixed(1));
   km = double.parse(((kmGet / 1000) * 1600).toStringAsFixed(2));
-
-  model.HeightSet();
-  model.HeightGet();
-  model.WeightSet();
-  model.WeightGet();
-  model.LshSet();
-  model.LshGet();
-  model.KmSet();
-  model.KmGet();
+  stepsBox
+    ..put('height', height)
+    ..put('weight', weight)
+    ..put('lsh', lsh)
+    ..put('km', km);
+  // model.HeightSet();
+  // model.HeightGet();
+  // model.WeightSet();
+  // model.WeightGet();
+  // model.LshSet();
+  // model.LshGet();
+  // model.KmSet();
+  // model.KmGet();
 }

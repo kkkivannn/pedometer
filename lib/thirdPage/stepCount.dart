@@ -1,7 +1,4 @@
 // ignore_for_file: file_names, prefer_const_constructors, must_call_super, non_constant_identifier_names, unused_field
-
-import 'dart:convert';
-
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -9,15 +6,10 @@ import 'dart:async';
 import 'package:pedometer/pedometer.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
-import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/main.dart';
-import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'Activitys.dart';
-import 'Ads.dart';
 import 'Statistics.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class DailySteps extends StatefulWidget {
   @override
@@ -27,12 +19,6 @@ class DailySteps extends StatefulWidget {
 int todaySteps = 0;
 var status = Permission.sensors.status;
 final model = StorageModel();
-double KalToday = 0;
-dynamic KalTodaySaved = 0.0;
-dynamic KmTodaySaved = 0.0;
-double KmToday = 0;
-double valueKal = 0;
-double valueKm = 0;
 
 int savedAllSteps = stepsBox.get('savedAllSteps', defaultValue: 0);
 int savedCountofSteps = stepsBox.get('savedCountofSteps', defaultValue: 0);
@@ -59,7 +45,7 @@ class _DailyStepsState extends State<DailySteps> {
 
   @override
   Widget build(BuildContext context) {
-    model.GetFlag();
+    // model.GetFlag();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -86,10 +72,9 @@ class _DailyStepsState extends State<DailySteps> {
                         IconButton(
                           onPressed: () {
                             setState(() {
-                              model.SaveNextPageGet();
-                              model.SaveReadyGet();
-                              model.GenderGet();
-                              model.GetFlag();
+                              // model.SaveReadyGet();
+
+                              // model.GetFlag();
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -195,24 +180,19 @@ class _DailyStepsState extends State<DailySteps> {
   }
 }
 
-// void averageOfDay() {
-//   averageSteps = AllSteps / CountOfSteps;
-// }
-
 void culculateKL() {
-  model.WeightGet();
-  model.LshGet();
+  // model.WeightGet();
+
   var a = 0.8;
-  KalToday = a * weightGet * todaySteps * lshGet / 100000;
-  model.SetKmToday();
-  model.GetKmToday();
+  KalTodaySaved = a * weight * todaySteps * lsh / 100000;
+  stepsBox.put('KalTodaySaved', KalTodaySaved);
+  // model.SetKmToday();
+  // model.GetKmToday();
 }
 
 void culculateKM() {
-  KmToday = todaySteps * lshGet / 1000;
-  model.SetKalToday();
-  model.GetKalToday();
+  KmTodaySaved = todaySteps * lsh / 1000;
+  stepsBox.put('KmTodaySaved', KmTodaySaved);
+  // model.SetKalToday();
+  // model.GetKalToday();
 }
-
-
-//Создать метод, который будет расчитывать сколько пользователь сделал всего шагов. Прошел, закидываю в бокс, на следующий день прошел шаги, прибавил к шагам из бокса и потом опять закинул в бокс и так репит

@@ -1,15 +1,10 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables, dead_code
-
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-
 import 'package:pedometer2/BackEnd/Storage.dart';
-import 'package:pedometer2/main.dart';
 import 'package:pedometer2/settingsFivesPage/Settings.dart';
 import 'package:pedometer2/thirdPage/Activitys.dart';
-import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/Statistics.dart';
-import 'package:pedometer2/thirdPage/stepCount.dart';
 
 class Activity extends StatefulWidget {
   @override
@@ -47,10 +42,10 @@ class ActivityState extends State<Activity> {
                         IconButton(
                           onPressed: () {
                             setState(() {
-                              model.SaveNextPageGet();
-                              model.SaveReadyGet();
-                              model.GenderGet();
-                              model.GetFlag();
+                              // model.SaveNextPageGet();
+                              // model.SaveReadyGet();
+                              // model.GenderGet();
+                              // model.GetFlag();
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(

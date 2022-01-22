@@ -3,14 +3,8 @@
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
-// import 'package:pedometer/foorthPage/achievements.dart';
 import 'package:pedometer2/foorthPage/achievements.dart';
-import 'package:pedometer2/main.dart';
-import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
-
-import 'Activitys.dart';
 
 class statics extends StatefulWidget {
   @override
@@ -45,36 +39,6 @@ class _staticsState extends State<statics> {
                     ),
                   ),
                   Spacer(),
-                  // Container(
-                  //   alignment: Alignment.center,
-                  //   width: 130,
-                  //   child: ExpansionTile(
-                  //     collapsedIconColor: Color(0xff5F6CFF),
-                  //     title: Text(
-                  //       'text18'.tr().toString(),
-                  //       style: TextStyle(
-                  //           color: Color(0xff5F6CFF),
-                  //           fontSize: 18,
-                  //           fontFamily: "Gilroy"),
-                  //     ),
-                  //     children: [
-                  //       Text(
-                  //         'text19'.tr().toString(),
-                  //         style: TextStyle(
-                  //             color: Color(0xff5F6CFF),
-                  //             fontSize: 18,
-                  //             fontFamily: "Gilroy"),
-                  //       ),
-                  //       Text(
-                  //         'text20'.tr().toString(),
-                  //         style: TextStyle(
-                  //             color: Color(0xff5F6CFF),
-                  //             fontSize: 18,
-                  //             fontFamily: "Gilroy"),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                 ],
               ),
             ),

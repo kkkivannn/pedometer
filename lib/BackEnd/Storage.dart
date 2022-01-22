@@ -20,6 +20,12 @@ dynamic kal = stepsBox.get('kal', defaultValue: 0.0);
 dynamic km = stepsBox.get('km', defaultValue: 0.0);
 dynamic step = stepsBox.get('step', defaultValue: 0);
 dynamic push = stepsBox.get('push', defaultValue: 0);
+double KmToday = stepsBox.get('KmToday', defaultValue: 0.0);
+double valueKal = stepsBox.get('valueKal', defaultValue: 0.0);
+double valueKm = stepsBox.get('valueKm', defaultValue: 0.0);
+
+double KalTodaySaved = stepsBox.get('KalTodaySaved', defaultValue: 0.0);
+double KmTodaySaved = stepsBox.get('KmTodaySaved', defaultValue: 0.0);
 
 dynamic stepsGet;
 double kmGet = 0;
@@ -64,8 +70,6 @@ class StorageModel {
     stepsBox.put('gender', gender);
   }
 
-//ЕЩЕ НЕТ
-
   Future<void> SaveReady() async {
     stepsBox
       ..put('step', step)
@@ -73,6 +77,11 @@ class StorageModel {
       ..put('kal', kal)
       ..put('lsh', lsh);
   }
+
+  Future<void> SetFlag() async {
+    stepsBox.put('push', push);
+  }
+//ЕЩЕ НЕТ
 
   // Future<void> SaveReadyGet() async {
   //   final storage = await Storage;
@@ -157,34 +166,30 @@ class StorageModel {
   //   storage.setInt('gender', gender);
   // }
 
-  Future<void> SetFlag() async {
-    stepsBox.put('push', push);
-  }
-
   // Future<void> GetFlag() async {
   //   final storage = await Storage;
   //   pushGet = storage.getInt('push');
   // }
 
-  Future<void> SetKmToday() async {
-    final storage = await Storage;
-    storage.setDouble("KmToday", KmToday);
-  }
+  // Future<void> SetKmToday() async {
+  //   final storage = await Storage;
+  //   storage.setDouble("KmToday", KmToday);
+  // }
 
-  Future<void> GetKmToday() async {
-    final storage = await Storage;
-    KmTodaySaved = storage.getDouble("KmToday");
-  }
+  // Future<void> GetKmToday() async {
+  //   final storage = await Storage;
+  //   KmTodaySaved = storage.getDouble("KmToday");
+  // }
 
-  Future<void> SetKalToday() async {
-    final storage = await Storage;
-    storage.setDouble("KalToday", KalToday);
-  }
+  // Future<void> SetKalToday() async {
+  //   final storage = await Storage;
+  //   storage.setDouble("KalToday", KalToday);
+  // }
 
-  Future<void> GetKalToday() async {
-    final storage = await Storage;
-    KalTodaySaved = storage.getDouble("KalToday");
-  }
+  // Future<void> GetKalToday() async {
+  //   final storage = await Storage;
+  //   KalTodaySaved = storage.getDouble("KalToday");
+  // }
 }
 
 class Time {

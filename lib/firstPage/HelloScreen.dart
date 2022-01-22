@@ -1,10 +1,7 @@
-// ignore_for_file: file_names, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_const_constructors, deprecated_member_use
+// ignore_for_file: file_names, prefer_const_literals_to_create_immutables, avoid_unnecessary_containers, prefer_const_constructors, deprecated_member_use, use_key_in_widget_constructors
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-// import 'package:pedometer/firstPage/Buttons.dart';
-// import 'package:pedometer/firstPage/NextPage.dart';
-// import 'package:pedometer/firstPage/Parameters.dart';
 import 'package:pedometer2/firstPage/Buttons.dart';
 import 'package:pedometer2/firstPage/NextPage.dart';
 import 'package:pedometer2/firstPage/Parameters.dart';

@@ -1,14 +1,9 @@
-// ignore_for_file: file_names, prefer_const_constructors, dead_code, implementation_imports
+// ignore_for_file: file_names, prefer_const_constructors, dead_code, implementation_imports, deprecated_member_use, use_key_in_widget_constructors
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-// import 'package:pedometer/BackEnd/Storage.dart';
-// import 'package:pedometer/main.dart';
-// import 'package:pedometer/scondPage/Parameters2.dart';
-// import 'package:pedometer/thirdPage/thirdPageVTWO.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
-import 'package:pedometer2/thirdPage/thirdPageVTWO.dart';
 
 class ButtonReady extends StatefulWidget {
   @override
@@ -33,10 +28,8 @@ class _ButtonReadyState extends State<ButtonReady> {
                     borderRadius: BorderRadius.circular(7)),
                 onPressed: () {
                   setState(() {
-                    model.SaveReadySet();
-                    model.SaveReadyGet();
+                    model.SaveReady();
                     model.SetFlag();
-                    model.GetFlag();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => DailySteps()));
                   });

@@ -1,21 +1,14 @@
-// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types
+// ignore_for_file: use_key_in_widget_constructors, prefer_const_constructors, prefer_final_fields, prefer_const_literals_to_create_immutables, camel_case_types, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:pedometer2/ADSScreen/add.dart';
-import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
-import 'package:pedometer2/foorthPage/achievements.dart';
-import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
-import 'ADSScreen/adsAndroidScreen.dart';
 import 'firstPage/HelloScreen.dart';
-import 'settingsFivesPage/Settings.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'thirdPage/thirdPageVTWO.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';

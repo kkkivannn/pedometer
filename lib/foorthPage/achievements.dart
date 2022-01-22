@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer2/main.dart';
-import 'package:pedometer2/thirdPage/Ads.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 
 class Achive extends StatefulWidget {
