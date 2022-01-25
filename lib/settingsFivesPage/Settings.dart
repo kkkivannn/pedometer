@@ -10,8 +10,6 @@ import 'package:pedometer2/ADSScreen/adsAndroidScreen.dart';
 import 'package:pedometer2/ADSScreen/adsIphoneScreen.dart';
 import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/Notifications/NotificationClients.dart';
-import 'package:pedometer2/firstPage/Buttons.dart';
-import 'package:pedometer2/firstPage/Parameters.dart';
 import 'package:pedometer2/firstPage/colors.dart';
 import 'package:pedometer2/scondPage/Parameters2.dart';
 import 'package:pedometer2/settingsFivesPage/langs.dart';
@@ -60,14 +58,6 @@ class _settingPageState extends State<settingPage> {
               children: [
                 Row(
                   children: [
-                    // IconButton(
-                    //   onPressed: () {
-                    //     setState(() {});
-                    //   },
-                    //   icon: Icon(Icons.arrow_back),
-                    //   color: Colors.white,
-
-                    // ),
                     Expanded(
                       child: Container(
                         padding: EdgeInsets.only(top: 27),
@@ -207,13 +197,9 @@ class _settingPageState extends State<settingPage> {
                                               height = 120;
                                             }
                                             stepsBox.put('height', height);
-                                            // model.HeightSet();
-                                            // model.HeightGet();
+                                            LshFirstPage();
                                             LshGet();
-                                            // LshNextPage();
                                             stepsBox.put('lsh', lsh);
-                                            // model.LshSet();
-                                            // model.LshGet();
                                             Navigator.of(context).pop();
                                           });
                                         },
@@ -285,12 +271,8 @@ class _settingPageState extends State<settingPage> {
                                               weight = 50;
                                             }
                                             stepsBox.put('weight', weight);
-                                            // model.WeightSet();
-                                            // model.WeightGet();
                                             Kkal();
                                             stepsBox.put('kal', kal);
-                                            // model.KalSet();
-                                            // model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -364,16 +346,10 @@ class _settingPageState extends State<settingPage> {
                                           }
                                           setState(() {
                                             stepsBox.put('age', age);
-                                            // model.AgeSet();
-                                            // model.AgeGet();
                                             StepsNextPage();
                                             stepsBox.put('step', step);
-                                            // model.StepSet();
-                                            // model.StepGet();
                                             Kkal();
                                             stepsBox.put('kal', kal);
-                                            // model.KalSet();
-                                            // model.KalGet();
                                           });
                                           Navigator.of(context).pop();
                                         },
@@ -457,22 +433,13 @@ class _settingPageState extends State<settingPage> {
                               setState(() {
                                 gender = 2;
                                 stepsBox.put('gender', gender);
-                                // model.GenderSet();
-                                // model.GenderGet();
                                 LshFirstPage();
                                 LshGet();
-                                // LshForGender();
                                 StepsNextPage();
                                 stepsBox.put('step', step);
                                 stepsBox.put('lsh', lsh);
-                                // model.StepSet();
-                                // model.StepGet();
-                                // model.LshSet();
-                                // model.LshGet();
                                 Kkal();
                                 stepsBox.put('kal', kal);
-                                // model.KalSet();
-                                // model.KalGet();
                               });
                             },
                             color: gender == 2 ? bottomColor2 : bottomColor1,
@@ -499,22 +466,13 @@ class _settingPageState extends State<settingPage> {
                             setState(() {
                               gender = 1;
                               stepsBox.put('gender', gender);
-                              // model.GenderSet();
-                              // model.GenderGet();
                               LshFirstPage();
                               LshGet();
-                              // LshForGender();
                               StepsNextPage();
                               stepsBox.put('step', step);
                               stepsBox.put('lsh', lsh);
-                              // model.StepSet();
-                              // model.StepGet();
-                              // model.LshSet();
-                              // model.LshGet();
                               Kkal();
                               stepsBox.put('kal', kal);
-                              // model.KalSet();
-                              // model.KalGet();
                             });
                           },
                           color: gender == 1 ? bottomColor2 : bottomColor1,
@@ -540,22 +498,13 @@ class _settingPageState extends State<settingPage> {
                             setState(() {
                               gender = 3;
                               stepsBox.put('gender', gender);
-                              // model.GenderSet();
-                              // model.GenderGet();
                               LshFirstPage();
                               LshGet();
-                              // LshForGender();
                               StepsNextPage();
                               stepsBox.put('step', step);
                               stepsBox.put('lsh', lsh);
-                              // model.StepSet();
-                              // model.StepGet();
-                              // model.LshSet();
-                              // model.LshGet();
                               Kkal();
                               stepsBox.put('kal', kal);
-                              // model.KalSet();
-                              // model.KalGet();
                             });
                           },
                           color: gender == 3 ? bottomColor2 : bottomColor1,
@@ -630,16 +579,10 @@ class _settingPageState extends State<settingPage> {
                                         onPressed: () {
                                           setState(() {
                                             stepsBox.put('step', step);
-                                            // model.StepSet();
-                                            // model.StepGet();
                                             Kkal();
                                             stepsBox.put('kal', kal);
-                                            // model.KalSet();
-                                            // model.KalGet();
                                             Km();
                                             stepsBox.put('km', km);
-                                            // model.KmSet();
-                                            // model.KmGet();
                                           });
 
                                           Navigator.of(context).pop();
@@ -996,7 +939,6 @@ class _settingPageState extends State<settingPage> {
                                     if (push == 1) {
                                       push = 0;
                                       model.SetFlag();
-                                      // model.GetFlag();
                                       engl();
                                     }
                                   });
@@ -1250,14 +1192,6 @@ void engl() {
     ..put('weight', weight)
     ..put('lsh', lsh)
     ..put('km', km);
-  // model.HeightSet();
-  // model.HeightGet();
-  // model.WeightSet();
-  // model.WeightGet();
-  // model.LshSet();
-  // model.LshGet();
-  // model.KmSet();
-  // model.KmGet();
 }
 
 void meter() {
@@ -1275,12 +1209,4 @@ void meter() {
     ..put('weight', weight)
     ..put('lsh', lsh)
     ..put('km', km);
-  // model.HeightSet();
-  // model.HeightGet();
-  // model.WeightSet();
-  // model.WeightGet();
-  // model.LshSet();
-  // model.LshGet();
-  // model.KmSet();
-  // model.KmGet();
 }

@@ -14,7 +14,7 @@ Future<void> NotificationGoal() async {
     content: NotificationContent(
       id: 1,
       channelKey: 'key1',
-      title: "Цель на сегодня $stepsGet шагов",
+      title: "Цель на сегодня $step шагов",
       body: 'Цели можно скорректировать в настройках.', //добавь в json
     ),
     schedule: NotificationCalendar(
@@ -44,7 +44,7 @@ Future<void> NotificationReport() async {
 }
 
 Future<void> IfNotDoneNotificationReport() async {
-  int remainderSteps = stepsGet - todaySteps;
+  int remainderSteps = step - todaySteps;
   await AwesomeNotifications().createNotification(
     content: NotificationContent(
       id: 3,

@@ -142,7 +142,7 @@ class _staticsState extends State<statics> {
                             Spacer(),
                             Container(
                               child: Text(
-                                '${KmTodaySaved.toStringAsFixed(0)}', // поменять стиль "КМ"
+                                '${savedAllKm.toStringAsFixed(1)}', // поменять стиль "КМ"
                                 style: TextStyle(
                                   fontFamily: 'Gilroy',
                                   fontSize: 24,
@@ -193,7 +193,7 @@ class _staticsState extends State<statics> {
                             Spacer(),
                             Container(
                               child: Text(
-                                '${KalTodaySaved.toStringAsFixed(0)}', //поменять стиль ККАЛ
+                                '${savedAllKal.toStringAsFixed(0)}', //поменять стиль ККАЛ
                                 style: TextStyle(
                                   fontFamily: 'Gilroy',
                                   fontSize: 24,

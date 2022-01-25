@@ -2,11 +2,21 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 class Achive extends StatefulWidget {
   @override
   _AchiveState createState() => _AchiveState();
+}
+
+Box<dynamic> stepsBox = Hive.box('steps');
+void achvmentsCount() {
+  Colors.white.withOpacity(0);
+  achivmentCount++;
+  stepsBox.put('achivmentCount', achivmentCount);
 }
 
 class _AchiveState extends State<Achive> {
@@ -88,7 +98,7 @@ class _AchiveState extends State<Achive> {
                                         width: 160,
                                         decoration: BoxDecoration(
                                           color: (savedAllSteps >= 5000)
-                                              ? Colors.white.withOpacity(0)
+                                              ? Colors.white.withOpacity(1)
                                               : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
@@ -135,7 +145,7 @@ class _AchiveState extends State<Achive> {
                                         width: 160,
                                         decoration: BoxDecoration(
                                           color: (savedAllSteps >= 25000)
-                                              ? Colors.white.withOpacity(0)
+                                              ? Colors.white.withOpacity(1)
                                               : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
@@ -182,7 +192,7 @@ class _AchiveState extends State<Achive> {
                                         width: 160,
                                         decoration: BoxDecoration(
                                           color: (savedAllSteps >= 125000)
-                                              ? Colors.white.withOpacity(0)
+                                              ? Colors.white.withOpacity(1)
                                               : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
@@ -229,7 +239,7 @@ class _AchiveState extends State<Achive> {
                                         width: 160,
                                         decoration: BoxDecoration(
                                           color: (savedAllSteps >= 625000)
-                                              ? Colors.white.withOpacity(0)
+                                              ? Colors.white.withOpacity(1)
                                               : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
@@ -276,7 +286,7 @@ class _AchiveState extends State<Achive> {
                                         width: 160,
                                         decoration: BoxDecoration(
                                           color: (savedAllSteps >= 3125000)
-                                              ? Colors.white.withOpacity(0)
+                                              ? Colors.white.withOpacity(1)
                                               : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
@@ -322,7 +332,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllSteps >= 15625000)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -395,7 +407,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 5)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -440,7 +454,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 25)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -485,7 +501,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 125)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -530,7 +548,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 625)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -575,7 +595,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 3125)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -620,7 +642,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (savedAllKm >= 15625)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -693,7 +717,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 2)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -738,7 +764,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 4)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -783,7 +811,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 6)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -828,7 +858,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 8)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -873,7 +905,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 10)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -918,7 +952,9 @@ class _AchiveState extends State<Achive> {
                                         height: 90,
                                         width: 160,
                                         decoration: BoxDecoration(
-                                          color: Colors.white.withOpacity(0.5),
+                                          color: (achivmentCount >= 12)
+                                              ? Colors.white.withOpacity(1)
+                                              : Colors.white.withOpacity(0.5),
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
