@@ -2,7 +2,6 @@
 
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
-import 'package:pedometer2/BackEnd/Storage.dart';
 import 'package:pedometer2/foorthPage/achievements.dart';
 import 'package:pedometer2/thirdPage/stepCount.dart';
 
@@ -21,6 +20,8 @@ class _staticsState extends State<statics> {
 
   @override
   Widget build(BuildContext context) {
+    // double width = MediaQuery.of(context).size.width;
+    // dynamic height = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Container(
         child: Column(
@@ -43,13 +44,14 @@ class _staticsState extends State<statics> {
               ),
             ),
             Container(
-              height: 400,
-              width: 475,
+              // height: 400,
+              // width: 475,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Spacer(
                         flex: 2,
@@ -103,7 +105,7 @@ class _staticsState extends State<statics> {
                             Container(
                               padding: EdgeInsets.only(left: 15),
                               child: Text(
-                                savedAverageSteps.toStringAsFixed(0),
+                                '${savedAverageSteps.toStringAsFixed(0)}',
                                 style: TextStyle(
                                   fontFamily: 'Gilroy',
                                   fontSize: 24,

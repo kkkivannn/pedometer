@@ -154,7 +154,7 @@ class _DailyStepsState extends State<DailySteps> {
                                   Spacer(),
                                   Container(
                                     child: Text(
-                                      "${KmTodaySaved.toStringAsFixed(1)}",
+                                      "${KmTodaySaved.toStringAsFixed(2)}",
                                       style: TextStyle(
                                         fontFamily: "Gilroy",
                                         fontSize: 20,
@@ -304,6 +304,6 @@ void CountOfKm() {
 }
 
 void culculateKM() {
-  KmTodaySaved = todaySteps * lsh / 1000000;
+  KmTodaySaved = todaySteps * lsh / 100000;
   stepsBox.put('KmTodaySaved', KmTodaySaved);
 }

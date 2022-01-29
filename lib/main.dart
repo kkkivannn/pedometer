@@ -12,6 +12,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/services.dart';
 
 final model2 = LogIn();
 
@@ -54,6 +55,7 @@ Future<void> main() async {
   model2.login();
   await Hive.initFlutter();
   var box = await Hive.openBox<dynamic>('steps');
+  var boxString = await Hive.openBox<String>('ForLang');
   await EasyLocalization.ensureInitialized();
   runApp(EasyLocalization(
     child: MyApp(),
@@ -70,7 +72,7 @@ Future<void> main() async {
       Locale('en', 'TR'),
     ],
     path: 'assets/translate',
-    fallbackLocale: Locale('en', 'RU'),
+    fallbackLocale: Locale('en', 'EN'),
   ));
 }
 
@@ -107,12 +109,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      // home: settingPage(),
+      // home: HelloScreen(),
       home: (checked) ? splashScreen() : splashScreen2(),
     );
   }

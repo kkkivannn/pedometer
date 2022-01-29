@@ -169,13 +169,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
-  cupertino_icons:
-    dependency: "direct main"
-    description:
-      name: cupertino_icons
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   dart_style:
     dependency: transitive
     description:
@@ -256,13 +249,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_sizer:
-    dependency: "direct main"
-    description:
-      name: flutter_sizer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -322,13 +308,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
-  home_widget:
-    dependency: "direct main"
-    description:
-      name: home_widget
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.5"
   http_multi_server:
     dependency: transitive
     description:
@@ -490,13 +469,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.0"
-  percent_indicator:
-    dependency: "direct main"
-    description:
-      name: percent_indicator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.4.0"
   permission_handler:
     dependency: "direct main"
     description:

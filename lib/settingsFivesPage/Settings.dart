@@ -21,22 +21,17 @@ class settingPage extends StatefulWidget {
   _settingPageState createState() => _settingPageState();
 }
 
-String textForLang = 'text56'.tr().toString();
+// String textForLang = 'text56'.tr().toString();
 final model = StorageModel();
 final modelTime = Time();
-dynamic Ism;
 
 Box<dynamic> stepsBox = Hive.box('steps');
+Box<String> text = Hive.box('ForLang');
 int savedTime1 = stepsBox.get('time1', defaultValue: 2);
 int savedTime2 = stepsBox.get('time2', defaultValue: 2);
-
-void IsmSet() {
-  if (push == 1) {
-    Ism = "Metric system";
-  } else if (push == 0) {
-    Ism = "Anglican system";
-  }
-}
+String textForLang =
+    text.get("textForLang", defaultValue: "text56".tr().toString()) as String;
+String ism = text.get('ism', defaultValue: "text54".tr().toString()) as String;
 
 final DeviceInfoPlugin Device = DeviceInfoPlugin();
 
@@ -45,7 +40,6 @@ class _settingPageState extends State<settingPage> {
 
   @override
   Widget build(BuildContext context) {
-    IsmSet();
     return SafeArea(
       child: Scaffold(
           backgroundColor: Color(0xff5F6CFF),
@@ -135,16 +129,6 @@ class _settingPageState extends State<settingPage> {
                       fontSize: 14,
                       color: Color(0xffA0A8FF),
                     ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 5),
-                  child: Text(
-                    Ism,
-                    style: TextStyle(
-                        fontFamily: "Gilroy",
-                        fontSize: 16,
-                        color: Colors.white),
                   ),
                 ),
                 Container(
@@ -733,6 +717,7 @@ class _settingPageState extends State<settingPage> {
                                   setState(() {
                                     context.locale = Locale('en', 'RU');
                                     textForLang = Rus;
+                                    text.put("textForLang", textForLang);
                                   });
                                 },
                                 child: Text(
@@ -746,8 +731,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'EN');
-                                  textForLang = Eng;
+                                  setState(() {
+                                    context.locale = Locale('en', 'EN');
+                                    textForLang = Eng;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Eng,
@@ -760,8 +748,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'TR');
-                                  textForLang = Tr;
+                                  setState(() {
+                                    context.locale = Locale('en', 'TR');
+                                    textForLang = Tr;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Tr,
@@ -774,8 +765,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'DE');
-                                  textForLang = De;
+                                  setState(() {
+                                    context.locale = Locale('en', 'DE');
+                                    textForLang = De;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   De,
@@ -788,8 +782,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'ES');
-                                  textForLang = Es;
+                                  setState(() {
+                                    context.locale = Locale('en', 'ES');
+                                    textForLang = Es;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Es,
@@ -802,8 +799,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'FR');
-                                  textForLang = Fr;
+                                  setState(() {
+                                    context.locale = Locale('en', 'FR');
+                                    textForLang = Fr;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Fr,
@@ -816,8 +816,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'IN');
-                                  textForLang = In;
+                                  setState(() {
+                                    context.locale = Locale('en', 'IN');
+                                    textForLang = In;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   In,
@@ -830,8 +833,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'IT');
-                                  textForLang = It;
+                                  setState(() {
+                                    context.locale = Locale('en', 'IT');
+                                    textForLang = It;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   It,
@@ -844,8 +850,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'PL');
-                                  textForLang = Pl;
+                                  setState(() {
+                                    context.locale = Locale('en', 'PL');
+                                    textForLang = Pl;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Pl,
@@ -858,8 +867,11 @@ class _settingPageState extends State<settingPage> {
                               ),
                               PopupMenuItem(
                                 onTap: () async {
-                                  context.locale = Locale('en', 'PT');
-                                  textForLang = Pt;
+                                  setState(() {
+                                    context.locale = Locale('en', 'PT');
+                                    textForLang = Pt;
+                                    text.put("textForLang", textForLang);
+                                  });
                                 },
                                 child: Text(
                                   Pt,
@@ -904,7 +916,7 @@ class _settingPageState extends State<settingPage> {
                           child: PopupMenuButton(
                             child: Container(
                               child: Text(
-                                textForEd,
+                                ism,
                                 style: TextStyle(
                                   fontFamily: "Gilroy",
                                   fontSize: 18,
@@ -919,9 +931,11 @@ class _settingPageState extends State<settingPage> {
                                     if (push == 0) {
                                       push = 1;
                                       model.SetFlag();
-                                      // model.GetFlag();
+
                                       meter();
                                     }
+                                    ism = "text54".tr().toString();
+                                    text.put('ism', ism);
                                   });
                                 },
                                 child: Text(
@@ -941,6 +955,8 @@ class _settingPageState extends State<settingPage> {
                                       model.SetFlag();
                                       engl();
                                     }
+                                    ism = "text55".tr().toString();
+                                    text.put('ism', ism);
                                   });
                                 },
                                 child: Text(
@@ -1044,7 +1060,7 @@ class _settingPageState extends State<settingPage> {
                                   savedTime1 == 2 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text4".tr().toString(), ДОБАВЬ В json
-                                "выкл",
+                                "text67".tr().toString(),
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
@@ -1104,7 +1120,7 @@ class _settingPageState extends State<settingPage> {
                                   savedTime2 == 1 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text3".tr().toString(),
-                                "вкл",
+                                "text66".tr().toString(),
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
@@ -1135,7 +1151,7 @@ class _settingPageState extends State<settingPage> {
                                   savedTime2 == 2 ? bottomColor2 : bottomColor1,
                               child: Text(
                                 // "text4".tr().toString(), ДОБАВЬ В json
-                                "выкл",
+                                "text67".tr().toString(),
                                 style: TextStyle(
                                   fontFamily: "Gilroy2",
                                   fontSize: 12,
@@ -1161,7 +1177,17 @@ class _settingPageState extends State<settingPage> {
                           side: BorderSide(color: Colors.white, width: 3),
                           borderRadius: BorderRadius.circular(15)),
                       onPressed: () {
-                        setState(() {});
+                        setState(() {
+                          savedAllSteps = 0;
+                          savedAverageSteps = 0.0;
+                          savedAllKm = 0.0;
+                          savedAllKal = 0.0;
+                          stepsBox
+                            ..put('savedAllSteps', savedAllSteps)
+                            ..put('savedAverageSteps', savedAverageSteps)
+                            ..put('savedAllKm', savedAllKm)
+                            ..put('savedAllKal', savedAllKal);
+                        });
                       },
                       color: Color(0xff5F6CFF),
                       child: Text(
